@@ -182,16 +182,31 @@ section.prog-gruppo{min-height:0;padding:0;margin:0;display:block;justify-conten
 .prog-flusso>.foto.vert img{height:auto;object-fit:contain}
 .prog-etichetta-mob{display:none}
 @media (max-width:900px){
-  .prog-scheda .interno{grid-template-columns:1fr;padding:56px 0 90px;gap:0}
-  .prog-lato{position:static;padding:0 6vw 34px}
+  .prog-scheda .interno{display:block;padding:56px 5vw 90px}
+  /* display:contents: i figli del lato entrano nel flusso dell'interno,
+     così la nav sticky resta agganciata per tutta la scheda */
+  .prog-lato{display:contents}
   .prog-lato .intro{max-width:60ch}
-  .prog-fasi-nav{display:none}
-  .prog-flusso{gap:40px}
-  .prog-gruppo .griglia-foto{grid-template-columns:1fr;gap:6px}
-  .prog-gruppo .foto,.prog-gruppo .foto.larga{aspect-ratio:auto;grid-column:auto}
+  .prog-materiali{margin-bottom:44px}
+  /* nav delle fasi: orizzontale e sticky, come esperienza desktop */
+  .prog-fasi-nav{
+    display:flex;flex-direction:row;gap:22px;margin-top:26px;
+    border-top:1px solid var(--velo);border-bottom:1px solid var(--velo);
+    padding:14px 70px 14px 0;position:sticky;top:0;background:#fff;z-index:5;
+    overflow-x:auto;-webkit-overflow-scrolling:touch;
+  }
+  .prog-fasi-nav a{white-space:nowrap}
+  .prog-fasi-nav a.attiva{padding-left:0;opacity:1}
+  .prog-flusso{gap:52px}
+  /* griglia come sul desktop: 2 colonne, larga a tutta riga */
+  .prog-gruppo .griglia-foto{grid-template-columns:1fr 1fr;gap:10px}
+  .prog-gruppo .foto{aspect-ratio:4/3}
+  .prog-gruppo .foto.larga{grid-column:1/-1;aspect-ratio:16/9}
+  .prog-gruppo .foto.disegno{grid-column:1/-1;aspect-ratio:auto}
+  .prog-gruppo .foto.vert{grid-column:1/-1;aspect-ratio:auto;max-width:100%}
   .prog-etichetta-mob{
     display:block;font-size:10px;letter-spacing:.32em;text-transform:uppercase;opacity:.55;
-    padding:0 6vw 14px;
+    padding:0 0 14px;
   }
 }
 
