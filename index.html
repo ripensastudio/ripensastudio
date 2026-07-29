@@ -56,7 +56,7 @@ img{max-width:100%;display:block}
 
 /* ---------- sidebar ---------- */
 aside{
-  position:fixed;top:0;left:0;right:0;padding:56px 44px 24px;
+  position:fixed;top:0;left:0;right:0;padding:88px 44px 24px;
   display:block;z-index:50;pointer-events:none;
   transition:padding .35s ease,background .35s ease,box-shadow .35s ease;
 }
@@ -541,14 +541,18 @@ nav.lato,.lato-fondo{display:none}
 .chiudi-menu:hover{opacity:1}
 
 /* gioca come home: testi centrati sullo schermo */
-#gioca{align-items:center;text-align:center;padding:150px 8vw 120px 8vw}
+#gioca{align-items:center;text-align:center;padding:182px 8vw 120px 8vw}
 #gioca .gioco-intro{align-items:center;margin-bottom:72px}
 #gioca .testo{margin-left:auto;margin-right:auto}
 #gioca .gioco-corpo{
   display:grid;grid-template-columns:minmax(280px,640px) 250px;gap:6vw;
   justify-content:center;align-items:start;text-align:left;width:100%;
 }
-@media (max-width:900px){#gioca .gioco-corpo{grid-template-columns:1fr;gap:40px}}
+@media (max-width:900px){
+  #gioca .gioco-corpo{grid-template-columns:1fr;gap:40px}
+  #gioca{padding-top:215px}
+  #gioca .gioco-intro{margin-bottom:44px}
+}
 
 #gioca .gioco-corpo{margin-top:56px}
 #gioca .gioco-corpo{align-items:stretch}
@@ -560,7 +564,7 @@ nav.lato,.lato-fondo{display:none}
 .rullo{
   position:fixed;top:36px;left:38px;z-index:130;background:none;border:none;cursor:pointer;padding:0;
 }
-.rullo img{width:100px;display:block;transition:transform .5s ease}
+.rullo img{width:62px;display:block;transition:transform .5s ease}
 .rullo:hover img{transform:rotate(-14deg)}
 .rullo.aperto img{transform:rotate(-100deg)}
 .nastro{
@@ -731,7 +735,7 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
     <span class="voce">In cosa crediamo.</span>
     <span class="voce" style="opacity:.5;margin-top:6px">I nostri valori sono qui dentro.</span>
   </div>
-  <h2 class="reveal">Play with us.</h2>
+  <h2 class="reveal">Gioca.</h2>
   <div class="gioco-corpo reveal">
     <div class="cruci" id="cruci">
       <span data-r="0" data-c="0">C</span><span data-r="0" data-c="1">R</span><span data-r="0" data-c="2">I</span><span data-r="0" data-c="3">S</span><span data-r="0" data-c="4">O</span><span data-r="0" data-c="5">L</span><span data-r="0" data-c="6">V</span><span data-r="0" data-c="7">E</span><span data-r="0" data-c="8">S</span><span data-r="0" data-c="9">C</span><span data-r="0" data-c="10">A</span><span data-r="0" data-c="11">S</span><span data-r="0" data-c="12">A</span>
