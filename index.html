@@ -178,6 +178,8 @@ section.prog-gruppo{min-height:0;padding:0;margin:0;display:block;justify-conten
 .prog-gruppo .foto.disegno img{height:auto;object-fit:contain}
 .prog-gruppo .foto.vert{grid-column:1/-1;aspect-ratio:auto;max-width:560px;margin:0 auto}
 .prog-gruppo .foto.vert img{height:auto;object-fit:contain}
+.prog-flusso>.foto.vert{aspect-ratio:auto;margin:0 auto;width:100%}
+.prog-flusso>.foto.vert img{height:auto;object-fit:contain}
 .prog-etichetta-mob{display:none}
 @media (max-width:900px){
   .prog-scheda .interno{grid-template-columns:1fr;padding:56px 0 90px;gap:0}
@@ -881,9 +883,9 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
     </article>
     <article class="progetto reveal" data-cat="residenziale" data-apri="fiesole">
       <picture class="foto">
-        <source srcset="web/card/divisione-open-space-fiesole_altro-render_06.webp" type="image/webp">
-        <img src="web/card/divisione-open-space-fiesole_altro-render_06.jpg"
-             alt="Divisione open space — tavola di progetto, Fiesole"
+        <source srcset="web/card/divisione-open-space-fiesole_camera_02-ai.webp" type="image/webp">
+        <img src="web/card/divisione-open-space-fiesole_camera_02-ai.jpg"
+             alt="Divisione open space — la camera, render di progetto, Fiesole"
              loading="lazy">
       </picture>
       <h3>Divisione open space</h3>
@@ -991,8 +993,8 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
     <div class="coll-progetto reveal" data-apri="fiesole">
       <span></span>
       <picture class="foto">
-        <source srcset="web/mini/divisione-open-space-fiesole_altro-render_06.webp" type="image/webp">
-        <img src="web/mini/divisione-open-space-fiesole_altro-render_06.jpg"
+        <source srcset="web/mini/divisione-open-space-fiesole_camera_02-ai.webp" type="image/webp">
+        <img src="web/mini/divisione-open-space-fiesole_camera_02-ai.jpg"
              alt="Divisione open space — Stanze nella stanza, Fiesole"
              loading="lazy">
       </picture>
@@ -1441,6 +1443,10 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
       </div>
     </aside>
     <div class="prog-flusso">
+      <picture class="foto vert" style="max-width:640px">
+        <source srcset="web/card/divisione-open-space-fiesole_altro-render_06.webp" type="image/webp">
+        <img src="web/card/divisione-open-space-fiesole_altro-render_06.jpg" alt="Tavola di progetto — ingresso, salotto, cucina" loading="lazy">
+      </picture>
       <section class="prog-gruppo" id="fs-prima" data-fase="prima">
         <p class="prog-etichetta-mob">Prima</p>
         <div class="griglia-foto">
@@ -1477,6 +1483,10 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
             <source srcset="web/card/divisione-open-space-fiesole_altro-render_04.webp" type="image/webp">
             <img src="web/card/divisione-open-space-fiesole_altro-render_04.jpg" alt="Progetto - la sezione prospettica" loading="lazy">
           </picture>
+          <picture class="foto disegno">
+            <source srcset="web/card/divisione-open-space-fiesole_altro-render_08.webp" type="image/webp">
+            <img src="web/card/divisione-open-space-fiesole_altro-render_08.jpg" alt="Progetto - il prospetto del cartongesso" loading="lazy">
+          </picture>
           <picture class="foto">
             <source srcset="web/card/divisione-open-space-fiesole_living_06-ai.webp" type="image/webp">
             <img src="web/card/divisione-open-space-fiesole_living_06-ai.jpg" alt="Progetto - il living e la nuova parete (render)" loading="lazy">
@@ -1498,13 +1508,9 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
       <section class="prog-gruppo" id="fs-cantiere" data-fase="cantiere">
         <p class="prog-etichetta-mob">Cantiere</p>
         <div class="griglia-foto">
-          <picture class="foto larga">
+          <picture class="foto vert">
             <source srcset="web/card/divisione-open-space-fiesole_living_08.webp" type="image/webp">
-            <img src="web/card/divisione-open-space-fiesole_living_08.jpg" alt="Cantiere - la parete in costruzione" loading="lazy">
-          </picture>
-          <picture class="foto">
-            <source srcset="web/card/divisione-open-space-fiesole_living_09.webp" type="image/webp">
-            <img src="web/card/divisione-open-space-fiesole_living_09.jpg" alt="Cantiere - struttura e passaggi" loading="lazy">
+            <img src="web/card/divisione-open-space-fiesole_living_08.jpg" alt="Cantiere - la parete in costruzione e la porta tracciata a terra" loading="lazy">
           </picture>
           <picture class="foto">
             <source srcset="web/card/divisione-open-space-fiesole_living_10.webp" type="image/webp">
@@ -1529,10 +1535,6 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
           <picture class="foto">
             <source srcset="web/card/divisione-open-space-fiesole_ingresso_02.webp" type="image/webp">
             <img src="web/card/divisione-open-space-fiesole_ingresso_02.jpg" alt="Cantiere - il disimpegno e la porta filomuro" loading="lazy">
-          </picture>
-          <picture class="foto">
-            <source srcset="web/card/divisione-open-space-fiesole_ingresso_03.webp" type="image/webp">
-            <img src="web/card/divisione-open-space-fiesole_ingresso_03.jpg" alt="Cantiere - il passaggio verso la zona notte" loading="lazy">
           </picture>
         </div>
       </section>
