@@ -592,7 +592,17 @@ nav.lato,.lato-fondo{display:none}
   width:9px;height:9px;border-radius:999px!important;background:var(--pall,#E63312);
   box-shadow:0 0 0 1px rgba(25,24,22,.3);
 }
-@media (max-width:900px){.rullo,.nastro{display:none}}
+@media (max-width:900px){
+  .rullo{top:14px;left:auto;right:16px;z-index:130}
+  .rullo img{width:54px}
+  .nastro{
+    width:100vw;right:0;bottom:0;background:#fff;border-right:none;
+    padding:110px 28px 70px 40px;
+  }
+  .nastro.aperto{background:#fff}
+  .nastro a{font-size:19px}
+  .barra-mob button{display:none}
+}
 /* accento rosso nel gioco */
 .asola{border-color:#E63312}
 .valori-lista .val.fatta{color:#E63312;opacity:.55}
@@ -1511,8 +1521,13 @@ paginaSito.addEventListener('scroll',()=>{
 // rullo + nastro
 const rulloBtn=document.getElementById('rulloBtn'),nastro=document.getElementById('nastro');
 function chiudiNastro(){nastro.classList.remove('aperto','velata');rulloBtn.classList.remove('aperto');}
+// su mobile: dopo il tap su una voce, il nastro si richiude
+nastro.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  if(window.innerWidth<=900)chiudiNastro();
+}));
 let timerVela=null;
 function velaNastroDopo(ms){
+  if(window.innerWidth<=900)return;
   clearTimeout(timerVela);
   timerVela=setTimeout(()=>{
     if(nastro.classList.contains('aperto')&&!nastro.matches(':hover'))nastro.classList.add('velata');
@@ -1525,6 +1540,7 @@ nastro.addEventListener('mouseleave',()=>velaNastroDopo(700));
 const footerNero=document.querySelector('footer.fondo-nero');
 function adattaNastro(){
   if(!footerNero)return;
+  if(window.innerWidth<=900){nastro.style.paddingBottom='';return;}
   const r=footerNero.getBoundingClientRect();
   const sovrapposizione=Math.max(0,window.innerHeight-r.top);
   nastro.style.paddingBottom=sovrapposizione>0?(sovrapposizione+60)+'px':'';
