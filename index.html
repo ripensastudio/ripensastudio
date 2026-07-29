@@ -174,6 +174,10 @@ section.prog-gruppo{min-height:0;padding:0;margin:0;display:block;justify-conten
 .prog-gruppo .griglia-foto{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .prog-gruppo .foto{aspect-ratio:4/3;margin:0}
 .prog-gruppo .foto.larga{grid-column:1/-1;aspect-ratio:16/9}
+.prog-gruppo .foto.disegno{grid-column:1/-1;aspect-ratio:auto}
+.prog-gruppo .foto.disegno img{height:auto;object-fit:contain}
+.prog-gruppo .foto.vert{grid-column:1/-1;aspect-ratio:auto;max-width:560px;margin:0 auto}
+.prog-gruppo .foto.vert img{height:auto;object-fit:contain}
 .prog-etichetta-mob{display:none}
 @media (max-width:900px){
   .prog-scheda .interno{grid-template-columns:1fr;padding:56px 0 90px;gap:0}
@@ -877,9 +881,9 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
     </article>
     <article class="progetto reveal" data-cat="residenziale" data-apri="fiesole">
       <picture class="foto">
-        <source srcset="web/card/divisione-open-space-fiesole_camera_05.webp" type="image/webp">
-        <img src="web/card/divisione-open-space-fiesole_camera_05.jpg"
-             alt="Divisione open space — la nuova camera, Fiesole"
+        <source srcset="web/card/divisione-open-space-fiesole_altro-render_06.webp" type="image/webp">
+        <img src="web/card/divisione-open-space-fiesole_altro-render_06.jpg"
+             alt="Divisione open space — tavola di progetto, Fiesole"
              loading="lazy">
       </picture>
       <h3>Divisione open space</h3>
@@ -987,8 +991,8 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
     <div class="coll-progetto reveal" data-apri="fiesole">
       <span></span>
       <picture class="foto">
-        <source srcset="web/mini/divisione-open-space-fiesole_camera_05.webp" type="image/webp">
-        <img src="web/mini/divisione-open-space-fiesole_camera_05.jpg"
+        <source srcset="web/mini/divisione-open-space-fiesole_altro-render_06.webp" type="image/webp">
+        <img src="web/mini/divisione-open-space-fiesole_altro-render_06.jpg"
              alt="Divisione open space — Stanze nella stanza, Fiesole"
              loading="lazy">
       </picture>
@@ -1005,12 +1009,7 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
   <p class="testo reveal" style="margin-bottom:52px">L'estetica che vedi e il processo che non vedi: ogni ambiente della casa raccontato con l'atmosfera e con le decisioni prese a monte che l'hanno resa possibile.</p>
   <div class="amb-griglia">
       <article class="amb-card reveal" data-amb="cucine">
-        <picture class="foto" style="margin-bottom:16px">
-          <source srcset="web/card/divisione-open-space-fiesole_cucina_01.webp" type="image/webp">
-          <img src="web/card/divisione-open-space-fiesole_cucina_01.jpg"
-               alt="Cucina — Divisione open space, Fiesole"
-               loading="lazy">
-        </picture>
+        <div class="ph" data-label="Foto — Cucine"></div>
         <h3>Cucine</h3>
         <p class="hook">Non è l'isola a fare la cucina: è il triangolo di percorsi calcolato prima di posare una piastrella.</p>
         <p class="tags">Copy + galleria in arrivo dai progetti</p>
@@ -1466,21 +1465,17 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
       <section class="prog-gruppo" id="fs-progetto" data-fase="progetto">
         <p class="prog-etichetta-mob">Progetto</p>
         <div class="griglia-foto">
-          <picture class="foto larga">
+          <picture class="foto disegno">
             <source srcset="web/card/divisione-open-space-fiesole_altro-render_01.webp" type="image/webp">
             <img src="web/card/divisione-open-space-fiesole_altro-render_01.jpg" alt="Progetto - la pianta della divisione" loading="lazy">
           </picture>
-          <picture class="foto">
+          <picture class="foto disegno">
             <source srcset="web/card/divisione-open-space-fiesole_altro-render_02.webp" type="image/webp">
             <img src="web/card/divisione-open-space-fiesole_altro-render_02.jpg" alt="Progetto - i prospetti della parete attrezzata" loading="lazy">
           </picture>
-          <picture class="foto">
+          <picture class="foto disegno">
             <source srcset="web/card/divisione-open-space-fiesole_altro-render_04.webp" type="image/webp">
             <img src="web/card/divisione-open-space-fiesole_altro-render_04.jpg" alt="Progetto - la sezione prospettica" loading="lazy">
-          </picture>
-          <picture class="foto">
-            <source srcset="web/card/divisione-open-space-fiesole_living_05-ai.webp" type="image/webp">
-            <img src="web/card/divisione-open-space-fiesole_living_05-ai.jpg" alt="Progetto - il living verso la cucina (render)" loading="lazy">
           </picture>
           <picture class="foto">
             <source srcset="web/card/divisione-open-space-fiesole_living_06-ai.webp" type="image/webp">
@@ -1488,11 +1483,11 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
           </picture>
           <picture class="foto">
             <source srcset="web/card/divisione-open-space-fiesole_camera_01-ai.webp" type="image/webp">
-            <img src="web/card/divisione-open-space-fiesole_camera_01-ai.jpg" alt="Progetto - la camera con il camino (render)" loading="lazy">
+            <img src="web/card/divisione-open-space-fiesole_camera_01-ai.jpg" alt="Progetto - la camera, variante cobalto (render)" loading="lazy">
           </picture>
           <picture class="foto">
-            <source srcset="web/card/divisione-open-space-fiesole_camera_03-ai.webp" type="image/webp">
-            <img src="web/card/divisione-open-space-fiesole_camera_03-ai.jpg" alt="Progetto - la camera, armadio e libreria (render)" loading="lazy">
+            <source srcset="web/card/divisione-open-space-fiesole_camera_02-ai.webp" type="image/webp">
+            <img src="web/card/divisione-open-space-fiesole_camera_02-ai.jpg" alt="Progetto - la camera, variante colore (render)" loading="lazy">
           </picture>
           <picture class="foto">
             <source srcset="web/card/divisione-open-space-fiesole_altro-materiali_01.webp" type="image/webp">
@@ -1523,34 +1518,30 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
             <source srcset="web/card/divisione-open-space-fiesole_ingresso_01.webp" type="image/webp">
             <img src="web/card/divisione-open-space-fiesole_ingresso_01.jpg" alt="Cantiere - il disimpegno" loading="lazy">
           </picture>
+          <picture class="foto">
+            <source srcset="web/card/divisione-open-space-fiesole_camera_05.webp" type="image/webp">
+            <img src="web/card/divisione-open-space-fiesole_camera_05.jpg" alt="Cantiere - il montaggio dell'armadiatura" loading="lazy">
+          </picture>
+          <picture class="foto">
+            <source srcset="web/card/divisione-open-space-fiesole_camera_06.webp" type="image/webp">
+            <img src="web/card/divisione-open-space-fiesole_camera_06.jpg" alt="Cantiere - la camera prende forma" loading="lazy">
+          </picture>
+          <picture class="foto">
+            <source srcset="web/card/divisione-open-space-fiesole_ingresso_02.webp" type="image/webp">
+            <img src="web/card/divisione-open-space-fiesole_ingresso_02.jpg" alt="Cantiere - il disimpegno e la porta filomuro" loading="lazy">
+          </picture>
+          <picture class="foto">
+            <source srcset="web/card/divisione-open-space-fiesole_ingresso_03.webp" type="image/webp">
+            <img src="web/card/divisione-open-space-fiesole_ingresso_03.jpg" alt="Cantiere - il passaggio verso la zona notte" loading="lazy">
+          </picture>
         </div>
       </section>
       <section class="prog-gruppo" id="fs-dopo" data-fase="dopo">
         <p class="prog-etichetta-mob">Dopo</p>
         <div class="griglia-foto">
-          <picture class="foto larga">
+          <picture class="foto vert">
             <source srcset="web/card/divisione-open-space-fiesole_living_11.webp" type="image/webp">
             <img src="web/card/divisione-open-space-fiesole_living_11.jpg" alt="Dopo - il living con il divano Nuvola" loading="lazy">
-          </picture>
-          <picture class="foto">
-            <source srcset="web/card/divisione-open-space-fiesole_cucina_01.webp" type="image/webp">
-            <img src="web/card/divisione-open-space-fiesole_cucina_01.jpg" alt="Dopo - la cucina con la pietra a vista" loading="lazy">
-          </picture>
-          <picture class="foto">
-            <source srcset="web/card/divisione-open-space-fiesole_camera_05.webp" type="image/webp">
-            <img src="web/card/divisione-open-space-fiesole_camera_05.jpg" alt="Dopo - la camera, armadiatura su misura" loading="lazy">
-          </picture>
-          <picture class="foto">
-            <source srcset="web/card/divisione-open-space-fiesole_camera_06.webp" type="image/webp">
-            <img src="web/card/divisione-open-space-fiesole_camera_06.jpg" alt="Dopo - la camera con il letto Gabri" loading="lazy">
-          </picture>
-          <picture class="foto">
-            <source srcset="web/card/divisione-open-space-fiesole_ingresso_02.webp" type="image/webp">
-            <img src="web/card/divisione-open-space-fiesole_ingresso_02.jpg" alt="Dopo - il disimpegno con la porta filomuro" loading="lazy">
-          </picture>
-          <picture class="foto">
-            <source srcset="web/card/divisione-open-space-fiesole_ingresso_03.webp" type="image/webp">
-            <img src="web/card/divisione-open-space-fiesole_ingresso_03.jpg" alt="Dopo - il passaggio verso la zona notte" loading="lazy">
           </picture>
         </div>
       </section>
@@ -1806,7 +1797,7 @@ const spiaFasi=new IntersectionObserver(entries=>{
 schedaCorte.querySelectorAll('.prog-gruppo').forEach(g=>spiaFasi.observe(g));
 // regola griglie: prima foto a tutta larghezza; se le restanti sono in numero dispari, anche l'ultima
 document.querySelectorAll('.griglia-foto').forEach(g=>{
-  const f=[...g.querySelectorAll('.foto')];
+  const f=[...g.querySelectorAll('.foto')].filter(x=>!x.classList.contains('disegno')&&!x.classList.contains('vert'));
   if(!f.length)return;
   f.forEach(x=>x.classList.remove('larga'));
   f[0].classList.add('larga');
