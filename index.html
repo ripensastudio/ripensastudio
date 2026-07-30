@@ -223,6 +223,27 @@ section.prog-gruppo{min-height:0;padding:0;margin:0;display:block;justify-conten
   }
 }
 
+/* ---------- graphic: muro di manifesti alla Lissoni ---------- */
+#graphic .graf-muro{display:grid;grid-template-columns:repeat(12,1fr);gap:6vw 3vw;align-items:start;margin-top:64px}
+#graphic .graf{margin:0}
+#graphic .graf img{width:100%;height:auto;display:block}
+#graphic .g1{grid-column:1/7}
+#graphic .g2{grid-column:8/13;margin-top:24%}
+#graphic .g3{grid-column:2/6;margin-top:4%}
+#graphic .g4{grid-column:7/12;margin-top:16%}
+#graphic .g5{grid-column:1/5;margin-top:8%}
+#graphic .g6{grid-column:6/9;margin-top:22%}
+#graphic .g7{grid-column:10/13;margin-top:2%}
+#graphic .g8{grid-column:2/7;margin-top:10%}
+#graphic .g9{grid-column:8/12;margin-top:26%}
+#graphic .g10{grid-column:4/10;margin-top:12%}
+@media (max-width:900px){
+  #graphic .graf-muro{grid-template-columns:1fr 1fr;gap:8vw 4vw}
+  #graphic .graf{grid-column:auto !important;margin-top:0 !important}
+  #graphic .graf:nth-child(even){margin-top:12vw !important}
+  #graphic .g10{grid-column:1/-1 !important}
+}
+
 /* ---------- collezioni: righe, non card ---------- */
 .coll-lista{border-top:1px solid var(--velo)}
 .coll-riga{
@@ -715,6 +736,7 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
   <a href="#" data-pagina="ambienti">Ambienti</a>
   <a href="#" data-pagina="stile">Trova il tuo stile</a>
   <a href="#" data-pagina="arreda">Arreda casa tua</a>
+  <a href="#" data-pagina="graphic">Graphic</a>
   <a href="#gioca">Gioca</a>
   <a href="#" data-pagina="contatti">Contatti</a>
   <a href="https://www.instagram.com/ripensa_studio/" target="_blank" rel="noopener">Instagram</a>
@@ -757,6 +779,7 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
   <a href="#" data-pagina="ambienti" style="--pall:#8AC6E8">ambienti</a>
   <a href="#" data-pagina="stile" style="--pall:#F06400">stile</a>
   <a href="#" data-pagina="arreda" style="--pall:#8C8C8C">arreda</a>
+  <a href="#" data-pagina="graphic" style="--pall:#61BB46">graphic</a>
   <a href="#" data-pagina="contatti" style="--pall:#FFFFFF;--testo:#191816">contatti</a>
 </nav>
 
@@ -805,7 +828,7 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
     <a href="#" data-pagina="progetti" style="--pall:#225095">Live our <span class="sotto">projects</span></a>
     <a href="#" data-pagina="ambienti" style="--pall:#8AC6E8">Discover our <span class="sotto">interiors</span></a>
     <a href="#" data-pagina="arreda" style="--pall:#F06400">Explore our <span class="sotto">design</span></a>
-    <a href="#" data-pagina="collezioni" style="--pall:#DD0100">View our <span class="sotto">graphics</span></a>
+    <a href="#" data-pagina="graphic" style="--pall:#DD0100">View our <span class="sotto">graphics</span></a>
     <a href="#" data-pagina="contatti" style="--pall:#61BB46">Meet our <span class="sotto">studio</span></a>
   </div>
 </section>
@@ -1149,6 +1172,23 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
       <p>Il vuoto, se lo progetti, ordina i pieni: la casa ora si affaccia sulla corte, non le sopravvive accanto.</p>
       <p class="amb-nota">Prima il progetto, poi la corte — Collezione Corti &amp; Chiostri</p>
     </div>
+  </div>
+</section>
+<section id="graphic">
+  <p class="maiusc etichetta reveal">Graphic</p>
+  <h2 class="reveal">Anche il segno &egrave; progetto</h2>
+  <p class="testo reveal">Identit&agrave;, locandine e manifesti disegnati dallo studio: la stessa cura dei cantieri, portata sulla carta.</p>
+  <div class="graf-muro">
+    <figure class="graf g1"><picture><source srcset="web/card/graphic_capucci_01.webp" type="image/webp"><img src="web/card/graphic_capucci_01.jpg" alt="Capucci — Dammi un bao, locandina" loading="lazy"></picture></figure>
+    <figure class="graf g2"><picture><source srcset="web/card/graphic_capucci_02.webp" type="image/webp"><img src="web/card/graphic_capucci_02.jpg" alt="Capucci — Better call tacos, locandina" loading="lazy"></picture></figure>
+    <figure class="graf g3"><picture><source srcset="web/card/graphic_capucci_07.webp" type="image/webp"><img src="web/card/graphic_capucci_07.jpg" alt="Capucci — manifesto a linea continua" loading="lazy"></picture></figure>
+    <figure class="graf g4"><picture><source srcset="web/card/graphic_capucci_06.webp" type="image/webp"><img src="web/card/graphic_capucci_06.jpg" alt="Capucci — il piatto, locandina giallo e nero" loading="lazy"></picture></figure>
+    <figure class="graf g5"><picture><source srcset="web/card/graphic_capucci_04.webp" type="image/webp"><img src="web/card/graphic_capucci_04.jpg" alt="Capucci — bersaglio rosso, locandina" loading="lazy"></picture></figure>
+    <figure class="graf g6"><picture><source srcset="web/card/graphic_donna-optical_01.webp" type="image/webp"><img src="web/card/graphic_donna-optical_01.jpg" alt="Donna optical — illustrazione" loading="lazy"></picture></figure>
+    <figure class="graf g7"><picture><source srcset="web/card/graphic_fiocco_01.webp" type="image/webp"><img src="web/card/graphic_fiocco_01.jpg" alt="Fiocco — grafica regalo" loading="lazy"></picture></figure>
+    <figure class="graf g8"><picture><source srcset="web/card/graphic_capucci_03.webp" type="image/webp"><img src="web/card/graphic_capucci_03.jpg" alt="Capucci — Yakitori, locandina" loading="lazy"></picture></figure>
+    <figure class="graf g9"><picture><source srcset="web/card/graphic_capucci_09.webp" type="image/webp"><img src="web/card/graphic_capucci_09.jpg" alt="Capucci — Mami o humami, locandina" loading="lazy"></picture></figure>
+    <figure class="graf g10"><picture><source srcset="web/card/graphic_capucci_08.webp" type="image/webp"><img src="web/card/graphic_capucci_08.jpg" alt="Capucci — compleanno, locandina rosa" loading="lazy"></picture></figure>
   </div>
 </section>
 <section id="stile">
@@ -1898,7 +1938,7 @@ const spiaFasiD=new IntersectionObserver(entries=>{
 schedaDuomo.querySelectorAll('.prog-gruppo').forEach(g=>spiaFasiD.observe(g));
 // pagina unica a scroll
 const paginaSito=document.getElementById('pagina-sito');
-const bersagli={studio:'home',progetti:'progetti',servizi:'servizi',collezioni:'collezioni',ambienti:'ambienti',stile:'stile',arreda:'arreda',contatti:'contatti'};
+const bersagli={studio:'home',progetti:'progetti',servizi:'servizi',collezioni:'collezioni',ambienti:'ambienti',graphic:'graphic',stile:'stile',arreda:'arreda',contatti:'contatti'};
 function chiudiPagine(){paginaSito.classList.remove('aperta');if(!schedaCorte.classList.contains('aperta')&&!schedaFiesole.classList.contains('aperta')&&!schedaDuomo.classList.contains('aperta'))document.body.style.overflow='';}
 document.querySelectorAll('[data-pagina]').forEach(el=>el.addEventListener('click',e=>{
   e.preventDefault();
