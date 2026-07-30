@@ -173,6 +173,11 @@ section.prog-gruppo{min-height:0;padding:0;margin:0;display:block;justify-conten
 .prog-gruppo{scroll-margin-top:64px}
 .prog-gruppo .griglia-foto,.prog-flusso>.griglia-foto{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .prog-flusso>.griglia-foto .foto.alto{aspect-ratio:3/4}
+/* dissolvenza disegno<->foto (apertura scheda Duomo) */
+.foto.dissolvi{position:relative}
+.foto.dissolvi img{position:absolute;inset:0;width:100%;height:100%}
+.foto.dissolvi .sopra{opacity:0;animation:dissolvenza 14s ease-in-out infinite}
+@keyframes dissolvenza{0%,32%{opacity:0}46%,82%{opacity:1}96%,100%{opacity:0}}
 .prog-gruppo .foto{aspect-ratio:4/3;margin:0}
 .prog-gruppo .foto.larga{grid-column:1/-1;aspect-ratio:16/9}
 .prog-gruppo .foto.alto{aspect-ratio:3/4}
@@ -1621,13 +1626,14 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
     </aside>
     <div class="prog-flusso">
       <div class="griglia-foto" data-libera>
-        <picture class="foto alto">
-          <source srcset="web/card/piazza-duomo-firenze_esterni_01.webp" type="image/webp">
-          <img src="web/card/piazza-duomo-firenze_esterni_01.jpg" alt="La vista sul Duomo di Firenze dalla finestra dell'appartamento" loading="lazy">
-        </picture>
-        <picture class="foto alto">
-          <img src="web/card/piazza-duomo-firenze_altro-disegno_03.jpg" alt="La grafica del decoro ispirata alla facciata del Duomo" loading="lazy" style="object-fit:contain;background:#fff">
-        </picture>
+        <div class="foto alto dissolvi">
+          <img src="web/card/piazza-duomo-firenze_altro-disegno_03.jpg" alt="La grafica del decoro ispirata alla facciata del Duomo" style="object-fit:contain;background:#fff">
+          <img class="sopra" src="web/card/piazza-duomo-firenze_esterni_01.jpg" alt="" aria-hidden="true">
+        </div>
+        <div class="foto alto dissolvi inverso">
+          <img src="web/card/piazza-duomo-firenze_esterni_01.jpg" alt="La vista sul Duomo di Firenze dalla finestra dell'appartamento">
+          <img class="sopra" src="web/card/piazza-duomo-firenze_altro-disegno_03.jpg" alt="" aria-hidden="true" style="object-fit:contain;background:#fff">
+        </div>
       </div>
       <section class="prog-gruppo" id="pd-prima" data-fase="prima">
         <p class="prog-etichetta-mob">Prima</p>
@@ -1661,10 +1667,6 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
             <source srcset="web/card/piazza-duomo-firenze_altro-render_02.webp" type="image/webp">
             <img src="web/card/piazza-duomo-firenze_altro-render_02.jpg" alt="Progetto - il render dell'ingresso con la carta floreale" loading="lazy">
           </picture>
-          <picture class="foto intera">
-            <source srcset="web/card/piazza-duomo-firenze_altro-materiali_03.webp" type="image/webp">
-            <img src="web/card/piazza-duomo-firenze_altro-materiali_03.jpg" alt="Materiali - i campioni colore appesi in cantiere" loading="lazy">
-          </picture>
         </div>
       </section>
       <section class="prog-gruppo" id="pd-cantiere" data-fase="cantiere">
@@ -1693,6 +1695,10 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
           <picture class="foto larga">
             <source srcset="web/card/piazza-duomo-firenze_living_03.webp" type="image/webp">
             <img src="web/card/piazza-duomo-firenze_living_03.jpg" alt="Cantiere - la carta prende la parete" loading="lazy">
+          </picture>
+          <picture class="foto intera">
+            <source srcset="web/card/piazza-duomo-firenze_altro-materiali_03.webp" type="image/webp">
+            <img src="web/card/piazza-duomo-firenze_altro-materiali_03.jpg" alt="Cantiere - i campioni colore appesi per la scelta in opera" loading="lazy">
           </picture>
           <picture class="foto intera">
             <source srcset="web/card/piazza-duomo-firenze_living_08.webp" type="image/webp">
@@ -1736,10 +1742,6 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
           <picture class="foto intera">
             <source srcset="web/card/piazza-duomo-firenze_camera_10.webp" type="image/webp">
             <img src="web/card/piazza-duomo-firenze_camera_10.jpg" alt="Dopo - la camera di sera, le abat-jour accese" loading="lazy">
-          </picture>
-          <picture class="foto larga">
-            <source srcset="web/card/piazza-duomo-firenze_camera_12-ai.webp" type="image/webp">
-            <img src="web/card/piazza-duomo-firenze_camera_12-ai.jpg" alt="La camera al crepuscolo con la boiserie decorata" loading="lazy">
           </picture>
           <picture class="foto intera">
             <source srcset="web/card/piazza-duomo-firenze_camera_05.webp" type="image/webp">
