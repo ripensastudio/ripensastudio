@@ -177,6 +177,10 @@ section.prog-gruppo{min-height:0;padding:0;margin:0;display:block;justify-conten
 .prog-gruppo .foto.alto{aspect-ratio:3/4}
 .prog-gruppo .foto.disegno{grid-column:1/-1;aspect-ratio:auto}
 .prog-gruppo .foto.disegno img{height:auto;object-fit:contain}
+/* foto INTERA: tutta riga, mai tagliata (per gli scatti composti) */
+.prog-gruppo .foto.intera{grid-column:1/-1;aspect-ratio:auto}
+.prog-gruppo .foto.intera img{height:auto;object-fit:contain}
+.prog-gruppo .foto video{width:100%;height:100%;object-fit:cover;display:block}
 .prog-gruppo .foto.vert{grid-column:1/-1;aspect-ratio:auto;max-width:560px;margin:0 auto}
 .prog-gruppo .foto.vert img{height:auto;object-fit:contain}
 .prog-flusso>.foto.vert{aspect-ratio:auto;margin:0 auto;width:100%}
@@ -205,6 +209,7 @@ section.prog-gruppo{min-height:0;padding:0;margin:0;display:block;justify-conten
   .prog-gruppo .foto.alto{aspect-ratio:3/4}
   .prog-gruppo .foto.larga{grid-column:1/-1;aspect-ratio:16/9}
   .prog-gruppo .foto.disegno{grid-column:1/-1;aspect-ratio:auto}
+  .prog-gruppo .foto.intera{grid-column:1/-1;aspect-ratio:auto}
   .prog-gruppo .foto.vert{grid-column:1/-1;aspect-ratio:auto;max-width:100%}
   .prog-etichetta-mob{
     display:block;font-size:10px;letter-spacing:.32em;text-transform:uppercase;opacity:.55;
@@ -1650,7 +1655,7 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
       </section>
       <section class="prog-gruppo" id="pd-cantiere" data-fase="cantiere">
         <p class="prog-etichetta-mob">Cantiere</p>
-        <div class="griglia-foto">
+        <div class="griglia-foto" data-libera>
           <picture class="foto larga">
             <source srcset="web/card/piazza-duomo-firenze_living_01.webp" type="image/webp">
             <img src="web/card/piazza-duomo-firenze_living_01.jpg" alt="Cantiere - lo sgombero della zona giorno" loading="lazy">
@@ -1663,9 +1668,9 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
             <source srcset="web/card/piazza-duomo-firenze_living_02.webp" type="image/webp">
             <img src="web/card/piazza-duomo-firenze_living_02.jpg" alt="Cantiere - la posa della carta da parati" loading="lazy">
           </picture>
-          <picture class="foto">
-            <source srcset="web/card/piazza-duomo-firenze_living_03.webp" type="image/webp">
-            <img src="web/card/piazza-duomo-firenze_living_03.jpg" alt="Cantiere - la carta prende la parete" loading="lazy">
+          <picture class="foto larga">
+            <source srcset="web/card/piazza-duomo-firenze_ingresso_01.webp" type="image/webp">
+            <img src="web/card/piazza-duomo-firenze_ingresso_01.jpg" alt="Cantiere - il disimpegno, la porta antica e la lama di luce" loading="lazy">
           </picture>
           <picture class="foto">
             <source srcset="web/card/piazza-duomo-firenze_living_04.webp" type="image/webp">
@@ -1675,19 +1680,22 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
             <source srcset="web/card/piazza-duomo-firenze_camera_01.webp" type="image/webp">
             <img src="web/card/piazza-duomo-firenze_camera_01.jpg" alt="Cantiere - le dime del decoro tagliate" loading="lazy">
           </picture>
-          <picture class="foto vert">
-            <source srcset="web/card/piazza-duomo-firenze_camera_02.webp" type="image/webp">
-            <img src="web/card/piazza-duomo-firenze_camera_02.jpg" alt="Cantiere - il decoro del Duomo dipinto a stencil" loading="lazy">
+          <picture class="foto larga">
+            <source srcset="web/card/piazza-duomo-firenze_living_03.webp" type="image/webp">
+            <img src="web/card/piazza-duomo-firenze_living_03.jpg" alt="Cantiere - la carta prende la parete" loading="lazy">
           </picture>
-          <picture class="foto">
-            <source srcset="web/card/piazza-duomo-firenze_ingresso_01.webp" type="image/webp">
-            <img src="web/card/piazza-duomo-firenze_ingresso_01.jpg" alt="Cantiere - il disimpegno in lavorazione" loading="lazy">
+          <picture class="foto alto">
+            <source srcset="web/card/piazza-duomo-firenze_ingresso_04.webp" type="image/webp">
+            <img src="web/card/piazza-duomo-firenze_ingresso_04.jpg" alt="Cantiere - la dima del decoro mascherata sulla parete" loading="lazy">
           </picture>
+          <div class="foto alto">
+            <video src="web/video/piazza-duomo-firenze_video_01.mp4" poster="web/video/piazza-duomo-firenze_video_01_poster.jpg" muted loop autoplay playsinline aria-label="Cantiere - il decoro del Duomo dipinto a mano, video"></video>
+          </div>
         </div>
       </section>
       <section class="prog-gruppo" id="pd-dopo" data-fase="dopo">
         <p class="prog-etichetta-mob">Dopo</p>
-        <div class="griglia-foto">
+        <div class="griglia-foto" data-libera>
           <picture class="foto larga">
             <source srcset="web/card/piazza-duomo-firenze_ingresso_02.webp" type="image/webp">
             <img src="web/card/piazza-duomo-firenze_ingresso_02.jpg" alt="Dopo - l'ingresso con il divano scuro e le porte antiche" loading="lazy">
@@ -1700,13 +1708,9 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
             <source srcset="web/card/piazza-duomo-firenze_camera_07.webp" type="image/webp">
             <img src="web/card/piazza-duomo-firenze_camera_07.jpg" alt="Dopo - la porta antica nella luce calda" loading="lazy">
           </picture>
-          <picture class="foto">
+          <picture class="foto intera">
             <source srcset="web/card/piazza-duomo-firenze_living_05.webp" type="image/webp">
             <img src="web/card/piazza-duomo-firenze_living_05.jpg" alt="Dopo - il tavolo verde nella luce del pomeriggio" loading="lazy">
-          </picture>
-          <picture class="foto">
-            <source srcset="web/card/piazza-duomo-firenze_living_07.webp" type="image/webp">
-            <img src="web/card/piazza-duomo-firenze_living_07.jpg" alt="Dopo - la zona giorno con la cucina spostata sulla piazza" loading="lazy">
           </picture>
           <picture class="foto alto">
             <source srcset="web/card/piazza-duomo-firenze_living_06.webp" type="image/webp">
@@ -1716,6 +1720,10 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
             <source srcset="web/card/piazza-duomo-firenze_camera_04.webp" type="image/webp">
             <img src="web/card/piazza-duomo-firenze_camera_04.jpg" alt="Dopo - il dettaglio degli asciugamani col decoro" loading="lazy">
           </picture>
+          <picture class="foto larga">
+            <source srcset="web/card/piazza-duomo-firenze_living_07.webp" type="image/webp">
+            <img src="web/card/piazza-duomo-firenze_living_07.jpg" alt="Dopo - la zona giorno con la cucina spostata sulla piazza" loading="lazy">
+          </picture>
           <picture class="foto alto">
             <source srcset="web/card/piazza-duomo-firenze_camera_03.webp" type="image/webp">
             <img src="web/card/piazza-duomo-firenze_camera_03.jpg" alt="Dopo - il letto e la parete decorata a stencil" loading="lazy">
@@ -1724,7 +1732,7 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
             <source srcset="web/card/piazza-duomo-firenze_camera_06.webp" type="image/webp">
             <img src="web/card/piazza-duomo-firenze_camera_06.jpg" alt="Dopo - il letto in ferro battuto e la console" loading="lazy">
           </picture>
-          <picture class="foto vert">
+          <picture class="foto intera">
             <source srcset="web/card/piazza-duomo-firenze_camera_05.webp" type="image/webp">
             <img src="web/card/piazza-duomo-firenze_camera_05.jpg" alt="Dopo - la camera di sera, l'armadio antico e il velo del baldacchino" loading="lazy">
           </picture>
@@ -2006,7 +2014,8 @@ const spiaFasi=new IntersectionObserver(entries=>{
 schedaCorte.querySelectorAll('.prog-gruppo').forEach(g=>spiaFasi.observe(g));
 // regola griglie: prima foto a tutta larghezza; se le restanti sono in numero dispari, anche l'ultima
 document.querySelectorAll('.griglia-foto').forEach(g=>{
-  const f=[...g.querySelectorAll('.foto')].filter(x=>!x.classList.contains('disegno')&&!x.classList.contains('vert')&&!x.classList.contains('alto'));
+  if('libera' in g.dataset)return; // layout manuale: non toccare
+  const f=[...g.querySelectorAll('.foto')].filter(x=>!x.classList.contains('disegno')&&!x.classList.contains('vert')&&!x.classList.contains('alto')&&!x.classList.contains('intera'));
   if(!f.length)return;
   f.forEach(x=>x.classList.remove('larga'));
   f[0].classList.add('larga');
