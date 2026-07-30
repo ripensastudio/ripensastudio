@@ -929,7 +929,7 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
         <source srcset="web/card/piazza-duomo-firenze_living_05.webp" type="image/webp">
         <img src="web/card/piazza-duomo-firenze_living_05.jpg"
              alt="Piazza del Duomo VB — il tavolo verde nella luce del pomeriggio, Firenze"
-             loading="lazy">
+             loading="lazy" style="object-position:50% 35%">
       </picture>
       <h3>Piazza del Duomo VB</h3>
       <p class="meta">Ristrutturazione — Firenze, Piazza del Duomo, 2025</p>
@@ -1048,7 +1048,7 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
         <source srcset="web/mini/piazza-duomo-firenze_living_05.webp" type="image/webp">
         <img src="web/mini/piazza-duomo-firenze_living_05.jpg"
              alt="Piazza del Duomo VB — Ospitalit&agrave; di pregio, Firenze"
-             loading="lazy">
+             loading="lazy" style="object-position:50% 35%">
       </picture>
       <div>
         <h4>Piazza del Duomo VB</h4>
@@ -1842,7 +1842,7 @@ splash.addEventListener('pointercancel',()=>{puntoY=null;},{passive:true});
 
 // scheda progetto: Corte Privata MP
 const schedaCorte=document.getElementById('scheda-corte');
-function apriSchedaCorte(){schedaCorte.classList.add('aperta');document.body.style.overflow='hidden';}
+function apriSchedaCorte(){schedaCorte.classList.add('aperta');document.body.style.overflow='hidden';history.pushState({ripensa:'scheda'},'');}
 function chiudiSchedaCorte(){schedaCorte.classList.remove('aperta');document.body.style.overflow='';}
 document.querySelectorAll('[data-apri="corte"]').forEach(el=>{
   el.style.cursor='pointer';
@@ -1852,7 +1852,7 @@ schedaCorte.querySelector('.chiudi').addEventListener('click',chiudiSchedaCorte)
 document.addEventListener('keydown',e=>{if(e.key==='Escape')chiudiSchedaCorte();});
 // scheda progetto: Divisione open space Fiesole
 const schedaFiesole=document.getElementById('scheda-fiesole');
-function apriSchedaFiesole(){schedaFiesole.classList.add('aperta');document.body.style.overflow='hidden';}
+function apriSchedaFiesole(){schedaFiesole.classList.add('aperta');document.body.style.overflow='hidden';history.pushState({ripensa:'scheda'},'');}
 function chiudiSchedaFiesole(){schedaFiesole.classList.remove('aperta');if(!schedaCorte.classList.contains('aperta'))document.body.style.overflow='';}
 document.querySelectorAll('[data-apri="fiesole"]').forEach(el=>{
   el.style.cursor='pointer';
@@ -1875,7 +1875,7 @@ const spiaFasiF=new IntersectionObserver(entries=>{
 schedaFiesole.querySelectorAll('.prog-gruppo').forEach(g=>spiaFasiF.observe(g));
 // scheda progetto: Piazza del Duomo VB
 const schedaDuomo=document.getElementById('scheda-duomo');
-function apriSchedaDuomo(){schedaDuomo.classList.add('aperta');document.body.style.overflow='hidden';schedaDuomo.querySelectorAll('video').forEach(v=>{v.muted=true;v.play().catch(()=>{});});}
+function apriSchedaDuomo(){schedaDuomo.classList.add('aperta');document.body.style.overflow='hidden';history.pushState({ripensa:'scheda'},'');schedaDuomo.querySelectorAll('video').forEach(v=>{v.muted=true;v.play().catch(()=>{});});}
 function chiudiSchedaDuomo(){schedaDuomo.classList.remove('aperta');if(!schedaCorte.classList.contains('aperta')&&!schedaFiesole.classList.contains('aperta'))document.body.style.overflow='';}
 document.querySelectorAll('[data-apri="duomo"]').forEach(el=>{
   el.style.cursor='pointer';
@@ -1903,6 +1903,7 @@ function chiudiPagine(){paginaSito.classList.remove('aperta');if(!schedaCorte.cl
 document.querySelectorAll('[data-pagina]').forEach(el=>el.addEventListener('click',e=>{
   e.preventDefault();
   const apriPrima=!paginaSito.classList.contains('aperta');
+  if(apriPrima)history.pushState({ripensa:'pagina'},'');
   paginaSito.classList.add('aperta');document.body.style.overflow='hidden';
   document.getElementById('menuMob').classList.remove('aperto');
   const t=document.getElementById(bersagli[el.dataset.pagina]||'home');
@@ -1910,6 +1911,14 @@ document.querySelectorAll('[data-pagina]').forEach(el=>el.addEventListener('clic
 }));
 paginaSito.querySelector('.chiudi').addEventListener('click',chiudiPagine);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')chiudiPagine();});
+// tasto indietro del browser: chiude la scheda o la pagina aperta invece di uscire dal sito
+window.addEventListener('popstate',()=>{
+  if(schedaDuomo.classList.contains('aperta')){schedaDuomo.classList.remove('aperta');}
+  else if(schedaFiesole.classList.contains('aperta')){schedaFiesole.classList.remove('aperta');}
+  else if(schedaCorte.classList.contains('aperta')){schedaCorte.classList.remove('aperta');}
+  else if(paginaSito.classList.contains('aperta')){paginaSito.classList.remove('aperta');}
+  if(!schedaCorte.classList.contains('aperta')&&!schedaFiesole.classList.contains('aperta')&&!schedaDuomo.classList.contains('aperta')&&!paginaSito.classList.contains('aperta'))document.body.style.overflow='';
+});
 // il logo si ritira scorrendo la home
 const testataFissa=document.querySelector('aside');
 window.addEventListener('scroll',()=>{
