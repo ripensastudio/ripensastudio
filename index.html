@@ -173,6 +173,8 @@ section.prog-gruppo{min-height:0;padding:0;margin:0;display:block;justify-conten
 .prog-gruppo{scroll-margin-top:64px}
 .prog-gruppo .griglia-foto,.prog-flusso>.griglia-foto{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .prog-flusso>.griglia-foto .foto.alto{aspect-ratio:3/4}
+.prog-flusso>.griglia-foto .foto.disegno,.prog-flusso>.griglia-foto .foto.intera{grid-column:1/-1;aspect-ratio:auto}
+.prog-flusso>.griglia-foto .foto.disegno img,.prog-flusso>.griglia-foto .foto.intera img{height:auto;object-fit:contain}
 /* dissolvenza disegno<->foto (apertura scheda Duomo) */
 .foto.dissolvi{position:relative}
 .foto.dissolvi img{position:absolute;inset:0;width:100%;height:100%}
@@ -969,10 +971,10 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
     </article>
     <article class="progetto reveal" data-cat="ristrutturazione" data-apri="coverciano">
       <picture class="foto">
-        <source srcset="web/card/ampliamento-coverciano-firenze_scala_01.webp" type="image/webp">
-        <img src="web/card/ampliamento-coverciano-firenze_scala_01.jpg"
-             alt="Ampliamento in verticale — la scala rossa del soppalco, Firenze Coverciano"
-             loading="lazy" style="object-position:50% 40%">
+        <source srcset="web/card/ampliamento-coverciano-firenze_altro-soppalco_04.webp" type="image/webp">
+        <img src="web/card/ampliamento-coverciano-firenze_altro-soppalco_04.jpg"
+             alt="Ampliamento in verticale — l&rsquo;anta aperta con la luce dentro, Firenze Coverciano"
+             loading="lazy" style="object-position:50% 45%">
       </picture>
       <h3>Due soppalchi &mdash; Coverciano</h3>
       <p class="meta">Ampliamento in verticale — Firenze, 2026</p>
@@ -1097,10 +1099,10 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
     <div class="coll-progetto reveal" data-apri="coverciano">
       <span></span>
       <picture class="foto">
-        <source srcset="web/mini/ampliamento-coverciano-firenze_scala_01.webp" type="image/webp">
-        <img src="web/mini/ampliamento-coverciano-firenze_scala_01.jpg"
+        <source srcset="web/mini/ampliamento-coverciano-firenze_altro-soppalco_04.webp" type="image/webp">
+        <img src="web/mini/ampliamento-coverciano-firenze_altro-soppalco_04.jpg"
              alt="Due soppalchi — Ampliamenti in verticale, Firenze Coverciano"
-             loading="lazy" style="object-position:50% 40%">
+             loading="lazy" style="object-position:50% 45%">
       </picture>
       <div>
         <h4>Due soppalchi &mdash; Coverciano</h4>
@@ -1819,17 +1821,29 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
       <p class="intro">Una stanza in pi&ugrave; sopra la testa: due soppalchi in acciaio progettati da zero, nati in officina e montati in casa come un arredo &mdash; senza getti, senza attese, con ogni chilo e ogni euro contati prima.</p>
       <div class="prog-materiali">
         <h4>Materiali &amp; arredi</h4>
-        <p>Struttura in acciaio disegnata in studio (esecutivi, nesting, verniciatura a polvere RAL 3004/3005); installazione a secco, reversibile.<br>
+        <p>Struttura in acciaio disegnata in studio, verniciata a polvere (RAL 3004); installazione a secco, reversibile.<br>
         <a href="https://www.novamobili.it/it/armadio-alfa" target="_blank" rel="noopener">Novamobili &mdash; Alfa &nearr;</a><br>
-        <a href="https://www.tiscatiara.com/it/tessuti-per-interni/tappeti/moquette/moquette-tessute/" target="_blank" rel="noopener">Tisca &mdash; Versailles &nearr;</a></p>
+        <a href="https://www.tiscatiara.com/it/tessuti-per-interni/tappeti/moquette/moquette-tessute/" target="_blank" rel="noopener">Tisca &mdash; Versailles &nearr;</a><br>
+        <a href="https://www.archiproducts.com/it/prodotti/aromas-del-campo" target="_blank" rel="noopener">Aromas &mdash; Wave (alabastro) &nearr;</a><br>
+        <a href="https://www.archiproducts.com/it/prodotti/aromas-del-campo/lampada-da-parete-in-vetro-colorato-fest-lampada-da-parete-in-vetro_275727" target="_blank" rel="noopener">Aromas &mdash; Fest (vetro) &nearr;</a></p>
       </div>
     </aside>
     <div class="prog-flusso">
       <div class="griglia-foto" data-libera>
-        <picture class="foto disegno">
-          <source srcset="web/card/ampliamento-coverciano-firenze_altro-tavola_02.webp" type="image/webp">
-          <img src="web/card/ampliamento-coverciano-firenze_altro-tavola_02.jpg" alt="La pianta di progetto sul pattern Missoni" loading="lazy">
-        </picture>
+          <div class="foto intera" style="aspect-ratio:16/9">
+            <video poster="web/video/ampliamento-coverciano-firenze_video_01_poster.jpg" muted loop autoplay playsinline preload="auto" disablepictureinpicture aria-label="Il soppalco che si richiude pezzo per pezzo: la struttura torna pacco, video">
+              <source src="web/video/ampliamento-coverciano-firenze_video_01.mp4" type="video/mp4">
+              <source src="web/video/ampliamento-coverciano-firenze_video_01.webm" type="video/webm">
+            </video>
+          </div>
+          <picture class="foto disegno">
+            <source srcset="web/card/ampliamento-coverciano-firenze_altro-disegno_04.webp" type="image/webp">
+            <img src="web/card/ampliamento-coverciano-firenze_altro-disegno_04.jpg" alt="Lo spaccato della camera bambini" loading="lazy">
+          </picture>
+          <picture class="foto disegno">
+            <source srcset="web/card/ampliamento-coverciano-firenze_altro-disegno_05.webp" type="image/webp">
+            <img src="web/card/ampliamento-coverciano-firenze_altro-disegno_05.jpg" alt="La pianta dei due soppalchi" loading="lazy">
+          </picture>
       </div>
       <section class="prog-gruppo" id="cv-prima" data-fase="prima">
         <p class="prog-etichetta-mob">Prima</p>
@@ -1856,12 +1870,8 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
         <p class="prog-etichetta-mob">Progetto</p>
         <div class="griglia-foto" data-libera>
           <picture class="foto disegno">
-            <source srcset="web/card/ampliamento-coverciano-firenze_altro-tavola_01.webp" type="image/webp">
-            <img src="web/card/ampliamento-coverciano-firenze_altro-tavola_01.jpg" alt="Progetto - lo stato attuale sul fondo RAL 3004" loading="lazy">
-          </picture>
-          <picture class="foto disegno">
-            <source srcset="web/card/ampliamento-coverciano-firenze_altro-tavola_03.webp" type="image/webp">
-            <img src="web/card/ampliamento-coverciano-firenze_altro-tavola_03.jpg" alt="Progetto - Opale e Nebbia, le due camere" loading="lazy">
+            <source srcset="web/card/ampliamento-coverciano-firenze_altro-tavola_10.webp" type="image/webp">
+            <img src="web/card/ampliamento-coverciano-firenze_altro-tavola_10.jpg" alt="Progetto - la tavola del soppalco padronale: acciaio verniciato a polvere, bulloni a vista, struttura riconfigurabile" loading="lazy">
           </picture>
           <picture class="foto intera">
             <source srcset="web/card/ampliamento-coverciano-firenze_altro-render_01.webp" type="image/webp">
@@ -1880,51 +1890,45 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
             <img src="web/card/ampliamento-coverciano-firenze_altro-render_02.jpg" alt="Progetto - il render di insieme della camera bambini" loading="lazy">
           </picture>
           <picture class="foto disegno">
-            <source srcset="web/card/ampliamento-coverciano-firenze_altro-disegno_04.webp" type="image/webp">
-            <img src="web/card/ampliamento-coverciano-firenze_altro-disegno_04.jpg" alt="Progetto - lo spaccato della camera bambini" loading="lazy">
-          </picture>
-          <picture class="foto disegno">
-            <source srcset="web/card/ampliamento-coverciano-firenze_altro-disegno_05.webp" type="image/webp">
-            <img src="web/card/ampliamento-coverciano-firenze_altro-disegno_05.jpg" alt="Progetto - la pianta dei due soppalchi" loading="lazy">
-          </picture>
-          <picture class="foto">
             <source srcset="web/card/ampliamento-coverciano-firenze_altro-disegno_01.webp" type="image/webp">
             <img src="web/card/ampliamento-coverciano-firenze_altro-disegno_01.jpg" alt="Progetto - l&rsquo;esecutivo della scala, un colore per pezzo" loading="lazy">
           </picture>
-          <picture class="foto">
+          <picture class="foto disegno">
             <source srcset="web/card/ampliamento-coverciano-firenze_altro-disegno_02.webp" type="image/webp">
-            <img src="web/card/ampliamento-coverciano-firenze_altro-disegno_02.jpg" alt="Progetto - la struttura del soppalco al computer" loading="lazy">
+            <img src="web/card/ampliamento-coverciano-firenze_altro-disegno_02.jpg" alt="Progetto - la struttura dei due soppalchi, tutta insieme" loading="lazy">
           </picture>
           <picture class="foto disegno">
             <source srcset="web/card/ampliamento-coverciano-firenze_altro-tavola_05.webp" type="image/webp">
             <img src="web/card/ampliamento-coverciano-firenze_altro-tavola_05.jpg" alt="Progetto - la scala piegata in lamiera da 6 millimetri" loading="lazy">
           </picture>
           <picture class="foto disegno">
-            <source srcset="web/card/ampliamento-coverciano-firenze_altro-tavola_06.webp" type="image/webp">
-            <img src="web/card/ampliamento-coverciano-firenze_altro-tavola_06.jpg" alt="Progetto - il nesting: ogni colore un modulo da tagliare" loading="lazy">
+            <source srcset="web/card/ampliamento-coverciano-firenze_altro-tavola_08.webp" type="image/webp">
+            <img src="web/card/ampliamento-coverciano-firenze_altro-tavola_08.jpg" alt="Progetto - la balaustra, tavola con il 3D" loading="lazy">
           </picture>
-          <picture class="foto disegno">
-            <source srcset="web/card/ampliamento-coverciano-firenze_altro-tavola_07.webp" type="image/webp">
-            <img src="web/card/ampliamento-coverciano-firenze_altro-tavola_07.jpg" alt="Progetto - i moduli assemblati, dimensioni e specifiche" loading="lazy">
-          </picture>
-          <picture class="foto disegno">
-            <source srcset="web/card/ampliamento-coverciano-firenze_altro-tavola_09.webp" type="image/webp">
-            <img src="web/card/ampliamento-coverciano-firenze_altro-tavola_09.jpg" alt="Progetto - la tavola per la verniciatura" loading="lazy">
+          <picture class="foto">
+            <source srcset="web/card/ampliamento-coverciano-firenze_altro-ispirazione_01.webp" type="image/webp">
+            <img src="web/card/ampliamento-coverciano-firenze_altro-ispirazione_01.jpg" alt="Progetto - l&rsquo;ispirazione per il parapetto" loading="lazy">
           </picture>
           <picture class="foto">
             <source srcset="web/card/ampliamento-coverciano-firenze_altro-materiali_05.webp" type="image/webp">
-            <img src="web/card/ampliamento-coverciano-firenze_altro-materiali_05.jpg" alt="Progetto - i RAL provati per il rosso: porpora e vino" loading="lazy">
+            <img src="web/card/ampliamento-coverciano-firenze_altro-materiali_05.jpg" alt="Progetto - il RAL scelto: 3004 rosso porpora" loading="lazy">
           </picture>
           <picture class="foto">
-            <source srcset="web/card/ampliamento-coverciano-firenze_altro-materiali_06.webp" type="image/webp">
-            <img src="web/card/ampliamento-coverciano-firenze_altro-materiali_06.jpg" alt="Progetto - il RAL 5014 blu tortora" loading="lazy">
+            <source srcset="web/card/ampliamento-coverciano-firenze_altro-materiali_01.webp" type="image/webp">
+            <img src="web/card/ampliamento-coverciano-firenze_altro-materiali_01.jpg" alt="Progetto - la scelta della moquette sul campionario" loading="lazy">
           </picture>
-          <div class="foto intera" style="aspect-ratio:16/9">
-            <video poster="web/video/ampliamento-coverciano-firenze_video_01_poster.jpg" muted loop autoplay playsinline preload="auto" disablepictureinpicture aria-label="Progetto - animazione del montaggio, video">
-              <source src="web/video/ampliamento-coverciano-firenze_video_01.mp4" type="video/mp4">
-              <source src="web/video/ampliamento-coverciano-firenze_video_01.webm" type="video/webm">
-            </video>
-          </div>
+          <picture class="foto">
+            <source srcset="web/card/ampliamento-coverciano-firenze_altro-materiali_02.webp" type="image/webp">
+            <img src="web/card/ampliamento-coverciano-firenze_altro-materiali_02.jpg" alt="Progetto - il rosso Versailles sul campionario Tisca" loading="lazy">
+          </picture>
+          <picture class="foto larga">
+            <source srcset="web/card/ampliamento-coverciano-firenze_altro-materiali_03.webp" type="image/webp">
+            <img src="web/card/ampliamento-coverciano-firenze_altro-materiali_03.jpg" alt="Progetto - i campionari aperti sul tavolo dello studio" loading="lazy">
+          </picture>
+          <picture class="foto intera">
+            <source srcset="web/card/ampliamento-coverciano-firenze_altro-materiali_04.webp" type="image/webp">
+            <img src="web/card/ampliamento-coverciano-firenze_altro-materiali_04.jpg" alt="Progetto - i dischi in vetro dell&rsquo;applique Fest" loading="lazy">
+          </picture>
         </div>
       </section>
       <section class="prog-gruppo" id="cv-cantiere" data-fase="cantiere">
@@ -1939,26 +1943,22 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
             <img src="web/card/ampliamento-coverciano-firenze_altro-officina_05.jpg" alt="Cantiere - i tubolari della balaustra col disegno" loading="lazy">
           </picture>
           <picture class="foto">
-            <source srcset="web/card/ampliamento-coverciano-firenze_altro-officina_07.webp" type="image/webp">
-            <img src="web/card/ampliamento-coverciano-firenze_altro-officina_07.jpg" alt="Cantiere - la scala piegata e i suoi esecutivi" loading="lazy">
+            <source srcset="web/card/ampliamento-coverciano-firenze_altro-officina_06.webp" type="image/webp">
+            <img src="web/card/ampliamento-coverciano-firenze_altro-officina_06.jpg" alt="Cantiere - la scala in lamiera piegata" loading="lazy">
           </picture>
           <picture class="foto larga">
             <source srcset="web/card/ampliamento-coverciano-firenze_altro-officina_03.webp" type="image/webp">
             <img src="web/card/ampliamento-coverciano-firenze_altro-officina_03.jpg" alt="Cantiere - la scala al gancio della gru" loading="lazy">
           </picture>
           <picture class="foto">
-            <source srcset="web/card/ampliamento-coverciano-firenze_altro-officina_02.webp" type="image/webp">
-            <img src="web/card/ampliamento-coverciano-firenze_altro-officina_02.jpg" alt="Cantiere - i moduli impilati" loading="lazy">
+            <source srcset="web/card/ampliamento-coverciano-firenze_altro-officina_04.webp" type="image/webp">
+            <img src="web/card/ampliamento-coverciano-firenze_altro-officina_04.jpg" alt="Cantiere - la scala pronta sul bancale" loading="lazy">
           </picture>
           <picture class="foto">
             <source srcset="web/card/ampliamento-coverciano-firenze_altro-officina_08.webp" type="image/webp">
             <img src="web/card/ampliamento-coverciano-firenze_altro-officina_08.jpg" alt="Cantiere - gli elementi saldati" loading="lazy">
           </picture>
-          <picture class="foto alto">
-            <source srcset="web/card/ampliamento-coverciano-firenze_altro-officina_04.webp" type="image/webp">
-            <img src="web/card/ampliamento-coverciano-firenze_altro-officina_04.jpg" alt="Cantiere - la scala pronta sul bancale" loading="lazy">
-          </picture>
-          <div class="foto alto">
+          <div class="foto intera" style="aspect-ratio:1/1">
             <video poster="web/video/ampliamento-coverciano-firenze_video_02_poster.jpg" muted loop autoplay playsinline preload="auto" disablepictureinpicture aria-label="Cantiere - la verniciatura a polvere in cabina, video">
               <source src="web/video/ampliamento-coverciano-firenze_video_02.mp4" type="video/mp4">
               <source src="web/video/ampliamento-coverciano-firenze_video_02.webm" type="video/webm">
@@ -1969,38 +1969,34 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
             <img src="web/card/ampliamento-coverciano-firenze_altro-officina_09.jpg" alt="Cantiere - i moduli pronti alla consegna" loading="lazy">
           </picture>
           <picture class="foto">
-            <source srcset="web/card/ampliamento-coverciano-firenze_esterni_01.webp" type="image/webp">
-            <img src="web/card/ampliamento-coverciano-firenze_esterni_01.jpg" alt="Cantiere - la recinzione e il ponteggio" loading="lazy">
+            <source srcset="web/card/ampliamento-coverciano-firenze_altro-officina_10.webp" type="image/webp">
+            <img src="web/card/ampliamento-coverciano-firenze_altro-officina_10.jpg" alt="Cantiere - gli elementi arrivati in cantiere" loading="lazy">
           </picture>
           <picture class="foto">
             <source srcset="web/card/ampliamento-coverciano-firenze_esterni_03.webp" type="image/webp">
             <img src="web/card/ampliamento-coverciano-firenze_esterni_03.jpg" alt="Cantiere - il montacarichi sul ponteggio" loading="lazy">
           </picture>
           <picture class="foto intera">
-            <source srcset="web/card/ampliamento-coverciano-firenze_esterni_02.webp" type="image/webp">
-            <img src="web/card/ampliamento-coverciano-firenze_esterni_02.jpg" alt="Cantiere - la strada e il ponteggio col telo" loading="lazy">
-          </picture>
-          <picture class="foto">
-            <source srcset="web/card/ampliamento-coverciano-firenze_altro-soppalco_06.webp" type="image/webp">
-            <img src="web/card/ampliamento-coverciano-firenze_altro-soppalco_06.jpg" alt="Cantiere - la trave di sostegno a parete" loading="lazy">
-          </picture>
-          <picture class="foto">
             <source srcset="web/card/ampliamento-coverciano-firenze_altro-soppalco_07.webp" type="image/webp">
-            <img src="web/card/ampliamento-coverciano-firenze_altro-soppalco_07.jpg" alt="Cantiere - l&rsquo;apertura con l&rsquo;architrave" loading="lazy">
+            <img src="web/card/ampliamento-coverciano-firenze_altro-soppalco_07.jpg" alt="Cantiere - la cerchiatura: l&rsquo;apertura che d&agrave; accesso al vano nel sottotetto" loading="lazy">
+          </picture>
+          <picture class="foto">
+            <source srcset="web/card/ampliamento-coverciano-firenze_altro-soppalco_18.webp" type="image/webp">
+            <img src="web/card/ampliamento-coverciano-firenze_altro-soppalco_18.jpg" alt="Cantiere - le prove di tinta accanto alla porta" loading="lazy">
+          </picture>
+          <picture class="foto">
+            <source srcset="web/card/ampliamento-coverciano-firenze_altro-soppalco_19.webp" type="image/webp">
+            <img src="web/card/ampliamento-coverciano-firenze_altro-soppalco_19.jpg" alt="Cantiere - il corridoio in tinteggiatura" loading="lazy">
           </picture>
           <picture class="foto larga">
             <source srcset="web/card/ampliamento-coverciano-firenze_altro-soppalco_08.webp" type="image/webp">
             <img src="web/card/ampliamento-coverciano-firenze_altro-soppalco_08.jpg" alt="Cantiere - le prove di tinta sulla parete" loading="lazy">
           </picture>
           <picture class="foto">
-            <source srcset="web/card/ampliamento-coverciano-firenze_altro-soppalco_09.webp" type="image/webp">
-            <img src="web/card/ampliamento-coverciano-firenze_altro-soppalco_09.jpg" alt="Cantiere - il soppalco montato, ancora in primer" loading="lazy">
-          </picture>
-          <picture class="foto">
             <source srcset="web/card/ampliamento-coverciano-firenze_altro-soppalco_10.webp" type="image/webp">
             <img src="web/card/ampliamento-coverciano-firenze_altro-soppalco_10.jpg" alt="Cantiere - la scala agganciata" loading="lazy">
           </picture>
-          <picture class="foto larga">
+          <picture class="foto">
             <source srcset="web/card/ampliamento-coverciano-firenze_altro-soppalco_11.webp" type="image/webp">
             <img src="web/card/ampliamento-coverciano-firenze_altro-soppalco_11.jpg" alt="Cantiere - il soppalco a sbalzo" loading="lazy">
           </picture>
@@ -2016,50 +2012,26 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
             <source srcset="web/card/ampliamento-coverciano-firenze_altro-soppalco_14.webp" type="image/webp">
             <img src="web/card/ampliamento-coverciano-firenze_altro-soppalco_14.jpg" alt="Cantiere - il rosso steso in opera" loading="lazy">
           </picture>
-          <picture class="foto">
-            <source srcset="web/card/ampliamento-coverciano-firenze_altro-soppalco_15.webp" type="image/webp">
-            <img src="web/card/ampliamento-coverciano-firenze_altro-soppalco_15.jpg" alt="Cantiere - il soppalco rosso sul parquet nuovo" loading="lazy">
-          </picture>
-          <picture class="foto">
-            <source srcset="web/card/ampliamento-coverciano-firenze_altro-soppalco_16.webp" type="image/webp">
-            <img src="web/card/ampliamento-coverciano-firenze_altro-soppalco_16.jpg" alt="Cantiere - la scala rossa finita" loading="lazy">
-          </picture>
-          <picture class="foto larga">
-            <source srcset="web/card/ampliamento-coverciano-firenze_altro-soppalco_17.webp" type="image/webp">
-            <img src="web/card/ampliamento-coverciano-firenze_altro-soppalco_17.jpg" alt="Cantiere - il soppalco padronale verniciato" loading="lazy">
-          </picture>
-          <div class="foto alto">
+          <div class="foto intera" style="aspect-ratio:1/1">
             <video poster="web/video/ampliamento-coverciano-firenze_video_03_poster.jpg" muted loop autoplay playsinline preload="auto" disablepictureinpicture aria-label="Cantiere - la posa della moquette rossa, video">
               <source src="web/video/ampliamento-coverciano-firenze_video_03.mp4" type="video/mp4">
               <source src="web/video/ampliamento-coverciano-firenze_video_03.webm" type="video/webm">
             </video>
           </div>
-          <picture class="foto alto">
-            <source srcset="web/card/ampliamento-coverciano-firenze_altro-materiali_02.webp" type="image/webp">
-            <img src="web/card/ampliamento-coverciano-firenze_altro-materiali_02.jpg" alt="Cantiere - il campionario della moquette, il rosso scelto" loading="lazy">
-          </picture>
         </div>
       </section>
       <section class="prog-gruppo" id="cv-dopo" data-fase="dopo">
         <p class="prog-etichetta-mob">Dopo</p>
         <div class="griglia-foto" data-libera>
           <picture class="foto alto">
-            <source srcset="web/card/ampliamento-coverciano-firenze_scala_01.webp" type="image/webp">
-            <img src="web/card/ampliamento-coverciano-firenze_scala_01.jpg" alt="Dopo - la scala rossa e lo sgabello antico" loading="lazy">
+            <source srcset="web/card/ampliamento-coverciano-firenze_altro-soppalco_01.webp" type="image/webp">
+            <img src="web/card/ampliamento-coverciano-firenze_altro-soppalco_01.jpg" alt="Dopo - il parapetto rosso sulla moquette" loading="lazy">
           </picture>
           <picture class="foto alto">
             <source srcset="web/card/ampliamento-coverciano-firenze_altro-soppalco_02.webp" type="image/webp">
             <img src="web/card/ampliamento-coverciano-firenze_altro-soppalco_02.jpg" alt="Dopo - l&rsquo;armadiatura a tutta parete sotto le travi" loading="lazy">
           </picture>
-          <picture class="foto alto">
-            <source srcset="web/card/ampliamento-coverciano-firenze_altro-soppalco_01.webp" type="image/webp">
-            <img src="web/card/ampliamento-coverciano-firenze_altro-soppalco_01.jpg" alt="Dopo - il parapetto rosso sulla moquette" loading="lazy">
-          </picture>
-          <picture class="foto alto">
-            <source srcset="web/card/ampliamento-coverciano-firenze_altro-soppalco_03.webp" type="image/webp">
-            <img src="web/card/ampliamento-coverciano-firenze_altro-soppalco_03.jpg" alt="Dopo - il ritmo del parapetto sugli armadi" loading="lazy">
-          </picture>
-          <picture class="foto alto">
+          <picture class="foto intera">
             <source srcset="web/card/ampliamento-coverciano-firenze_altro-soppalco_04.webp" type="image/webp">
             <img src="web/card/ampliamento-coverciano-firenze_altro-soppalco_04.jpg" alt="Dopo - l&rsquo;anta aperta con la luce dentro" loading="lazy">
           </picture>
@@ -2067,7 +2039,7 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
             <source srcset="web/card/ampliamento-coverciano-firenze_altro-soppalco_05.webp" type="image/webp">
             <img src="web/card/ampliamento-coverciano-firenze_altro-soppalco_05.jpg" alt="Dopo - le travi e le pianelle sopra gli armadi" loading="lazy">
           </picture>
-          <picture class="foto intera">
+          <picture class="foto alto">
             <source srcset="web/card/ampliamento-coverciano-firenze_illuminazione_01.webp" type="image/webp">
             <img src="web/card/ampliamento-coverciano-firenze_illuminazione_01.jpg" alt="Dopo - l&rsquo;applique e la sua ombra sulla parete" loading="lazy">
           </picture>
