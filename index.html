@@ -187,21 +187,20 @@ section.prog-gruppo{min-height:0;padding:0;margin:0;display:block;justify-conten
 .cv-cop{margin:0;cursor:pointer;position:relative}
 .cv-cop .quadro{position:relative;overflow:hidden}
 .cv-cop img{width:100%;height:auto;display:block}
-.cv-cop .bn{position:absolute;inset:0;backdrop-filter:grayscale(1) contrast(1.04);-webkit-backdrop-filter:grayscale(1) contrast(1.04);clip-path:inset(0 100% 0 0);transition:clip-path .85s cubic-bezier(.65,.05,.3,1);pointer-events:none}
-.cv-cop:hover .bn{clip-path:inset(0 0 0 0)}
-.cv-cop .riga{position:absolute;top:0;bottom:0;left:0;width:2px;background:#fff;mix-blend-mode:difference;opacity:0;transition:left .85s cubic-bezier(.65,.05,.3,1),opacity .15s ease;pointer-events:none}
-.cv-cop:hover .riga{left:calc(100% - 2px);opacity:1}
+.cv-cop .bn{position:absolute;inset:0;backdrop-filter:grayscale(1) contrast(1.04);-webkit-backdrop-filter:grayscale(1) contrast(1.04);clip-path:inset(0 calc(100% - var(--x,0%)) 0 0);transition:clip-path .22s ease-out;pointer-events:none}
+.cv-cop .riga{position:absolute;top:0;bottom:0;left:var(--x,0%);width:2px;background:#fff;mix-blend-mode:difference;opacity:0;transition:left .22s ease-out,opacity .15s ease;pointer-events:none}
+.cv-cop:hover .riga{opacity:1}
 .cv-cop figcaption{font-size:11px;letter-spacing:.34em;text-transform:uppercase;opacity:.62;padding-top:12px}
 .cv-c1{grid-column:1/7}
 .cv-c2{grid-column:8/13;margin-top:22%}
-.cv-c3{grid-column:2/7;margin-top:6%}
+.cv-c3{grid-column:1/8;margin-top:6%}
 .cv-c4{grid-column:8/12;margin-top:18%}
 .cv-c5{grid-column:1/6;margin-top:10%}
 .cv-c6{grid-column:7/13;margin-top:20%}
 /* --- gallerie dei gruppi --- */
 .cv-gal{position:fixed;inset:0;background:#fff;z-index:90;opacity:0;visibility:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch}
 .cv-gal.aperta{opacity:1;visibility:visible;transition:opacity .4s ease}
-.cv-gal .cv-gal-interno{max-width:1020px;margin:0 auto;padding:72px 4vw 140px max(4vw,200px)}
+.cv-gal .cv-gal-interno{max-width:1360px;margin:0 auto;padding:72px 4vw 140px max(4vw,200px)}
 .cv-gal .cv-gal-testa{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:40px}
 .cv-gal h3{font-size:12px;letter-spacing:.34em;text-transform:uppercase;font-weight:400;margin:0;opacity:.7}
 .cv-gal .chiudi-gal{background:none;border:0;font:inherit;font-size:12px;letter-spacing:.14em;cursor:pointer;opacity:.55;padding:0}
@@ -1020,7 +1019,7 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
              alt="Ampliamento in verticale — il parapetto rosso sulla moquette, Firenze Coverciano"
              loading="lazy" style="object-position:50% 45%">
       </picture>
-      <h3>Due soppalchi &mdash; Coverciano</h3>
+      <h3>Ampliamento verticale &mdash; Coverciano</h3>
       <p class="meta">Ampliamento in verticale — Firenze, 2026</p>
     </article>
     <article class="progetto reveal" data-cat="residenziale">
@@ -1145,11 +1144,11 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
       <picture class="foto">
         <source srcset="web/mini/ampliamento-coverciano-firenze_altro-soppalco_01.webp" type="image/webp">
         <img src="web/mini/ampliamento-coverciano-firenze_altro-soppalco_01.jpg"
-             alt="Due soppalchi — Ampliamenti in verticale, Firenze Coverciano"
+             alt="Ampliamento verticale — Coverciano, Firenze"
              loading="lazy" style="object-position:50% 45%">
       </picture>
       <div>
-        <h4>Due soppalchi &mdash; Coverciano</h4>
+        <h4>Ampliamento verticale &mdash; Coverciano</h4>
         <p class="meta">Ampliamento — Firenze, 2026</p>
       </div>
     </div>
@@ -1850,11 +1849,11 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
   </div>
 </div>
 
-<div class="prog-scheda" id="scheda-coverciano" role="dialog" aria-label="Scheda progetto Due soppalchi Coverciano">
+<div class="prog-scheda" id="scheda-coverciano" role="dialog" aria-label="Scheda progetto Ampliamento verticale Coverciano">
   <div class="interno">
     <aside class="prog-lato">
       <button class="chiudi" type="button">&larr; Torna ai progetti</button>
-      <h2>Due soppalchi &mdash; Coverciano</h2>
+      <h2>Ampliamento verticale &mdash; Coverciano</h2>
       <p class="meta">Ampliamento in verticale<br>Firenze &mdash; Coverciano<br>2026<br>Collezione Ampliamenti in verticale</p>
       <nav class="prog-fasi-nav" aria-label="Gruppi del progetto">
         <a href="#" data-gal="prima">Prima</a>
@@ -1917,8 +1916,8 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
         </figure>
         <figure class="cv-cop cv-c6" data-gal="dopo" tabindex="0" role="button" aria-label="Apri Dopo">
           <span class="quadro"><picture>
-            <source srcset="web/card/ampliamento-coverciano-firenze_altro-soppalco_20.webp" type="image/webp">
-            <img src="web/card/ampliamento-coverciano-firenze_altro-soppalco_20.jpg" alt="Il soppalco finito, le applique accese" loading="lazy">
+            <source srcset="web/card/ampliamento-coverciano-firenze_altro-soppalco_04.webp" type="image/webp">
+            <img src="web/card/ampliamento-coverciano-firenze_altro-soppalco_04.jpg" alt="L&rsquo;anta aperta con la luce dentro" loading="lazy">
           </picture><span class="bn"></span><span class="riga"></span></span>
           <figcaption>Dopo</figcaption>
         </figure>
@@ -2349,6 +2348,13 @@ function chiudiGalCv(){document.querySelectorAll('.cv-gal.aperta').forEach(g=>{g
 schedaCoverciano.querySelectorAll('.cv-cop').forEach(f=>{
   f.addEventListener('click',()=>apriGalCv(f.dataset.gal));
   f.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();apriGalCv(f.dataset.gal);}});
+  const q=f.querySelector('.quadro');
+  f.addEventListener('mousemove',e=>{
+    const r=q.getBoundingClientRect();
+    const x=Math.max(0,Math.min(100,(e.clientX-r.left)/r.width*100));
+    f.style.setProperty('--x',x.toFixed(1)+'%');
+  });
+  f.addEventListener('mouseleave',()=>{f.style.setProperty('--x','0%');});
 });
 schedaCoverciano.querySelectorAll('.prog-fasi-nav a[data-gal]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();apriGalCv(a.dataset.gal);}));
 document.querySelectorAll('.cv-gal .chiudi-gal').forEach(b=>b.addEventListener('click',chiudiGalCv));
