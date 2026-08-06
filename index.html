@@ -190,9 +190,13 @@ section.prog-gruppo{min-height:0;padding:0;margin:0;display:block;justify-conten
 .cv-cop{margin:0;cursor:pointer;position:relative}
 .cv-cop .quadro{position:relative;overflow:hidden}
 .cv-cop img{width:100%;height:auto;display:block}
-.cv-cop .bn{position:absolute;inset:0;background-size:cover;background-position:center;filter:grayscale(1) contrast(1.04);clip-path:inset(0 calc(100% - var(--x,0%)) 0 0);-webkit-clip-path:inset(0 calc(100% - var(--x,0%)) 0 0);transition:clip-path .22s ease-out;pointer-events:none}
-.cv-cop .riga{position:absolute;top:0;bottom:0;left:var(--x,0%);width:2px;background:#fff;mix-blend-mode:difference;opacity:0;transition:left .22s ease-out,opacity .15s ease;pointer-events:none}
-.cv-cop:hover .riga{opacity:1}
+.cv-cop .bn{position:absolute;inset:0;overflow:hidden;transform:translateX(-101%);transition:transform .8s cubic-bezier(.65,.05,.3,1);border-right:2px solid rgba(255,255,255,.9);pointer-events:none}
+.cv-cop .bn img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.04);transform:translateX(101%);transition:transform .8s cubic-bezier(.65,.05,.3,1)}
+.cv-cop:hover .bn,.cv-cop:focus-visible .bn{transform:translateX(0)}
+.cv-cop:hover .bn img,.cv-cop:focus-visible .bn img{transform:translateX(0)}
+.cv-cop .nome{position:absolute;left:6%;right:6%;top:50%;transform:translateY(-50%);text-align:center;font-size:clamp(16px,1.8vw,26px);letter-spacing:.42em;text-transform:uppercase;color:#fff;mix-blend-mode:difference;opacity:0;transition:opacity .45s ease .3s;pointer-events:none;z-index:2}
+.cv-cop:hover .nome,.cv-cop:focus-visible .nome{opacity:1}
+.cv-cop .riga{display:none}
 .cv-cop figcaption{font-size:11px;letter-spacing:.34em;text-transform:uppercase;opacity:.62;padding-top:12px}
 .cv-c1{grid-column:1/7}
 .cv-c2{grid-column:8/13;margin-top:22%}
@@ -1887,42 +1891,42 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
           <span class="quadro"><picture>
             <source srcset="web/card/ampliamento-coverciano-firenze_altro-ispirazione_01.webp" type="image/webp">
             <img src="web/card/ampliamento-coverciano-firenze_altro-ispirazione_01.jpg" alt="Il parapetto in ferro che ha ispirato il progetto" loading="lazy">
-          </picture><span class="bn"></span><span class="riga"></span></span>
+          </picture><span class="bn"></span><span class="nome">ISPIRAZIONE</span><span class="riga"></span></span>
           <figcaption>Ispirazione</figcaption>
         </figure>
         <figure class="cv-cop cv-c2" data-gal="prima" tabindex="0" role="button" aria-label="Apri Prima">
           <span class="quadro"><picture>
             <source srcset="web/card/ampliamento-coverciano-firenze_camera_01.webp" type="image/webp">
             <img src="web/card/ampliamento-coverciano-firenze_camera_01.jpg" alt="La camera prima dei lavori" loading="lazy">
-          </picture><span class="bn"></span><span class="riga"></span></span>
+          </picture><span class="bn"></span><span class="nome">PRIMA</span><span class="riga"></span></span>
           <figcaption>Prima</figcaption>
         </figure>
         <figure class="cv-cop cv-c3" data-gal="progetto" tabindex="0" role="button" aria-label="Apri Progetto">
           <span class="quadro"><picture>
             <source srcset="web/card/ampliamento-coverciano-firenze_altro-tavola_10.webp" type="image/webp">
             <img src="web/card/ampliamento-coverciano-firenze_altro-tavola_10.jpg" alt="Il render del soppalco padronale" loading="lazy">
-          </picture><span class="bn"></span><span class="riga"></span></span>
+          </picture><span class="bn"></span><span class="nome">PROGETTO</span><span class="riga"></span></span>
           <figcaption>Progetto</figcaption>
         </figure>
-        <figure class="cv-cop cv-c4" data-gal="disegni" tabindex="0" role="button" aria-label="Apri Disegni">
+        <figure class="cv-cop cv-c4" data-gal="disegni" tabindex="0" role="button" aria-label="Apri Tavole">
           <span class="quadro"><picture>
             <source srcset="web/card/ampliamento-coverciano-firenze_altro-disegno_03.webp" type="image/webp">
             <img src="web/card/ampliamento-coverciano-firenze_altro-disegno_03.jpg" alt="La struttura dei soppalchi, tavola bianca" loading="lazy">
-          </picture><span class="bn"></span><span class="riga"></span></span>
-          <figcaption>Disegni</figcaption>
+          </picture><span class="bn"></span><span class="nome">TAVOLE</span><span class="riga"></span></span>
+          <figcaption>Tavole</figcaption>
         </figure>
         <figure class="cv-cop cv-c5" data-gal="cantiere" tabindex="0" role="button" aria-label="Apri Cantiere">
           <span class="quadro"><picture>
             <source srcset="web/card/ampliamento-coverciano-firenze_altro-soppalco_12.webp" type="image/webp">
             <img src="web/card/ampliamento-coverciano-firenze_altro-soppalco_12.jpg" alt="Il piano del soppalco visto dal basso" loading="lazy">
-          </picture><span class="bn"></span><span class="riga"></span></span>
+          </picture><span class="bn"></span><span class="nome">CANTIERE</span><span class="riga"></span></span>
           <figcaption>Cantiere</figcaption>
         </figure>
         <figure class="cv-cop cv-c6" data-gal="dopo" tabindex="0" role="button" aria-label="Apri Dopo">
           <span class="quadro"><picture>
             <source srcset="web/card/ampliamento-coverciano-firenze_altro-soppalco_04.webp" type="image/webp">
             <img src="web/card/ampliamento-coverciano-firenze_altro-soppalco_04.jpg" alt="L&rsquo;anta aperta con la luce dentro" loading="lazy">
-          </picture><span class="bn"></span><span class="riga"></span></span>
+          </picture><span class="bn"></span><span class="nome">DOPO</span><span class="riga"></span></span>
           <figcaption>Dopo</figcaption>
         </figure>
       </div>
@@ -2001,51 +2005,51 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
             </picture>
             <picture class="foto disegno">
               <source srcset="web/card/ampliamento-coverciano-firenze_altro-disegno_03.webp" type="image/webp">
-              <img src="web/card/ampliamento-coverciano-firenze_altro-disegno_03.jpg" alt="Disegni - la struttura dei soppalchi" loading="lazy">
+              <img src="web/card/ampliamento-coverciano-firenze_altro-disegno_03.jpg" alt="Tavole - la struttura dei soppalchi" loading="lazy">
             </picture>
             <picture class="foto disegno">
               <source srcset="web/card/ampliamento-coverciano-firenze_altro-disegno_04.webp" type="image/webp">
-              <img src="web/card/ampliamento-coverciano-firenze_altro-disegno_04.jpg" alt="Disegni - lo spaccato della camera bambini" loading="lazy">
+              <img src="web/card/ampliamento-coverciano-firenze_altro-disegno_04.jpg" alt="Tavole - lo spaccato della camera bambini" loading="lazy">
             </picture>
             <picture class="foto disegno">
               <source srcset="web/card/ampliamento-coverciano-firenze_altro-disegno_05.webp" type="image/webp">
-              <img src="web/card/ampliamento-coverciano-firenze_altro-disegno_05.jpg" alt="Disegni - la pianta dei due soppalchi" loading="lazy">
+              <img src="web/card/ampliamento-coverciano-firenze_altro-disegno_05.jpg" alt="Tavole - la pianta dei due soppalchi" loading="lazy">
             </picture>
             <picture class="foto disegno">
               <source srcset="web/card/ampliamento-coverciano-firenze_altro-tavola_11.webp" type="image/webp">
-              <img src="web/card/ampliamento-coverciano-firenze_altro-tavola_11.jpg" alt="Disegni - moduli, dimensioni e specifiche" loading="lazy">
+              <img src="web/card/ampliamento-coverciano-firenze_altro-tavola_11.jpg" alt="Tavole - moduli, dimensioni e specifiche" loading="lazy">
             </picture>
             <picture class="foto disegno">
               <source srcset="web/card/ampliamento-coverciano-firenze_altro-tavola_12.webp" type="image/webp">
-              <img src="web/card/ampliamento-coverciano-firenze_altro-tavola_12.jpg" alt="Disegni - la scala dei bambini" loading="lazy">
+              <img src="web/card/ampliamento-coverciano-firenze_altro-tavola_12.jpg" alt="Tavole - la scala dei bambini" loading="lazy">
             </picture>
             <picture class="foto disegno">
               <source srcset="web/card/ampliamento-coverciano-firenze_altro-tavola_13.webp" type="image/webp">
-              <img src="web/card/ampliamento-coverciano-firenze_altro-tavola_13.jpg" alt="Disegni - la scala quotata" loading="lazy">
+              <img src="web/card/ampliamento-coverciano-firenze_altro-tavola_13.jpg" alt="Tavole - la scala quotata" loading="lazy">
             </picture>
             <picture class="foto disegno">
               <source srcset="web/card/ampliamento-coverciano-firenze_altro-tavola_14.webp" type="image/webp">
-              <img src="web/card/ampliamento-coverciano-firenze_altro-tavola_14.jpg" alt="Disegni - la balaustra" loading="lazy">
+              <img src="web/card/ampliamento-coverciano-firenze_altro-tavola_14.jpg" alt="Tavole - la balaustra" loading="lazy">
             </picture>
             <picture class="foto disegno">
               <source srcset="web/card/ampliamento-coverciano-firenze_altro-tavola_15.webp" type="image/webp">
-              <img src="web/card/ampliamento-coverciano-firenze_altro-tavola_15.jpg" alt="Disegni - assonometria del padronale" loading="lazy">
+              <img src="web/card/ampliamento-coverciano-firenze_altro-tavola_15.jpg" alt="Tavole - assonometria del padronale" loading="lazy">
             </picture>
             <picture class="foto disegno">
               <source srcset="web/card/ampliamento-coverciano-firenze_altro-tavola_16.webp" type="image/webp">
-              <img src="web/card/ampliamento-coverciano-firenze_altro-tavola_16.jpg" alt="Disegni - viste struttura e scala" loading="lazy">
+              <img src="web/card/ampliamento-coverciano-firenze_altro-tavola_16.jpg" alt="Tavole - viste struttura e scala" loading="lazy">
             </picture>
             <picture class="foto disegno">
               <source srcset="web/card/ampliamento-coverciano-firenze_altro-tavola_17.webp" type="image/webp">
-              <img src="web/card/ampliamento-coverciano-firenze_altro-tavola_17.jpg" alt="Disegni - dimensioni del padronale" loading="lazy">
+              <img src="web/card/ampliamento-coverciano-firenze_altro-tavola_17.jpg" alt="Tavole - dimensioni del padronale" loading="lazy">
             </picture>
             <picture class="foto disegno">
               <source srcset="web/card/ampliamento-coverciano-firenze_altro-tavola_18.webp" type="image/webp">
-              <img src="web/card/ampliamento-coverciano-firenze_altro-tavola_18.jpg" alt="Disegni - la scala piegata da 6 mm" loading="lazy">
+              <img src="web/card/ampliamento-coverciano-firenze_altro-tavola_18.jpg" alt="Tavole - la scala piegata da 6 mm" loading="lazy">
             </picture>
             <picture class="foto disegno">
               <source srcset="web/card/ampliamento-coverciano-firenze_altro-disegno_01.webp" type="image/webp">
-              <img src="web/card/ampliamento-coverciano-firenze_altro-disegno_01.jpg" alt="Disegni - esecutivo scala, un colore per pezzo" loading="lazy">
+              <img src="web/card/ampliamento-coverciano-firenze_altro-disegno_01.jpg" alt="Tavole - esecutivo scala, un colore per pezzo" loading="lazy">
             </picture>
             <picture class="foto larga">
               <source srcset="web/card/ampliamento-coverciano-firenze_altro-officina_01.webp" type="image/webp">
@@ -2223,9 +2227,9 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
     </div>
   </div>
 </div>
-<div class="cv-gal" id="cv-gal-disegni" role="dialog" aria-label="Disegni">
+<div class="cv-gal" id="cv-gal-disegni" role="dialog" aria-label="Tavole">
   <div class="cv-gal-interno">
-    <div class="cv-gal-testa"><h3>Disegni</h3><button class="chiudi-gal" type="button">&larr; chiudi</button></div>
+    <div class="cv-gal-testa"><h3>Tavole</h3><button class="chiudi-gal" type="button">&larr; chiudi</button></div>
     <div class="griglia-foto">
             <picture class="foto disegno">
               <source srcset="web/card/ampliamento-coverciano-firenze_altro-disegno_03.webp" type="image/webp">
@@ -2569,14 +2573,13 @@ schedaCoverciano.querySelectorAll('.cv-cop').forEach(f=>{
   f.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();apriGalCv(f.dataset.gal);}});
   const q=f.querySelector('.quadro');
   const im=q.querySelector('img'), bn=q.querySelector('.bn');
-  const setBg=()=>{bn.style.backgroundImage='url("'+(im.currentSrc||im.src)+'")';};
-  if(im.complete)setBg(); im.addEventListener('load',setBg);
-  f.addEventListener('mousemove',e=>{
-    const r=q.getBoundingClientRect();
-    const x=Math.max(0,Math.min(100,(e.clientX-r.left)/r.width*100));
-    f.style.setProperty('--x',x.toFixed(1)+'%');
-  });
-  f.addEventListener('mouseleave',()=>{f.style.setProperty('--x','0%');});
+  const mettiClone=()=>{
+    if(bn.querySelector('img'))return;
+    const c=document.createElement('img');
+    c.src=im.currentSrc||im.src; c.alt=''; c.setAttribute('aria-hidden','true');
+    bn.appendChild(c);
+  };
+  if(im.complete)mettiClone(); im.addEventListener('load',mettiClone,{once:true});
 });
 schedaCoverciano.querySelectorAll('.prog-fasi-nav a[data-gal]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();apriGalCv(a.dataset.gal);}));
 const btnTutto=schedaCoverciano.querySelector('.cv-tutto');if(btnTutto)btnTutto.addEventListener('click',()=>apriGalCv('tutto'));
