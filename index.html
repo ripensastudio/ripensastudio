@@ -188,14 +188,14 @@ section.prog-gruppo{min-height:0;padding:0;margin:0;display:block;justify-conten
 /* --- Coverciano: muro di copertine alla Lissoni --- */
 .cv-muro{display:grid;grid-template-columns:repeat(12,1fr);gap:5vw 3vw;align-items:start;margin-top:64px}
 .cv-cop{margin:0;cursor:pointer;position:relative}
-.cv-cop .quadro{position:relative;overflow:hidden}
+.cv-cop .quadro{position:relative;overflow:hidden;display:block}
 .cv-cop img{width:100%;height:auto;display:block}
-.cv-cop .bn{position:absolute;inset:0;overflow:hidden;transform:translateX(-101%);transition:transform .8s cubic-bezier(.65,.05,.3,1);border-right:2px solid rgba(255,255,255,.9);pointer-events:none}
-.cv-cop .bn img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.04);transform:translateX(101%);transition:transform .8s cubic-bezier(.65,.05,.3,1)}
-.cv-cop:hover .bn,.cv-cop:focus-visible .bn{transform:translateX(0)}
-.cv-cop:hover .bn img,.cv-cop:focus-visible .bn img{transform:translateX(0)}
-.cv-cop .nome{position:absolute;left:6%;right:6%;top:50%;transform:translateY(-50%);text-align:center;font-size:clamp(16px,1.8vw,26px);letter-spacing:.42em;text-transform:uppercase;color:#fff;mix-blend-mode:difference;opacity:0;transition:opacity .45s ease .3s;pointer-events:none;z-index:2}
-.cv-cop:hover .nome,.cv-cop:focus-visible .nome{opacity:1}
+.cv-cop .bn{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;-webkit-transform:translateX(-101%);transform:translateX(-101%);-webkit-transition:-webkit-transform .45s cubic-bezier(.65,.05,.3,1);transition:transform .45s cubic-bezier(.65,.05,.3,1);border-right:2px solid rgba(255,255,255,.9);pointer-events:none}
+.cv-cop .bn img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;-webkit-filter:grayscale(1) contrast(1.04);filter:grayscale(1) contrast(1.04);-webkit-transform:translateX(101%);transform:translateX(101%);-webkit-transition:-webkit-transform .45s cubic-bezier(.65,.05,.3,1);transition:transform .45s cubic-bezier(.65,.05,.3,1)}
+.cv-cop:hover .bn{-webkit-transform:translateX(0);transform:translateX(0)}
+.cv-cop:hover .bn img{-webkit-transform:translateX(0);transform:translateX(0)}
+.cv-cop .nome{position:absolute;left:6%;right:6%;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);text-align:center;font-size:clamp(16px,1.8vw,26px);letter-spacing:.42em;text-transform:uppercase;color:#fff;mix-blend-mode:difference;opacity:0;transition:opacity .35s ease .18s;pointer-events:none;z-index:2}
+.cv-cop:hover .nome{opacity:1}
 .cv-cop .riga{display:none}
 .cv-cop figcaption{font-size:11px;letter-spacing:.34em;text-transform:uppercase;opacity:.62;padding-top:12px}
 .cv-c1{grid-column:1/7}
