@@ -2,7 +2,6 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RIPENSA STUDIO — Sesto Fiorentino</title>
 <meta name="description" content="Ripensa Studio: ristrutturazioni chiavi in mano, restyling, arredi e interior design a Sesto Fiorentino.">
@@ -204,6 +203,34 @@ section.prog-gruppo{min-height:0;padding:0;margin:0;display:block;justify-conten
 .cv-c4{grid-column:1/13;margin-top:10%}
 .cv-c5{grid-column:1/6;margin-top:6%}
 .cv-c6{grid-column:7/13;margin-top:14%}
+/* muro di Sesto: due meta', poi il Progetto a tutta pagina, poi altre due meta'.
+   La quarta riga sara' il Dopo, quando ci saranno le foto. */
+.sf-c1{grid-column:1/7}
+.sf-c2{grid-column:7/13}
+.sf-c3{grid-column:1/13}
+.sf-c4{grid-column:1/7}
+.sf-c5{grid-column:7/13}
+#scheda-sesto .cv-muro{gap:3.4vw 2.2vw;margin-top:56px}
+/* Sesto Fiorentino: immagini grandi — ogni foto e' meta' della larghezza utile.
+   Deroga voluta da Gabriele il 23/8/2026 alla colonna foto da 780px: vale SOLO
+   per questa scheda, le altre restano come sono. La colonna sinistra libera per
+   il metro (200px) e' invariata. */
+#scheda-sesto .interno{grid-template-columns:230px minmax(0,1fr);max-width:1760px}
+#scheda-sesto .cv-gal-interno{max-width:1760px}
+#scheda-sesto .cv-gal .griglia-foto{gap:6vh 2.4vw}
+/* una foto a tutta riga non deve diventare una torre: se e' verticale la si
+   contiene in altezza e la si centra, senza mai tagliarla */
+#scheda-sesto .cv-gal .foto.intera img,#scheda-sesto .cv-gal .foto.disegno img{
+  max-height:86vh;width:auto;max-width:100%;margin:0 auto;display:block}
+@media (max-width:900px){
+  #scheda-sesto .interno{max-width:none}
+  #scheda-sesto .cv-gal-interno{max-width:none}
+}
+#scheda-sesto .sf-cop-top{grid-column:1/-1;margin:0}
+#scheda-sesto .sf-cop-top img{width:100%;height:auto;display:block}
+#scheda-sesto .sf-cop-top figcaption{padding-top:12px}
+#scheda-sesto .sf-tutto{background:none;border:0;font:inherit;font-size:11px;letter-spacing:.34em;text-transform:uppercase;opacity:.62;cursor:pointer;padding:0}
+#scheda-sesto .sf-tutto:hover{opacity:1}
 /* --- gallerie dei gruppi --- */
 .cv-gal{position:fixed;inset:0;background:#fff;z-index:90;opacity:0;visibility:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch}
 .cv-gal.aperta{opacity:1;visibility:visible;transition:opacity .4s ease}
@@ -294,11 +321,64 @@ section.prog-gruppo{min-height:0;padding:0;margin:0;display:block;justify-conten
 #pagina-graphic .g7{grid-column:9/13;margin-top:2%}
 #pagina-graphic .g8{grid-column:2/7;margin-top:10%}
 #pagina-graphic .g9{grid-column:8/12;margin-top:26%}
+/* tessera a piena larghezza che apre una collezione: la fila dei figurini */
+#pagina-graphic .g-fila{grid-column:1/13;margin-top:12%}
+#pagina-graphic .graf-apre{display:block;width:100%;background:none;border:0;padding:0;cursor:pointer;font:inherit;color:inherit;text-align:left}
+#pagina-graphic .graf-apre img{transition:opacity .35s ease}
+#pagina-graphic .graf-apre:hover img{opacity:.82}
+#pagina-graphic .graf-didascalia{
+  display:flex;gap:18px;align-items:baseline;flex-wrap:wrap;
+  margin-top:14px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;opacity:.6;
+}
+#pagina-graphic .graf-apre:hover .graf-didascalia{opacity:1}
+#pagina-graphic .graf-didascalia .entra{opacity:.75}
 @media (max-width:900px){
   #pagina-graphic .graf-pagina{padding:56px 5vw 90px}
   #pagina-graphic .graf-muro{grid-template-columns:1fr 1fr;gap:9vw 4vw;margin-top:40px}
   #pagina-graphic .graf{grid-column:auto !important;margin-top:0 !important}
   #pagina-graphic .graf:nth-child(even){margin-top:14vw !important}
+  #pagina-graphic .g-fila{grid-column:1/-1 !important}
+}
+
+/* ---------- clown collection 2014: scheda dentro graphic ----------
+   Minimal voluto da Gabriele (5/9): l'immagine si guarda, non si spiega.
+   Tutto ciò che è descrittivo sta in fondo. ---------- */
+#pagina-clown{z-index:60}
+#pagina-clown .clown-pagina{max-width:1680px;margin:0 auto;padding:34px 4vw 170px max(4vw,200px)}
+#pagina-clown .chiudi{
+  background:none;border:none;cursor:pointer;font-family:inherit;color:inherit;
+  font-size:10px;letter-spacing:.32em;text-transform:uppercase;opacity:.45;padding:0;
+  display:block;text-align:left;
+}
+#pagina-clown .chiudi:hover{opacity:1}
+
+/* la fila dei figurini: aria sopra e aria sotto, nient'altro */
+#pagina-clown .clown-fila{margin:clamp(70px,11vh,150px) 0 clamp(100px,16vh,210px)}
+#pagina-clown .clown-scorri img{height:44vh;width:auto;max-width:100%;display:block;margin:0 auto}
+
+/* le fotografie, subito sotto, senza titolo e senza testo accanto */
+#pagina-clown .clown-griglia{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(34px,5vw,72px)}
+#pagina-clown .clown-griglia figure{margin:0}
+#pagina-clown .clown-griglia img{width:100%;height:auto;display:block;cursor:zoom-in}
+
+/* la coda: didascalie, credits e dichiarazione AI. In fondo, piccole, in disparte */
+#pagina-clown .clown-coda{
+  margin-top:clamp(90px,14vh,180px);padding-top:26px;border-top:1px solid var(--velo);
+  max-width:64ch;font-size:10.5px;letter-spacing:.06em;line-height:1.85;opacity:.5;
+}
+#pagina-clown .clown-coda p{margin:0 0 12px}
+#pagina-clown .clown-coda p:last-child{margin-bottom:0}
+
+@media (max-width:900px){
+  #pagina-clown .clown-pagina{padding:26px 0 110px}
+  #pagina-clown .chiudi{margin:0 5vw}
+  /* sul telefono la fila NON si rimpicciolisce: diventa una banda che si scorre col dito,
+     altrimenti a 375px i diciassette capi non si leggono piu' */
+  #pagina-clown .clown-fila{margin:44px 0 60px}
+  #pagina-clown .clown-scorri{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch}
+  #pagina-clown .clown-scorri img{height:56vh;max-width:none}
+  #pagina-clown .clown-griglia{grid-template-columns:1fr 1fr;gap:14px;padding:0 5vw}
+  #pagina-clown .clown-coda{margin:70px 5vw 0}
 }
 
 /* ---------- collezioni: righe, non card ---------- */
@@ -746,6 +826,12 @@ nav.lato,.lato-fondo{display:none}
 }
 #invito .sotto{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:8px}
 #invito a:hover .sotto{color:var(--pall,#191816);text-decoration-color:var(--pall,#191816)}
+/* 31/8/2026 — meno aria fra il gioco e "Live our projects" (richiesta di Gabriele).
+   Il gioco non e' toccato: si accorcia solo la coda sotto di lui e la testa di #invito.
+   min-height resta sopra 50vh di proposito: lo scrollspy sceglie la sezione che copre
+   la meta' dello schermo, e una sezione piu' bassa gli farebbe saltare la palette. */
+#gioca{padding-bottom:64px}
+#invito{min-height:70vh;padding-top:24px;padding-bottom:96px}
 /* ---------- footer nero ---------- */
 footer.fondo-nero{
   background:#191816;color:#EDEAE3;margin-left:0;
@@ -1028,6 +1114,16 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
       </picture>
       <h3>Ampliamento verticale &mdash; Coverciano</h3>
       <p class="meta">Ampliamento in verticale — Firenze, 2026</p>
+    </article>
+    <article class="progetto reveal" data-cat="ristrutturazione" data-apri="sesto">
+      <picture class="foto">
+        <source srcset="web/card/restyle-sesto-fiorentino_altro-render_04.webp" type="image/webp">
+        <img src="web/card/restyle-sesto-fiorentino_altro-render_04.jpg"
+             alt="Restyle Sesto Fiorentino &mdash; la camera con la nicchia ad arco"
+             loading="lazy" style="object-position:50% 50%">
+      </picture>
+      <h3>Restyle &mdash; Sesto Fiorentino</h3>
+      <p class="meta">Restyling completo — Sesto Fiorentino, 2026</p>
     </article>
     <article class="progetto reveal" data-cat="residenziale">
       <div class="ph" data-label="05"></div>
@@ -1368,9 +1464,10 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
       <h2>Ripensiamo il tuo spazio.</h2>
       <p class="testo" style="opacity:.7">Il primo sopralluogo conoscitivo è senza impegno.</p>
       <ul class="recapiti">
-        <li><span class="k">Studio</span><span>Via della Manifattura 00 — 50019 Sesto Fiorentino (FI)</span></li>
-        <li><span class="k">Telefono</span><span>+39 055 000 0000</span></li>
-        <li><span class="k">Email</span><span>info@ripensastudio.it</span></li>
+        <li><span class="k">Studio</span><span>Via P. Biondi 59 — 50019 Sesto Fiorentino (FI)</span></li>
+        <li><span class="k">Referente</span><span>Gabriele Lumini</span></li>
+        <li><span class="k">Telefono</span><span><a href="tel:+393935624018">+39 393 562 4018</a></span></li>
+        <li><span class="k">Email</span><span><a href="mailto:ripensastudio@gmail.com">ripensastudio@gmail.com</a></span></li>
         <li><span class="k">Orari</span><span>Lun–Ven, 9:00–13:00 / 14:30–18:30</span></li>
       </ul>
       <a class="qr-min" href="https://www.instagram.com/ripensa_studio/" target="_blank" rel="noopener">
@@ -2397,6 +2494,455 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
 </div>
 </div>
 
+
+<div class="prog-scheda" id="scheda-sesto" role="dialog" aria-label="Scheda progetto Restyle Sesto Fiorentino">
+  <div class="interno">
+    <aside class="prog-lato">
+      <button class="chiudi" type="button">&larr; Torna ai progetti</button>
+      <h2>Restyle &mdash; Sesto Fiorentino</h2>
+      <p class="meta">Restyling completo<br>Sesto Fiorentino (FI)<br>2026<br>Collezione Restyling completo</p>
+      <nav class="prog-fasi-nav" aria-label="Gruppi del progetto">
+        <a href="#" data-gal="sf-prima">Prima</a>
+        <a href="#" data-gal="sf-antiquariato">Complementi d&rsquo;antiquariato</a>
+        <a href="#" data-gal="sf-progetto">Progetto</a>
+        <a href="#" data-gal="sf-materiali">Materiali</a>
+        <a href="#" data-gal="sf-cantiere">Cantiere</a>
+      </nav>
+      <p class="intro">Da una perdita nascosta dentro un muro &egrave; nato il restyling di tutta la casa. Tre parole tenute fino in fondo &mdash; operaia, vintage, materiali veri dentro una cifra decisa prima &mdash; una base avorio, e il colore lasciato alle superfici.</p>
+      <div class="prog-materiali">
+        <h4>Materiali &amp; arredi</h4>
+        <p>Cucina IKEA customizzata dallo studio, piano in acciaio inox su misura. Porte esistenti a riquadri ripulite e riportate a nero satinato.<br>
+        <a href="https://www.fioranese.it/pavimenti-e-rivestimenti/cementine_cocci/" target="_blank" rel="noopener">Fioranese &mdash; Cementine Cocci</a><br>
+        <a href="https://www.fioranese.it/pavimenti-e-rivestimenti/petite/" target="_blank" rel="noopener">Fioranese &mdash; Petite</a><br>
+        <a href="https://quadrodesign.it/it/prodotto/inox-409/" target="_blank" rel="noopener">Quadrodesign &mdash; Inox 409</a><br>
+        <a href="https://barazzasrl.it/prodotto/piano-cottura-b_free-incasso-da-36-3/" target="_blank" rel="noopener">Barazza &mdash; piano cottura B_Free 36</a><br>
+        <a href="https://barazzasrl.it/prodotto/vasca-quadra-r-15-da-50x40-2/" target="_blank" rel="noopener">Barazza &mdash; Vasca Quadra R.15 50x40</a><br>
+        <a href="https://www.midj.com/it/product/brioso-160x90/01tSW00000EkTyDYAV" target="_blank" rel="noopener">Midj &mdash; Brioso</a><br>
+        <a href="https://www.midj.com/it/product/mito-s-m-lg/01tSW00000BY44wYAD" target="_blank" rel="noopener">Midj &mdash; Mito</a><br>
+        <a href="https://www.novamobili.it/it/armadio-perry" target="_blank" rel="noopener">Novamobili &mdash; Perry</a></p>
+      </div>
+    </aside>
+    <div class="prog-flusso">
+      <figure class="sf-cop-top">
+        <picture>
+          <source srcset="web/grandi/restyle-sesto-fiorentino_altro-render_04.webp" type="image/webp">
+          <img src="web/grandi/restyle-sesto-fiorentino_altro-render_04.jpg" alt="La camera con la nicchia ad arco, sui toni avorio scelti per tutta la casa" loading="lazy">
+        </picture>
+        <figcaption><button class="sf-tutto" type="button">Tutto il progetto &darr;</button></figcaption>
+      </figure>
+      <div class="cv-muro">
+        <figure class="cv-cop sf-c1" data-gal="sf-prima" tabindex="0" role="button" aria-label="Apri Prima">
+          <span class="quadro"><picture>
+            <source srcset="web/grandi/restyle-sesto-fiorentino_cucina_01.webp" type="image/webp">
+            <img src="web/grandi/restyle-sesto-fiorentino_cucina_01.jpg" alt="La cucina rossa prima dei lavori" loading="lazy">
+          </picture><span class="bn"></span><span class="nome">PRIMA</span><span class="riga"></span></span>
+          <figcaption>Prima</figcaption>
+        </figure>
+        <figure class="cv-cop sf-c2" data-gal="sf-antiquariato" tabindex="0" role="button" aria-label="Apri Complementi d&rsquo;antiquariato">
+          <span class="quadro"><picture>
+            <source srcset="web/grandi/restyle-sesto-fiorentino_altro-antiquariato_01.webp" type="image/webp">
+            <img src="web/grandi/restyle-sesto-fiorentino_altro-antiquariato_01.jpg" alt="La vetrina in legno ebanizzato del progetto" loading="lazy">
+          </picture><span class="bn"></span><span class="nome">ANTIQUARIATO</span><span class="riga"></span></span>
+          <figcaption>Complementi d&rsquo;antiquariato</figcaption>
+        </figure>
+        <figure class="cv-cop sf-c3" data-gal="sf-progetto" tabindex="0" role="button" aria-label="Apri Progetto">
+          <span class="quadro"><picture>
+            <source srcset="web/grandi/restyle-sesto-fiorentino_altro-disegno_02.webp" type="image/webp">
+            <img src="web/grandi/restyle-sesto-fiorentino_altro-disegno_02.jpg" alt="L&rsquo;assonometria della zona giorno" loading="lazy">
+          </picture><span class="bn"></span><span class="nome">PROGETTO</span><span class="riga"></span></span>
+          <figcaption>Progetto</figcaption>
+        </figure>
+        <figure class="cv-cop sf-c4" data-gal="sf-materiali" tabindex="0" role="button" aria-label="Apri Materiali">
+          <span class="quadro"><picture>
+            <source srcset="web/grandi/restyle-sesto-fiorentino_altro-materiali_02.webp" type="image/webp">
+            <img src="web/grandi/restyle-sesto-fiorentino_altro-materiali_02.jpg" alt="I campioni delle Cementine Cocci" loading="lazy">
+          </picture><span class="bn"></span><span class="nome">MATERIALI</span><span class="riga"></span></span>
+          <figcaption>Materiali</figcaption>
+        </figure>
+        <figure class="cv-cop sf-c5" data-gal="sf-cantiere" tabindex="0" role="button" aria-label="Apri Cantiere">
+          <span class="quadro"><picture>
+            <source srcset="web/grandi/restyle-sesto-fiorentino_altro-cantiere_01.webp" type="image/webp">
+            <img src="web/grandi/restyle-sesto-fiorentino_altro-cantiere_01.jpg" alt="Il tracciamento a laser in cantiere" loading="lazy">
+          </picture><span class="bn"></span><span class="nome">CANTIERE</span><span class="riga"></span></span>
+          <figcaption>Cantiere</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+<div class="cv-gal" id="cv-gal-sf-tutto" role="dialog" aria-label="Tutto il progetto">
+  <div class="cv-gal-interno">
+    <div class="cv-gal-testa"><h3>Tutto il progetto</h3><button class="chiudi-gal" type="button">&larr; chiudi</button></div>
+    <div class="griglia-foto">
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_cucina_01.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_cucina_01.jpg" alt="Prima &mdash; la cucina rossa e il pavimento in cotto" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_cucina_02.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_cucina_02.jpg" alt="Prima &mdash; la zona pranzo verso la cucina" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_living_01.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_living_01.jpg" alt="Prima &mdash; il soggiorno con il divano esistente" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_living_02.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_living_02.jpg" alt="Prima &mdash; il soggiorno verso la finestra" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_ingresso_01.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_ingresso_01.jpg" alt="Prima &mdash; il disimpegno con le porte in legno chiaro" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_ingresso_02.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_ingresso_02.jpg" alt="Prima &mdash; la macchia sull&rsquo;intonaco: il tubo rotto dentro il muro" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_camera_02.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_camera_02.jpg" alt="Prima &mdash; la camera con l&rsquo;armadiatura bianca" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_bagno_01.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_bagno_01.jpg" alt="Prima &mdash; il bagno con il rivestimento verde" loading="lazy">
+            </picture>
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyle-sesto-fiorentino_altro-antiquariato_01.webp" type="image/webp">
+              <img src="web/grandi/restyle-sesto-fiorentino_altro-antiquariato_01.jpg" alt="La vetrina in legno ebanizzato scelta come portaporcellane in cucina" loading="lazy">
+            </picture>
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyle-sesto-fiorentino_altro-antiquariato_02.webp" type="image/webp">
+              <img src="web/grandi/restyle-sesto-fiorentino_altro-antiquariato_02.jpg" alt="L&rsquo;armadio razionalista mid-century, preso com&rsquo;era: nessuna finitura da scegliere" loading="lazy">
+            </picture>
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyle-sesto-fiorentino_altro-antiquariato_03.webp" type="image/webp">
+              <img src="web/grandi/restyle-sesto-fiorentino_altro-antiquariato_03.jpg" alt="Lo stipo in acciaio laccato burro, pezzo unico d&rsquo;epoca" loading="lazy">
+            </picture>
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyle-sesto-fiorentino_altro-render_01.webp" type="image/webp">
+              <img src="web/grandi/restyle-sesto-fiorentino_altro-render_01.jpg" alt="Prima ipotesi, poi scartata &mdash; il soggiorno con la fascia di colore a met&agrave; altezza" loading="lazy">
+            </picture>
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyle-sesto-fiorentino_altro-render_02.webp" type="image/webp">
+              <img src="web/grandi/restyle-sesto-fiorentino_altro-render_02.jpg" alt="Prima ipotesi, poi scartata &mdash; dal disimpegno verso soggiorno e pranzo" loading="lazy">
+            </picture>
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyle-sesto-fiorentino_altro-render_03.webp" type="image/webp">
+              <img src="web/grandi/restyle-sesto-fiorentino_altro-render_03.jpg" alt="Prima ipotesi, poi scartata &mdash; la stessa vista di sera" loading="lazy">
+            </picture>
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyle-sesto-fiorentino_altro-render_04.webp" type="image/webp">
+              <img src="web/grandi/restyle-sesto-fiorentino_altro-render_04.jpg" alt="Progetto &mdash; la camera con la nicchia ad arco, sui toni avorio scelti" loading="lazy">
+            </picture>
+            <picture class="foto disegno">
+              <source srcset="web/grandi/restyle-sesto-fiorentino_altro-disegno_02.webp" type="image/webp">
+              <img src="web/grandi/restyle-sesto-fiorentino_altro-disegno_02.jpg" alt="L&rsquo;assonometria della zona giorno" loading="lazy">
+            </picture>
+            <picture class="foto disegno">
+              <source srcset="web/grandi/restyle-sesto-fiorentino_altro-disegno_01.webp" type="image/webp">
+              <img src="web/grandi/restyle-sesto-fiorentino_altro-disegno_01.jpg" alt="La pianta del modello tridimensionale" loading="lazy">
+            </picture>
+            <picture class="foto disegno">
+              <source srcset="web/grandi/restyle-sesto-fiorentino_altro-disegno_03.webp" type="image/webp">
+              <img src="web/grandi/restyle-sesto-fiorentino_altro-disegno_03.jpg" alt="La modellazione degli arredi e la verifica delle quote" loading="lazy">
+            </picture>
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyle-sesto-fiorentino_altro-materiali_03.webp" type="image/webp">
+              <img src="web/grandi/restyle-sesto-fiorentino_altro-materiali_03.jpg" alt="La scheda delle Cementine Cocci con i tessuti, la moquette e il legno a confronto" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_altro-materiali_02.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_altro-materiali_02.jpg" alt="I campioni delle Cementine Cocci: ocra, senape e nero" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_altro-materiali_04.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_altro-materiali_04.jpg" alt="Le prove di colore stese a muro" loading="lazy">
+            </picture>
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyle-sesto-fiorentino_altro-materiali_01.webp" type="image/webp">
+              <img src="web/grandi/restyle-sesto-fiorentino_altro-materiali_01.jpg" alt="Il campione di parquet in rovere miele" loading="lazy">
+            </picture>
+            <picture class="foto">
+              <source srcset="web/card/restyle-sesto-fiorentino_altro-materiali_05.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_altro-materiali_05.jpg" alt="Il miscelatore Inox 409: comando remoto e canna girevole in acciaio inossidabile" loading="lazy">
+            </picture>
+            <picture class="foto">
+              <source srcset="web/card/restyle-sesto-fiorentino_altro-materiali_06.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_altro-materiali_06.jpg" alt="Il piano cottura Barazza B_Free da 36: un semirapido e una doppia corona Chef, griglia in ghisa" loading="lazy">
+            </picture>
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyle-sesto-fiorentino_altro-cantiere_01.webp" type="image/webp">
+              <img src="web/grandi/restyle-sesto-fiorentino_altro-cantiere_01.jpg" alt="Il tracciamento a laser delle nuove quote" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_living_03.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_living_03.jpg" alt="La veletta in lastre di cartongesso, in costruzione" loading="lazy">
+            </picture>
+            <div class="foto alto">
+              <video poster="web/video/restyle-sesto-fiorentino_video_06_poster.jpg" muted loop playsinline preload="none" disablepictureinpicture aria-label="La veletta con l&rsquo;illuminazione a incasso, video">
+                <source src="web/video/restyle-sesto-fiorentino_video_06.mp4" type="video/mp4">
+              </video>
+            </div>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_altro-cantiere_02.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_altro-cantiere_02.jpg" alt="Il muro rifatto sopra il terrazzo alla veneziana" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_cucina_03.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_cucina_03.jpg" alt="Lo smontaggio della cucina e del rivestimento senape" loading="lazy">
+            </picture>
+            <div class="foto alto">
+              <video poster="web/video/restyle-sesto-fiorentino_video_05_poster.jpg" muted loop playsinline preload="none" disablepictureinpicture aria-label="Le basi della cucina smontate, video">
+                <source src="web/video/restyle-sesto-fiorentino_video_05.mp4" type="video/mp4">
+              </video>
+            </div>
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyle-sesto-fiorentino_cucina_05.webp" type="image/webp">
+              <img src="web/grandi/restyle-sesto-fiorentino_cucina_05.jpg" alt="Il piano e le basi in attesa di smontaggio" loading="lazy">
+            </picture>
+            <div class="foto alto">
+              <video poster="web/video/restyle-sesto-fiorentino_video_07_poster.jpg" muted loop playsinline preload="none" disablepictureinpicture aria-label="Il piano in acciaio inox montato sul terrazzo alla veneziana, video">
+                <source src="web/video/restyle-sesto-fiorentino_video_07.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="foto alto">
+              <video poster="web/video/restyle-sesto-fiorentino_video_03_poster.jpg" muted loop playsinline preload="none" disablepictureinpicture aria-label="La demolizione del rivestimento del bagno, video">
+                <source src="web/video/restyle-sesto-fiorentino_video_03.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="foto alto">
+              <video poster="web/video/restyle-sesto-fiorentino_video_04_poster.jpg" muted loop playsinline preload="none" disablepictureinpicture aria-label="La rimozione dei pavimenti del bagno, video">
+                <source src="web/video/restyle-sesto-fiorentino_video_04.mp4" type="video/mp4">
+              </video>
+            </div>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_bagno_02.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_bagno_02.jpg" alt="La posa del rivestimento verde nella doccia" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_altro-porte_01.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_altro-porte_01.jpg" alt="La porta antica sverniciata in falegnameria" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_altro-porte_02.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_altro-porte_02.jpg" alt="La porta a vetri riverniciata, mascheratura in corso" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_altro-porte_03.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_altro-porte_03.jpg" alt="I riquadri della porta a vetri riverniciata" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_ingresso_03.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_ingresso_03.jpg" alt="Lo stipite riportato a nero satinato" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_ingresso_04.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_ingresso_04.jpg" alt="La porta a vetri rimontata, il vano ancora in lastre di cartongesso" loading="lazy">
+            </picture>
+    </div>
+  </div>
+</div>
+<div class="cv-gal" id="cv-gal-sf-prima" role="dialog" aria-label="Prima">
+  <div class="cv-gal-interno">
+    <div class="cv-gal-testa"><h3>Prima</h3><button class="chiudi-gal" type="button">&larr; chiudi</button></div>
+    <div class="griglia-foto">
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_cucina_01.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_cucina_01.jpg" alt="Prima &mdash; la cucina rossa e il pavimento in cotto" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_cucina_02.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_cucina_02.jpg" alt="Prima &mdash; la zona pranzo verso la cucina" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_living_01.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_living_01.jpg" alt="Prima &mdash; il soggiorno con il divano esistente" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_living_02.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_living_02.jpg" alt="Prima &mdash; il soggiorno verso la finestra" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_ingresso_01.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_ingresso_01.jpg" alt="Prima &mdash; il disimpegno con le porte in legno chiaro" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_ingresso_02.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_ingresso_02.jpg" alt="Prima &mdash; la macchia sull&rsquo;intonaco: il tubo rotto dentro il muro" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_camera_02.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_camera_02.jpg" alt="Prima &mdash; la camera con l&rsquo;armadiatura bianca" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_bagno_01.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_bagno_01.jpg" alt="Prima &mdash; il bagno con il rivestimento verde" loading="lazy">
+            </picture>
+    </div>
+  </div>
+</div>
+<div class="cv-gal" id="cv-gal-sf-antiquariato" role="dialog" aria-label="Complementi d&rsquo;antiquariato">
+  <div class="cv-gal-interno">
+    <div class="cv-gal-testa"><h3>Complementi d&rsquo;antiquariato</h3><button class="chiudi-gal" type="button">&larr; chiudi</button></div>
+    <div class="griglia-foto">
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyle-sesto-fiorentino_altro-antiquariato_01.webp" type="image/webp">
+              <img src="web/grandi/restyle-sesto-fiorentino_altro-antiquariato_01.jpg" alt="La vetrina in legno ebanizzato scelta come portaporcellane in cucina" loading="lazy">
+            </picture>
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyle-sesto-fiorentino_altro-antiquariato_02.webp" type="image/webp">
+              <img src="web/grandi/restyle-sesto-fiorentino_altro-antiquariato_02.jpg" alt="L&rsquo;armadio razionalista mid-century, preso com&rsquo;era: nessuna finitura da scegliere" loading="lazy">
+            </picture>
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyle-sesto-fiorentino_altro-antiquariato_03.webp" type="image/webp">
+              <img src="web/grandi/restyle-sesto-fiorentino_altro-antiquariato_03.jpg" alt="Lo stipo in acciaio laccato burro, pezzo unico d&rsquo;epoca" loading="lazy">
+            </picture>
+    </div>
+  </div>
+</div>
+<div class="cv-gal" id="cv-gal-sf-progetto" role="dialog" aria-label="Progetto">
+  <div class="cv-gal-interno">
+    <div class="cv-gal-testa"><h3>Progetto</h3><button class="chiudi-gal" type="button">&larr; chiudi</button></div>
+    <div class="griglia-foto">
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyle-sesto-fiorentino_altro-render_01.webp" type="image/webp">
+              <img src="web/grandi/restyle-sesto-fiorentino_altro-render_01.jpg" alt="Prima ipotesi, poi scartata &mdash; il soggiorno con la fascia di colore a met&agrave; altezza" loading="lazy">
+            </picture>
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyle-sesto-fiorentino_altro-render_02.webp" type="image/webp">
+              <img src="web/grandi/restyle-sesto-fiorentino_altro-render_02.jpg" alt="Prima ipotesi, poi scartata &mdash; dal disimpegno verso soggiorno e pranzo" loading="lazy">
+            </picture>
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyle-sesto-fiorentino_altro-render_03.webp" type="image/webp">
+              <img src="web/grandi/restyle-sesto-fiorentino_altro-render_03.jpg" alt="Prima ipotesi, poi scartata &mdash; la stessa vista di sera" loading="lazy">
+            </picture>
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyle-sesto-fiorentino_altro-render_04.webp" type="image/webp">
+              <img src="web/grandi/restyle-sesto-fiorentino_altro-render_04.jpg" alt="Progetto &mdash; la camera con la nicchia ad arco, sui toni avorio scelti" loading="lazy">
+            </picture>
+            <picture class="foto disegno">
+              <source srcset="web/grandi/restyle-sesto-fiorentino_altro-disegno_02.webp" type="image/webp">
+              <img src="web/grandi/restyle-sesto-fiorentino_altro-disegno_02.jpg" alt="L&rsquo;assonometria della zona giorno" loading="lazy">
+            </picture>
+            <picture class="foto disegno">
+              <source srcset="web/grandi/restyle-sesto-fiorentino_altro-disegno_01.webp" type="image/webp">
+              <img src="web/grandi/restyle-sesto-fiorentino_altro-disegno_01.jpg" alt="La pianta del modello tridimensionale" loading="lazy">
+            </picture>
+            <picture class="foto disegno">
+              <source srcset="web/grandi/restyle-sesto-fiorentino_altro-disegno_03.webp" type="image/webp">
+              <img src="web/grandi/restyle-sesto-fiorentino_altro-disegno_03.jpg" alt="La modellazione degli arredi e la verifica delle quote" loading="lazy">
+            </picture>
+    </div>
+  </div>
+</div>
+<div class="cv-gal" id="cv-gal-sf-materiali" role="dialog" aria-label="Materiali">
+  <div class="cv-gal-interno">
+    <div class="cv-gal-testa"><h3>Materiali</h3><button class="chiudi-gal" type="button">&larr; chiudi</button></div>
+    <div class="griglia-foto">
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyle-sesto-fiorentino_altro-materiali_03.webp" type="image/webp">
+              <img src="web/grandi/restyle-sesto-fiorentino_altro-materiali_03.jpg" alt="La scheda delle Cementine Cocci con i tessuti, la moquette e il legno a confronto" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_altro-materiali_02.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_altro-materiali_02.jpg" alt="I campioni delle Cementine Cocci: ocra, senape e nero" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_altro-materiali_04.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_altro-materiali_04.jpg" alt="Le prove di colore stese a muro" loading="lazy">
+            </picture>
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyle-sesto-fiorentino_altro-materiali_01.webp" type="image/webp">
+              <img src="web/grandi/restyle-sesto-fiorentino_altro-materiali_01.jpg" alt="Il campione di parquet in rovere miele" loading="lazy">
+            </picture>
+            <picture class="foto">
+              <source srcset="web/card/restyle-sesto-fiorentino_altro-materiali_05.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_altro-materiali_05.jpg" alt="Il miscelatore Inox 409: comando remoto e canna girevole in acciaio inossidabile" loading="lazy">
+            </picture>
+            <picture class="foto">
+              <source srcset="web/card/restyle-sesto-fiorentino_altro-materiali_06.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_altro-materiali_06.jpg" alt="Il piano cottura Barazza B_Free da 36: un semirapido e una doppia corona Chef, griglia in ghisa" loading="lazy">
+            </picture>
+    </div>
+  </div>
+</div>
+<div class="cv-gal" id="cv-gal-sf-cantiere" role="dialog" aria-label="Cantiere">
+  <div class="cv-gal-interno">
+    <div class="cv-gal-testa"><h3>Cantiere</h3><button class="chiudi-gal" type="button">&larr; chiudi</button></div>
+    <div class="griglia-foto">
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyle-sesto-fiorentino_altro-cantiere_01.webp" type="image/webp">
+              <img src="web/grandi/restyle-sesto-fiorentino_altro-cantiere_01.jpg" alt="Il tracciamento a laser delle nuove quote" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_living_03.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_living_03.jpg" alt="La veletta in lastre di cartongesso, in costruzione" loading="lazy">
+            </picture>
+            <div class="foto alto">
+              <video poster="web/video/restyle-sesto-fiorentino_video_06_poster.jpg" muted loop playsinline preload="none" disablepictureinpicture aria-label="La veletta con l&rsquo;illuminazione a incasso, video">
+                <source src="web/video/restyle-sesto-fiorentino_video_06.mp4" type="video/mp4">
+              </video>
+            </div>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_altro-cantiere_02.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_altro-cantiere_02.jpg" alt="Il muro rifatto sopra il terrazzo alla veneziana" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_cucina_03.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_cucina_03.jpg" alt="Lo smontaggio della cucina e del rivestimento senape" loading="lazy">
+            </picture>
+            <div class="foto alto">
+              <video poster="web/video/restyle-sesto-fiorentino_video_05_poster.jpg" muted loop playsinline preload="none" disablepictureinpicture aria-label="Le basi della cucina smontate, video">
+                <source src="web/video/restyle-sesto-fiorentino_video_05.mp4" type="video/mp4">
+              </video>
+            </div>
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyle-sesto-fiorentino_cucina_05.webp" type="image/webp">
+              <img src="web/grandi/restyle-sesto-fiorentino_cucina_05.jpg" alt="Il piano e le basi in attesa di smontaggio" loading="lazy">
+            </picture>
+            <div class="foto alto">
+              <video poster="web/video/restyle-sesto-fiorentino_video_07_poster.jpg" muted loop playsinline preload="none" disablepictureinpicture aria-label="Il piano in acciaio inox montato sul terrazzo alla veneziana, video">
+                <source src="web/video/restyle-sesto-fiorentino_video_07.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="foto alto">
+              <video poster="web/video/restyle-sesto-fiorentino_video_03_poster.jpg" muted loop playsinline preload="none" disablepictureinpicture aria-label="La demolizione del rivestimento del bagno, video">
+                <source src="web/video/restyle-sesto-fiorentino_video_03.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="foto alto">
+              <video poster="web/video/restyle-sesto-fiorentino_video_04_poster.jpg" muted loop playsinline preload="none" disablepictureinpicture aria-label="La rimozione dei pavimenti del bagno, video">
+                <source src="web/video/restyle-sesto-fiorentino_video_04.mp4" type="video/mp4">
+              </video>
+            </div>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_bagno_02.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_bagno_02.jpg" alt="La posa del rivestimento verde nella doccia" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_altro-porte_01.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_altro-porte_01.jpg" alt="La porta antica sverniciata in falegnameria" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_altro-porte_02.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_altro-porte_02.jpg" alt="La porta a vetri riverniciata, mascheratura in corso" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_altro-porte_03.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_altro-porte_03.jpg" alt="I riquadri della porta a vetri riverniciata" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_ingresso_03.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_ingresso_03.jpg" alt="Lo stipite riportato a nero satinato" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyle-sesto-fiorentino_ingresso_04.webp" type="image/webp">
+              <img src="web/card/restyle-sesto-fiorentino_ingresso_04.jpg" alt="La porta a vetri rimontata, il vano ancora in lastre di cartongesso" loading="lazy">
+            </picture>
+    </div>
+  </div>
+</div>
+</div>
+
 <div class="prog-scheda" id="pagina-graphic" role="dialog" aria-label="Graphic">
   <div class="graf-pagina">
     <button class="chiudi" type="button">&larr; Chiudi</button>
@@ -2410,8 +2956,54 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
       <figure class="graf g7"><picture><source srcset="web/card/graphic_fiocco_01.webp" type="image/webp"><img src="web/card/graphic_fiocco_01.jpg" alt="Fiocco — grafica regalo" loading="lazy"></picture></figure>
       <figure class="graf g8"><picture><source srcset="web/card/graphic_capucci_03.webp" type="image/webp"><img src="web/card/graphic_capucci_03.jpg" alt="Capucci — Yakitori, locandina" loading="lazy"></picture></figure>
       <figure class="graf g9"><picture><source srcset="web/card/graphic_capucci_09.webp" type="image/webp"><img src="web/card/graphic_capucci_09.jpg" alt="Capucci — Mami o humami, locandina" loading="lazy"></picture></figure>
+      <figure class="graf g-fila">
+        <button class="graf-apre" type="button" id="apriClown" aria-label="Apri la Clown Collection, 2014">
+          <picture><source srcset="web/card/graphic_clown-collection_01.webp" type="image/webp"><img src="web/card/graphic_clown-collection_01.jpg" alt="Clown Collection 2014 — i diciassette figurini della collezione, in fila" loading="lazy"></picture>
+          <figcaption class="graf-didascalia"><span>Clown Collection &mdash; 2014</span><span class="entra">Entra &rarr;</span></figcaption>
+        </button>
+      </figure>
     </div>
   </div>
+</div>
+
+<div class="prog-scheda" id="pagina-clown" role="dialog" aria-label="Clown Collection 2014">
+  <div class="clown-pagina">
+    <button class="chiudi" type="button">&larr; Torna a graphic</button>
+    <figure class="clown-fila">
+      <div class="clown-scorri"><picture><source srcset="web/card/graphic_clown-collection_01.webp" type="image/webp"><img src="web/card/graphic_clown-collection_01.jpg" alt="Clown Collection 2014 — la fila dei diciassette figurini"></picture></div>
+    </figure>
+    <div class="clown-griglia">
+      <figure><picture><source srcset="web/card/clown-collection-2014_foto_01.webp" type="image/webp"><img src="web/card/clown-collection-2014_foto_01.jpg" alt="Clown Collection 2014 — look 01" loading="lazy"></picture></figure>
+      <figure><picture><source srcset="web/card/clown-collection-2014_foto_02.webp" type="image/webp"><img src="web/card/clown-collection-2014_foto_02.jpg" alt="Clown Collection 2014 — look 02" loading="lazy"></picture></figure>
+      <figure><picture><source srcset="web/card/clown-collection-2014_foto_03.webp" type="image/webp"><img src="web/card/clown-collection-2014_foto_03.jpg" alt="Clown Collection 2014 — look 03" loading="lazy"></picture></figure>
+      <figure><picture><source srcset="web/card/clown-collection-2014_foto_04.webp" type="image/webp"><img src="web/card/clown-collection-2014_foto_04.jpg" alt="Clown Collection 2014 — look 04" loading="lazy"></picture></figure>
+      <figure><picture><source srcset="web/card/clown-collection-2014_foto_05.webp" type="image/webp"><img src="web/card/clown-collection-2014_foto_05.jpg" alt="Clown Collection 2014 — look 05" loading="lazy"></picture></figure>
+      <figure><picture><source srcset="web/card/clown-collection-2014_foto_06.webp" type="image/webp"><img src="web/card/clown-collection-2014_foto_06.jpg" alt="Clown Collection 2014 — look 06" loading="lazy"></picture></figure>
+      <figure><picture><source srcset="web/card/clown-collection-2014_foto_07.webp" type="image/webp"><img src="web/card/clown-collection-2014_foto_07.jpg" alt="Clown Collection 2014 — look 07" loading="lazy"></picture></figure>
+      <figure><picture><source srcset="web/card/clown-collection-2014_foto_08.webp" type="image/webp"><img src="web/card/clown-collection-2014_foto_08.jpg" alt="Clown Collection 2014 — look 08" loading="lazy"></picture></figure>
+      <figure><picture><source srcset="web/card/clown-collection-2014_foto_09.webp" type="image/webp"><img src="web/card/clown-collection-2014_foto_09.jpg" alt="Clown Collection 2014 — look 09" loading="lazy"></picture></figure>
+      <figure><picture><source srcset="web/card/clown-collection-2014_foto_10.webp" type="image/webp"><img src="web/card/clown-collection-2014_foto_10.jpg" alt="Clown Collection 2014 — look 10" loading="lazy"></picture></figure>
+      <figure><picture><source srcset="web/card/clown-collection-2014_foto_11.webp" type="image/webp"><img src="web/card/clown-collection-2014_foto_11.jpg" alt="Clown Collection 2014 — look 11" loading="lazy"></picture></figure>
+      <figure><picture><source srcset="web/card/clown-collection-2014_foto_12.webp" type="image/webp"><img src="web/card/clown-collection-2014_foto_12.jpg" alt="Clown Collection 2014 — look 12" loading="lazy"></picture></figure>
+      <figure><picture><source srcset="web/card/clown-collection-2014_foto_13.webp" type="image/webp"><img src="web/card/clown-collection-2014_foto_13.jpg" alt="Clown Collection 2014 — look 13" loading="lazy"></picture></figure>
+      <figure><picture><source srcset="web/card/clown-collection-2014_foto_14.webp" type="image/webp"><img src="web/card/clown-collection-2014_foto_14.jpg" alt="Clown Collection 2014 — look 14" loading="lazy"></picture></figure>
+      <figure><picture><source srcset="web/card/clown-collection-2014_foto_15.webp" type="image/webp"><img src="web/card/clown-collection-2014_foto_15.jpg" alt="Clown Collection 2014 — look 15" loading="lazy"></picture></figure>
+      <figure><picture><source srcset="web/card/clown-collection-2014_foto_16.webp" type="image/webp"><img src="web/card/clown-collection-2014_foto_16.jpg" alt="Clown Collection 2014 — look 16" loading="lazy"></picture></figure>
+    </div>
+    <div class="clown-coda">
+      <p>I diciassette look della collezione. Disegni originali di Gabriele Lumini, 2014.</p>
+      <p>Clown Collection &mdash; collezione moda del VI semestre, Accademia Italiana, Firenze, 2014. Ideazione, figurini, cartamodelli e realizzazione dei capi: Gabriele Lumini.</p>
+      <p>Le immagini fotografiche di questa pagina sono state <strong>generate con l'intelligenza artificiale</strong> nel 2026, a partire dai figurini e dai capi realizzati. Non ritraggono persone reali e non documentano un servizio fotografico realmente svolto. I figurini e i disegni sono opere originali su carta del 2014.</p>
+    </div>
+  </div>
+</div>
+
+<div class="foto-zoom" id="fotoZoom" role="dialog" aria-label="Immagine ingrandita">
+  <button class="zoom-chiudi" type="button" aria-label="Chiudi">&times;</button>
+  <button class="zoom-nav zoom-prec" type="button" aria-label="Immagine precedente">&larr;</button>
+  <img src="" alt="">
+  <button class="zoom-nav zoom-succ" type="button" aria-label="Immagine successiva">&rarr;</button>
+  <p class="zoom-didascalia"></p>
 </div>
 
 <footer class="fondo-nero">
@@ -2419,8 +3011,9 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
   <div class="fondo-colonne">
     <div>
       <p class="fondo-titolo">Ripensa Studio</p>
-      <p>P.IVA 00000000000</p>
-      <p style="margin-top:14px">Via della Manifattura 00<br>50019 Sesto Fiorentino (FI) — Italy<br>T +39 055 000 0000<br>info@ripensastudio.it</p>
+      <p>Gabriele Lumini — referente</p>
+      <p style="margin-top:14px">GL Ecosystem di Gabriele Lumini<br>P.IVA 06937680483</p>
+      <p style="margin-top:14px">Via P. Biondi 59<br>50019 Sesto Fiorentino (FI) — Italy<br>T <a href="tel:+393935624018">+39 393 562 4018</a><br><a href="mailto:ripensastudio@gmail.com">ripensastudio@gmail.com</a></p>
     </div>
     <div>
       <p class="fondo-titolo">Orari</p>
@@ -2588,15 +3181,82 @@ schedaCoverciano.querySelectorAll('.prog-fasi-nav a[data-gal]').forEach(a=>a.add
 const btnTutto=schedaCoverciano.querySelector('.cv-tutto');if(btnTutto)btnTutto.addEventListener('click',()=>apriGalCv('tutto'));
 document.querySelectorAll('.cv-gal .chiudi-gal').forEach(b=>b.addEventListener('click',chiudiGalCv));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')chiudiGalCv();});
+// Sesto Fiorentino: muro di copertine
+const schedaSesto=document.getElementById('scheda-sesto');
+function apriSchedaSesto(){schedaSesto.classList.add('aperta');document.body.style.overflow='hidden';history.pushState({ripensa:'scheda'},'');}
+function chiudiSchedaSesto(){schedaSesto.classList.remove('aperta');document.querySelectorAll('.cv-gal.aperta').forEach(g=>g.classList.remove('aperta'));if(!schedaCorte.classList.contains('aperta')&&!schedaFiesole.classList.contains('aperta')&&!schedaDuomo.classList.contains('aperta')&&!schedaCoverciano.classList.contains('aperta'))document.body.style.overflow='';}
+document.querySelectorAll('[data-apri="sesto"]').forEach(el=>{el.style.cursor='pointer';el.addEventListener('click',apriSchedaSesto);});
+schedaSesto.querySelector('.chiudi').addEventListener('click',chiudiSchedaSesto);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')chiudiSchedaSesto();});
+schedaSesto.querySelectorAll('.cv-cop').forEach(f=>{
+  f.addEventListener('click',()=>apriGalCv(f.dataset.gal));
+  f.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();apriGalCv(f.dataset.gal);}});
+  const q=f.querySelector('.quadro');
+  const im=q.querySelector('img'), bn=q.querySelector('.bn');
+  const mettiCloneS=()=>{
+    if(bn.querySelector('img'))return;
+    const c=document.createElement('img');
+    c.src=im.currentSrc||im.src; c.alt=''; c.setAttribute('aria-hidden','true');
+    bn.appendChild(c);
+  };
+  if(im.complete)mettiCloneS(); im.addEventListener('load',mettiCloneS,{once:true});
+});
+schedaSesto.querySelectorAll('.prog-fasi-nav a[data-gal]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();apriGalCv(a.dataset.gal);}));
+const btnTuttoS=schedaSesto.querySelector('.sf-tutto');if(btnTuttoS)btnTuttoS.addEventListener('click',()=>apriGalCv('sf-tutto'));
+schedaSesto.querySelectorAll('.cv-gal .chiudi-gal').forEach(b=>b.addEventListener('click',chiudiGalCv));
 // pagina unica a scroll
 const paginaSito=document.getElementById('pagina-sito');
 const bersagli={studio:'home',progetti:'progetti',servizi:'servizi',collezioni:'collezioni',ambienti:'ambienti',stile:'stile',arreda:'arreda',contatti:'contatti'};
 // pagina GRAPHIC: overlay dedicato, non a scroll nella pagina unica
 const paginaGraphic=document.getElementById('pagina-graphic');
 function apriGraphic(){paginaGraphic.classList.add('aperta');document.body.style.overflow='hidden';history.pushState({ripensa:'graphic'},'');document.getElementById('menuMob').classList.remove('aperto');}
-function chiudiGraphic(){paginaGraphic.classList.remove('aperta');if(!schedaCorte.classList.contains('aperta')&&!schedaFiesole.classList.contains('aperta')&&!schedaDuomo.classList.contains('aperta')&&!schedaCoverciano.classList.contains('aperta')&&!paginaSito.classList.contains('aperta'))document.body.style.overflow='';}
+function chiudiGraphic(){paginaGraphic.classList.remove('aperta');if(!schedaCorte.classList.contains('aperta')&&!schedaFiesole.classList.contains('aperta')&&!schedaDuomo.classList.contains('aperta')&&!schedaCoverciano.classList.contains('aperta')&&!paginaSito.classList.contains('aperta')&&!paginaClown.classList.contains('aperta'))document.body.style.overflow='';}
 paginaGraphic.querySelector('.chiudi').addEventListener('click',chiudiGraphic);
-document.addEventListener('keydown',e=>{if(e.key==='Escape')chiudiGraphic();});
+// CLOWN COLLECTION 2014: scheda dentro graphic, si apre dalla fila dei figurini
+const paginaClown=document.getElementById('pagina-clown');
+function apriClownColl(){paginaClown.classList.add('aperta');paginaClown.scrollTop=0;document.body.style.overflow='hidden';history.pushState({ripensa:'clown'},'');}
+function chiudiClownColl(){paginaClown.classList.remove('aperta');if(!paginaGraphic.classList.contains('aperta'))document.body.style.overflow='';}
+document.getElementById('apriClown').addEventListener('click',apriClownColl);
+paginaClown.querySelector('.chiudi').addEventListener('click',chiudiClownColl);
+// ZOOM DI UNA FOTO: si clicca una foto della collezione e si vede grande
+const zoomBox=document.getElementById('fotoZoom');
+const zoomImg=zoomBox.querySelector('img');
+const zoomDida=zoomBox.querySelector('.zoom-didascalia');
+let zoomLista=[], zoomIdx=0;
+function mostraZoom(i){
+  if(!zoomLista.length)return;
+  zoomIdx=(i+zoomLista.length)%zoomLista.length;
+  const el=zoomLista[zoomIdx];
+  zoomImg.src=el.currentSrc||el.src; zoomImg.alt=el.alt||'';
+  zoomDida.textContent=(el.alt||'')+'  ·  '+(zoomIdx+1)+' / '+zoomLista.length;
+}
+function apriZoom(el){
+  const griglia=el.closest('.clown-griglia'); if(!griglia)return;
+  zoomLista=[...griglia.querySelectorAll('img')];
+  mostraZoom(zoomLista.indexOf(el));
+  zoomBox.classList.add('aperta');
+}
+function chiudiZoom(){zoomBox.classList.remove('aperta');zoomImg.src='';}
+document.addEventListener('click',e=>{
+  const img=e.target.closest('#pagina-clown .clown-griglia img');
+  if(img){apriZoom(img);return;}
+});
+zoomBox.querySelector('.zoom-chiudi').addEventListener('click',chiudiZoom);
+zoomBox.querySelector('.zoom-prec').addEventListener('click',e=>{e.stopPropagation();mostraZoom(zoomIdx-1);});
+zoomBox.querySelector('.zoom-succ').addEventListener('click',e=>{e.stopPropagation();mostraZoom(zoomIdx+1);});
+zoomBox.addEventListener('click',e=>{if(e.target===zoomBox||e.target===zoomImg)chiudiZoom();});
+// Esc: chiude prima lo zoom, poi la scheda della collezione, poi il muro graphic
+document.addEventListener('keydown',e=>{
+  if(zoomBox.classList.contains('aperta')){
+    if(e.key==='Escape'){chiudiZoom();return;}
+    if(e.key==='ArrowLeft'){mostraZoom(zoomIdx-1);return;}
+    if(e.key==='ArrowRight'){mostraZoom(zoomIdx+1);return;}
+    return;
+  }
+  if(e.key!=='Escape')return;
+  if(paginaClown.classList.contains('aperta')){chiudiClownColl();return;}
+  chiudiGraphic();
+});
 function chiudiPagine(){paginaSito.classList.remove('aperta');if(!schedaCorte.classList.contains('aperta')&&!schedaFiesole.classList.contains('aperta')&&!schedaDuomo.classList.contains('aperta')&&!schedaCoverciano.classList.contains('aperta'))document.body.style.overflow='';}
 document.querySelectorAll('[data-pagina]').forEach(el=>el.addEventListener('click',e=>{
   e.preventDefault();
@@ -2612,13 +3272,14 @@ paginaSito.querySelector('.chiudi').addEventListener('click',chiudiPagine);
 document.addEventListener('keydown',e=>{if(e.key==='Escape')chiudiPagine();});
 // tasto indietro del browser: chiude la scheda o la pagina aperta invece di uscire dal sito
 window.addEventListener('popstate',()=>{
-  if(paginaGraphic.classList.contains('aperta')){paginaGraphic.classList.remove('aperta');}
+  if(paginaClown.classList.contains('aperta')){paginaClown.classList.remove('aperta');}
+  else if(paginaGraphic.classList.contains('aperta')){paginaGraphic.classList.remove('aperta');}
   else if(schedaCoverciano.classList.contains('aperta')){schedaCoverciano.classList.remove('aperta');}
   else if(schedaDuomo.classList.contains('aperta')){schedaDuomo.classList.remove('aperta');}
   else if(schedaFiesole.classList.contains('aperta')){schedaFiesole.classList.remove('aperta');}
   else if(schedaCorte.classList.contains('aperta')){schedaCorte.classList.remove('aperta');}
   else if(paginaSito.classList.contains('aperta')){paginaSito.classList.remove('aperta');}
-  if(!schedaCorte.classList.contains('aperta')&&!schedaFiesole.classList.contains('aperta')&&!schedaDuomo.classList.contains('aperta')&&!schedaCoverciano.classList.contains('aperta')&&!paginaSito.classList.contains('aperta')&&!paginaGraphic.classList.contains('aperta'))document.body.style.overflow='';
+  if(!schedaCorte.classList.contains('aperta')&&!schedaFiesole.classList.contains('aperta')&&!schedaDuomo.classList.contains('aperta')&&!schedaCoverciano.classList.contains('aperta')&&!paginaSito.classList.contains('aperta')&&!paginaGraphic.classList.contains('aperta')&&!paginaClown.classList.contains('aperta'))document.body.style.overflow='';
 });
 // il logo si ritira scorrendo la home
 const testataFissa=document.querySelector('aside');
@@ -2692,6 +3353,7 @@ rulloBtn.addEventListener('click',()=>{
     chiudiSchedaFiesole();
     chiudiSchedaDuomo();
     chiudiSchedaCoverciano();
+    chiudiSchedaSesto();
     chiudiGraphic();
     chiudiPagine();
     document.body.style.overflow='';
