@@ -340,6 +340,32 @@ section.prog-gruppo{min-height:0;padding:0;margin:0;display:block;justify-conten
   #pagina-graphic .g-fila{grid-column:1/-1 !important}
 }
 
+/* ---------- zoom di una foto: si clicca e si vede grande ---------- */
+.foto-zoom{
+  position:fixed;inset:0;z-index:100;background:rgba(24,23,22,.94);
+  opacity:0;visibility:hidden;transition:opacity .3s ease;
+  display:flex;align-items:center;justify-content:center;padding:4vh 6vw;
+}
+.foto-zoom.aperta{opacity:1;visibility:visible}
+.foto-zoom img{max-width:100%;max-height:92vh;width:auto;height:auto;display:block;object-fit:contain}
+.foto-zoom button{
+  position:absolute;background:none;border:0;cursor:pointer;color:#fff;font-family:inherit;
+  opacity:.5;transition:opacity .25s ease;padding:14px;line-height:1;
+}
+.foto-zoom button:hover{opacity:1}
+.foto-zoom .zoom-chiudi{top:10px;right:14px;font-size:30px}
+.foto-zoom .zoom-nav{top:50%;transform:translateY(-50%);font-size:22px;letter-spacing:0}
+.foto-zoom .zoom-prec{left:6px}
+.foto-zoom .zoom-succ{right:6px}
+.foto-zoom .zoom-didascalia{
+  position:absolute;left:0;right:0;bottom:12px;margin:0;text-align:center;
+  color:#fff;opacity:.55;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;padding:0 8vw;
+}
+@media (max-width:900px){
+  .foto-zoom{padding:6vh 2vw}
+  .foto-zoom .zoom-nav{font-size:20px}
+}
+
 /* ---------- clown collection 2014: scheda dentro graphic ----------
    Minimal voluto da Gabriele (5/9): l'immagine si guarda, non si spiega.
    Tutto ciò che è descrittivo sta in fondo. ---------- */
@@ -354,7 +380,9 @@ section.prog-gruppo{min-height:0;padding:0;margin:0;display:block;justify-conten
 
 /* la fila dei figurini: aria sopra e aria sotto, nient'altro */
 #pagina-clown .clown-fila{margin:clamp(70px,11vh,150px) 0 clamp(100px,16vh,210px)}
-#pagina-clown .clown-scorri img{height:44vh;width:auto;max-width:100%;display:block;margin:0 auto}
+/* max-height, NON height: con height fissa + max-width il browser comprime
+   l'immagine in larghezza tenendo l'altezza, e i figurini escono schiacciati (5/9) */
+#pagina-clown .clown-scorri img{max-height:44vh;max-width:100%;width:auto;height:auto;display:block;margin:0 auto}
 
 /* le fotografie, subito sotto, senza titolo e senza testo accanto */
 #pagina-clown .clown-griglia{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(34px,5vw,72px)}
@@ -376,7 +404,7 @@ section.prog-gruppo{min-height:0;padding:0;margin:0;display:block;justify-conten
      altrimenti a 375px i diciassette capi non si leggono piu' */
   #pagina-clown .clown-fila{margin:44px 0 60px}
   #pagina-clown .clown-scorri{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch}
-  #pagina-clown .clown-scorri img{height:56vh;max-width:none}
+  #pagina-clown .clown-scorri img{height:56vh;max-height:none;max-width:none;width:auto}
   #pagina-clown .clown-griglia{grid-template-columns:1fr 1fr;gap:14px;padding:0 5vw}
   #pagina-clown .clown-coda{margin:70px 5vw 0}
 }
