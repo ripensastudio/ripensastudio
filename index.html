@@ -231,6 +231,23 @@ section.prog-gruppo{min-height:0;padding:0;margin:0;display:block;justify-conten
 #scheda-sesto .sf-cop-top figcaption{padding-top:12px}
 #scheda-sesto .sf-tutto{background:none;border:0;font:inherit;font-size:11px;letter-spacing:.34em;text-transform:uppercase;opacity:.62;cursor:pointer;padding:0}
 #scheda-sesto .sf-tutto:hover{opacity:1}
+/* Restyling pop Firenze (6/9/2026): muro di copertine come Sesto, colonna foto standard 780px */
+#scheda-pop .cv-muro{gap:3.4vw 2.2vw;margin-top:56px}
+#scheda-pop .sf-cop-top{grid-column:1/-1;margin:0}
+#scheda-pop .sf-cop-top img{width:100%;height:auto;display:block}
+#scheda-pop .sf-cop-top figcaption{padding-top:12px}
+#scheda-pop .sf-tutto{background:none;border:0;font:inherit;font-size:11px;letter-spacing:.34em;text-transform:uppercase;opacity:.62;cursor:pointer;padding:0}
+#scheda-pop .sf-tutto:hover{opacity:1}
+#scheda-pop .cv-gal .foto.intera img{max-height:86vh;width:auto;max-width:100%;margin:0 auto;display:block}
+/* vista continua che scorre in orizzontale mentre si scende nella galleria (6/9/2026) */
+.cv-gal .foto.pan{grid-column:1/-1;width:100%;max-width:100%;min-width:0;aspect-ratio:16/9;height:auto;overflow:hidden;position:relative;contain:layout}
+.cv-gal .foto.pan picture{position:absolute;inset:0;display:block;overflow:hidden}
+.cv-gal .foto.pan img{position:absolute;left:0;top:0;height:100%;width:auto;max-width:none;will-change:transform}
+@media (hover:none){
+  .cv-gal .foto.pan{aspect-ratio:16/10;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;contain:none}
+  .cv-gal .foto.pan picture{position:static;height:100%;width:max-content}
+  .cv-gal .foto.pan img{position:static;transform:none !important}
+}
 /* --- gallerie dei gruppi --- */
 .cv-gal{position:fixed;inset:0;background:#fff;z-index:90;opacity:0;visibility:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch}
 .cv-gal.aperta{opacity:1;visibility:visible;transition:opacity .4s ease}
@@ -1152,6 +1169,16 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
       </picture>
       <h3>Restyle &mdash; Sesto Fiorentino</h3>
       <p class="meta">Restyling completo — Sesto Fiorentino, 2026</p>
+    </article>
+    <article class="progetto reveal" data-cat="ristrutturazione" data-apri="pop">
+      <picture class="foto">
+        <source srcset="web/card/restyling-pop-firenze_cucina_01.webp" type="image/webp">
+        <img src="web/card/restyling-pop-firenze_cucina_01.jpg"
+             alt="Restyling pop Firenze &mdash; la prova del giallo con le sedie in formica"
+             loading="lazy" style="object-position:50% 62%">
+      </picture>
+      <h3>Restyling pop &mdash; Firenze</h3>
+      <p class="meta">Restyling con le pitture — Firenze, 2024–2025</p>
     </article>
     <article class="progetto reveal" data-cat="residenziale">
       <div class="ph" data-label="05"></div>
@@ -2971,6 +2998,420 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
 </div>
 </div>
 
+<div class="prog-scheda" id="scheda-pop" role="dialog" aria-label="Scheda progetto Restyling pop Firenze">
+  <div class="interno">
+    <aside class="prog-lato">
+      <button class="chiudi" type="button">&larr; Torna ai progetti</button>
+      <h2>Restyling pop &mdash; Firenze</h2>
+      <p class="meta">Restyling con le pitture<br>Firenze<br>2024&ndash;2025<br>Collezione Restyling</p>
+      <nav class="prog-fasi-nav" aria-label="Gruppi del progetto">
+        <a href="#" data-gal="rp-ispirazione">Ispirazione</a>
+        <a href="#" data-gal="rp-prima">Prima</a>
+        <a href="#" data-gal="rp-progetto">Progetto</a>
+        <a href="#" data-gal="rp-cantiere">Cantiere</a>
+      </nav>
+      <p class="intro">Quanto colore serve per cambiare una casa? Qui ne &egrave; bastato uno. Un tavolo in formica trovato al mercatino, cos&igrave; giallo che a mezzogiorno sembra acceso: ne abbiamo preso il campione, e da quel campione &egrave; nata tutta la casa. Nessun muro abbattuto, nessun metro in pi&ugrave;. Il budget era stretto ed &egrave; rimasto quello fissato all&rsquo;inizio, perch&eacute; il lavoro vero si &egrave; fatto prima della pittura: sapere dove mettere il colore vale pi&ugrave; di quanto colore si compra.</p>
+      <div class="prog-materiali">
+        <h4>Materiali &amp; arredi</h4>
+        <p>Il giallo lo ha deciso un tavolo. Il carta da zucchero e il bianco gli fanno spazio attorno, come il silenzio intorno a una nota.<br>
+        Niente si butta: porte e armadi cambiano soltanto pelle. Fra le mensole della dispensa si apre una parentesi alla Mondrian, che tiene un mobile di ieri dentro una stanza di oggi.<br>
+        La cucina &egrave; semplice fino al piano, dove tre centimetri di marmo la fanno sembrare un&rsquo;altra. Dietro, la resina tiene il muro pulito; accanto, un forno da appoggio e un frigorifero anni cinquanta le danno l&rsquo;et&agrave; giusta.<br>
+        Due labbra che si mordono scaldano la camera ricavata nel living. Un Lichtenstein a tutta porta ti dice dove sei prima ancora di entrare.</p>
+      </div>
+    </aside>
+    <div class="prog-flusso">
+      <figure class="sf-cop-top">
+        <picture>
+          <source srcset="web/grandi/restyling-pop-firenze_altro-render_03.webp" type="image/webp">
+          <img src="web/grandi/restyling-pop-firenze_altro-render_03.jpg" alt="Il salottino di sera nel modello: le labbra a righe sul letto, good vibes sul divano" loading="lazy">
+        </picture>
+        <figcaption><button class="sf-tutto" type="button">Tutto il progetto &darr;</button></figcaption>
+      </figure>
+      <div class="cv-muro">
+        <figure class="cv-cop sf-c1" data-gal="rp-ispirazione" tabindex="0" role="button" aria-label="Apri Ispirazione">
+          <span class="quadro"><picture>
+            <source srcset="web/grandi/restyling-pop-firenze_altro-ispirazione_01.webp" type="image/webp">
+            <img src="web/grandi/restyling-pop-firenze_altro-ispirazione_01.jpg" alt="Il tavolo in formica gialla trovato al mercatino" loading="lazy">
+          </picture><span class="bn"></span><span class="nome">ISPIRAZIONE</span><span class="riga"></span></span>
+          <figcaption>Ispirazione</figcaption>
+        </figure>
+        <figure class="cv-cop sf-c2" data-gal="rp-prima" tabindex="0" role="button" aria-label="Apri Prima">
+          <span class="quadro"><picture>
+            <source srcset="web/grandi/restyling-pop-firenze_living_01.webp" type="image/webp">
+            <img src="web/grandi/restyling-pop-firenze_living_01.jpg" alt="Il soggiorno prima dei lavori" loading="lazy">
+          </picture><span class="bn"></span><span class="nome">PRIMA</span><span class="riga"></span></span>
+          <figcaption>Prima</figcaption>
+        </figure>
+        <figure class="cv-cop sf-c3" data-gal="rp-progetto" tabindex="0" role="button" aria-label="Apri Progetto">
+          <span class="quadro"><picture>
+            <source srcset="web/grandi/restyling-pop-firenze_altro-disegno_03.webp" type="image/webp">
+            <img src="web/grandi/restyling-pop-firenze_altro-disegno_03.jpg" alt="Il modello a fil di ferro" loading="lazy">
+          </picture><span class="bn"></span><span class="nome">PROGETTO</span><span class="riga"></span></span>
+          <figcaption>Progetto</figcaption>
+        </figure>
+        <figure class="cv-cop sf-c4" data-gal="rp-cantiere" tabindex="0" role="button" aria-label="Apri Cantiere">
+          <span class="quadro"><picture>
+            <source srcset="web/grandi/restyling-pop-firenze_cucina_01.webp" type="image/webp">
+            <img src="web/grandi/restyling-pop-firenze_cucina_01.jpg" alt="La prova del giallo: le sedie in formica sotto il campione" loading="lazy">
+          </picture><span class="bn"></span><span class="nome">CANTIERE</span><span class="riga"></span></span>
+          <figcaption>Cantiere</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+<div class="cv-gal" id="cv-gal-rp-tutto" role="dialog" aria-label="Tutto il progetto">
+  <div class="cv-gal-interno">
+    <div class="cv-gal-testa"><h3>Tutto il progetto</h3><button class="chiudi-gal" type="button">&larr; chiudi</button></div>
+    <div class="griglia-foto">
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_altro-ispirazione_01.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_altro-ispirazione_01.jpg" alt="Il tavolo in formica gialla trovato al mercatino: il colore da cui &egrave; partito tutto" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_altro-ispirazione_04.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_altro-ispirazione_04.jpg" alt="Good vibes, a raggiera" loading="lazy">
+            </picture>
+            <picture class="foto">
+              <source srcset="web/card/restyling-pop-firenze_altro-ispirazione_02.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_altro-ispirazione_02.jpg" alt="Le labbra a righe, poi stampate e appese dietro il letto" loading="lazy">
+            </picture>
+            <picture class="foto">
+              <source srcset="web/card/restyling-pop-firenze_altro-ispirazione_03.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_altro-ispirazione_03.jpg" alt="La bionda del fumetto, poi applicata su una porta" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_altro-ispirazione_06.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_altro-ispirazione_06.jpg" alt="Lecca-lecca su fondo giallo" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_altro-ispirazione_07.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_altro-ispirazione_07.jpg" alt="Lecca-lecca su fondo rosa" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_altro-ispirazione_08.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_altro-ispirazione_08.jpg" alt="Il fulmine giallo su azzurro" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_altro-ispirazione_09.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_altro-ispirazione_09.jpg" alt="Labbra e rossetto" loading="lazy">
+            </picture>
+            <picture class="foto larga">
+              <source srcset="web/card/restyling-pop-firenze_living_01.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_living_01.jpg" alt="Prima &mdash; il soggiorno con il mobile TV e il parquet a quadri" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_ingresso_01.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_ingresso_01.jpg" alt="Prima &mdash; il disimpegno con le due porte a vetri" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_ingresso_02.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_ingresso_02.jpg" alt="Prima &mdash; l&rsquo;ingresso con la porta blindata" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_living_02.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_living_02.jpg" alt="Prima &mdash; il soggiorno verso l&rsquo;ingresso" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_living_03.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_living_03.jpg" alt="Prima &mdash; gli armadi a muro del soggiorno" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_living_05.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_living_05.jpg" alt="Prima &mdash; dal soggiorno verso la portafinestra" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_altro-armadi_01.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_altro-armadi_01.jpg" alt="Prima &mdash; l&rsquo;armadio a muro della cucina, poi dispensa" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_altro-armadi_02.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_altro-armadi_02.jpg" alt="Prima &mdash; l&rsquo;armadio a muro del living, poi armadio della camera" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_altro-studio_01.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_altro-studio_01.jpg" alt="Prima &mdash; la stanza piccola con gli scaffali" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_altro-studio_03.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_altro-studio_03.jpg" alt="Prima &mdash; la stanza piccola dalla porta" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_ingresso_03.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_ingresso_03.jpg" alt="Prima &mdash; la porta scorrevole in laminato" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_bagno_01.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_bagno_01.jpg" alt="Prima &mdash; il bagno con le piastrelle color senape" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_altro-rilievo_01.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_altro-rilievo_01.jpg" alt="Il rilievo dell&rsquo;armadio, quotato a mano sulla foto" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_altro-rilievo_02.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_altro-rilievo_02.jpg" alt="Il rilievo della libreria, quotato a mano sulla foto" loading="lazy">
+            </picture>
+            <picture class="foto disegno">
+              <source srcset="web/grandi/restyling-pop-firenze_altro-disegno_03.webp" type="image/webp">
+              <img src="web/grandi/restyling-pop-firenze_altro-disegno_03.jpg" alt="Il modello a fil di ferro: la casa disegnata prima di essere dipinta" loading="lazy">
+            </picture>
+            <picture class="foto disegno">
+              <source srcset="web/grandi/restyling-pop-firenze_altro-disegno_04.webp" type="image/webp">
+              <img src="web/grandi/restyling-pop-firenze_altro-disegno_04.jpg" alt="Il fil di ferro con le grafiche al loro posto: le labbra, la bionda, good vibes" loading="lazy">
+            </picture>
+            <div class="foto pan" data-pan>
+              <picture>
+                <source srcset="web/grandi/restyling-pop-firenze_altro-disegno_05.webp" type="image/webp">
+                <img src="web/grandi/restyling-pop-firenze_altro-disegno_05.jpg" alt="Il modello in un&rsquo;unica vista continua: dal letto con le labbra all&rsquo;angolo bar, fino alla cucina" loading="lazy">
+              </picture>
+            </div>
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyling-pop-firenze_altro-render_01.webp" type="image/webp">
+              <img src="web/grandi/restyling-pop-firenze_altro-render_01.jpg" alt="Progetto &mdash; l&rsquo;ingresso con la quinta della bionda del fumetto" loading="lazy">
+            </picture>
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyling-pop-firenze_altro-render_03.webp" type="image/webp">
+              <img src="web/grandi/restyling-pop-firenze_altro-render_03.jpg" alt="Progetto &mdash; il salottino di sera: le labbra a righe sul letto, good vibes sul divano" loading="lazy">
+            </picture>
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyling-pop-firenze_altro-render_02.webp" type="image/webp">
+              <img src="web/grandi/restyling-pop-firenze_altro-render_02.jpg" alt="Progetto &mdash; dalla camera verso il salottino, di sera" loading="lazy">
+            </picture>
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyling-pop-firenze_altro-render_04.webp" type="image/webp">
+              <img src="web/grandi/restyling-pop-firenze_altro-render_04.jpg" alt="Progetto &mdash; l&rsquo;angolo bar con le mensole retroilluminate" loading="lazy">
+            </picture>
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyling-pop-firenze_altro-render_05.webp" type="image/webp">
+              <img src="web/grandi/restyling-pop-firenze_altro-render_05.jpg" alt="Progetto &mdash; l&rsquo;angolo bar, parete azzurra" loading="lazy">
+            </picture>
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyling-pop-firenze_altro-render_06.webp" type="image/webp">
+              <img src="web/grandi/restyling-pop-firenze_altro-render_06.jpg" alt="Progetto &mdash; l&rsquo;angolo bar, la variante con la parete bianca" loading="lazy">
+            </picture>
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyling-pop-firenze_altro-render_07.webp" type="image/webp">
+              <img src="web/grandi/restyling-pop-firenze_altro-render_07.jpg" alt="Progetto &mdash; il bagno azzurro" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_cucina_01.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_cucina_01.jpg" alt="Cantiere &mdash; la prova del giallo: le sedie in formica sotto il campione a parete" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_ingresso_05.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_ingresso_05.jpg" alt="Cantiere &mdash; la porta scorrevole riverniciata" loading="lazy">
+            </picture>
+            <div class="foto alto">
+              <video poster="web/video/restyling-pop-firenze_video_03_poster.jpg" muted loop playsinline preload="none" disablepictureinpicture aria-label="La cucina gialla, dal tavolo alla cappa">
+                <source src="web/video/restyling-pop-firenze_video_03.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="foto alto">
+              <video poster="web/video/restyling-pop-firenze_video_04_poster.jpg" muted loop playsinline preload="none" disablepictureinpicture aria-label="La parete e la finestra con le persiane">
+                <source src="web/video/restyling-pop-firenze_video_04.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="foto alto">
+              <video poster="web/video/restyling-pop-firenze_video_05_poster.jpg" muted loop playsinline preload="none" disablepictureinpicture aria-label="Dalla dispensa alla Mondrian al tavolo">
+                <source src="web/video/restyling-pop-firenze_video_05.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="foto alto">
+              <video poster="web/video/restyling-pop-firenze_video_06_poster.jpg" muted loop playsinline preload="none" disablepictureinpicture aria-label="La dispensa da vicino: le parentesi di colore fra le mensole">
+                <source src="web/video/restyling-pop-firenze_video_06.mp4" type="video/mp4">
+              </video>
+            </div>
+    </div>
+  </div>
+</div>
+<div class="cv-gal" id="cv-gal-rp-ispirazione" role="dialog" aria-label="Ispirazione">
+  <div class="cv-gal-interno">
+    <div class="cv-gal-testa"><h3>Ispirazione</h3><button class="chiudi-gal" type="button">&larr; chiudi</button></div>
+    <div class="griglia-foto">
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_altro-ispirazione_01.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_altro-ispirazione_01.jpg" alt="Il tavolo in formica gialla trovato al mercatino: il colore da cui &egrave; partito tutto" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_altro-ispirazione_04.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_altro-ispirazione_04.jpg" alt="Good vibes, a raggiera" loading="lazy">
+            </picture>
+            <picture class="foto">
+              <source srcset="web/card/restyling-pop-firenze_altro-ispirazione_02.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_altro-ispirazione_02.jpg" alt="Le labbra a righe, poi stampate e appese dietro il letto" loading="lazy">
+            </picture>
+            <picture class="foto">
+              <source srcset="web/card/restyling-pop-firenze_altro-ispirazione_03.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_altro-ispirazione_03.jpg" alt="La bionda del fumetto, poi applicata su una porta" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_altro-ispirazione_06.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_altro-ispirazione_06.jpg" alt="Lecca-lecca su fondo giallo" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_altro-ispirazione_07.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_altro-ispirazione_07.jpg" alt="Lecca-lecca su fondo rosa" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_altro-ispirazione_08.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_altro-ispirazione_08.jpg" alt="Il fulmine giallo su azzurro" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_altro-ispirazione_09.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_altro-ispirazione_09.jpg" alt="Labbra e rossetto" loading="lazy">
+            </picture>
+    </div>
+  </div>
+</div>
+<div class="cv-gal" id="cv-gal-rp-prima" role="dialog" aria-label="Prima">
+  <div class="cv-gal-interno">
+    <div class="cv-gal-testa"><h3>Prima</h3><button class="chiudi-gal" type="button">&larr; chiudi</button></div>
+    <div class="griglia-foto">
+            <picture class="foto larga">
+              <source srcset="web/card/restyling-pop-firenze_living_01.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_living_01.jpg" alt="Prima &mdash; il soggiorno con il mobile TV e il parquet a quadri" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_ingresso_01.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_ingresso_01.jpg" alt="Prima &mdash; il disimpegno con le due porte a vetri" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_ingresso_02.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_ingresso_02.jpg" alt="Prima &mdash; l&rsquo;ingresso con la porta blindata" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_living_02.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_living_02.jpg" alt="Prima &mdash; il soggiorno verso l&rsquo;ingresso" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_living_03.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_living_03.jpg" alt="Prima &mdash; gli armadi a muro del soggiorno" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_living_05.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_living_05.jpg" alt="Prima &mdash; dal soggiorno verso la portafinestra" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_altro-armadi_01.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_altro-armadi_01.jpg" alt="Prima &mdash; l&rsquo;armadio a muro della cucina, poi dispensa" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_altro-armadi_02.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_altro-armadi_02.jpg" alt="Prima &mdash; l&rsquo;armadio a muro del living, poi armadio della camera" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_altro-studio_01.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_altro-studio_01.jpg" alt="Prima &mdash; la stanza piccola con gli scaffali" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_altro-studio_03.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_altro-studio_03.jpg" alt="Prima &mdash; la stanza piccola dalla porta" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_ingresso_03.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_ingresso_03.jpg" alt="Prima &mdash; la porta scorrevole in laminato" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_bagno_01.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_bagno_01.jpg" alt="Prima &mdash; il bagno con le piastrelle color senape" loading="lazy">
+            </picture>
+    </div>
+  </div>
+</div>
+<div class="cv-gal" id="cv-gal-rp-progetto" role="dialog" aria-label="Progetto">
+  <div class="cv-gal-interno">
+    <div class="cv-gal-testa"><h3>Progetto</h3><button class="chiudi-gal" type="button">&larr; chiudi</button></div>
+    <div class="griglia-foto">
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_altro-rilievo_01.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_altro-rilievo_01.jpg" alt="Il rilievo dell&rsquo;armadio, quotato a mano sulla foto" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_altro-rilievo_02.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_altro-rilievo_02.jpg" alt="Il rilievo della libreria, quotato a mano sulla foto" loading="lazy">
+            </picture>
+            <picture class="foto disegno">
+              <source srcset="web/grandi/restyling-pop-firenze_altro-disegno_03.webp" type="image/webp">
+              <img src="web/grandi/restyling-pop-firenze_altro-disegno_03.jpg" alt="Il modello a fil di ferro: la casa disegnata prima di essere dipinta" loading="lazy">
+            </picture>
+            <picture class="foto disegno">
+              <source srcset="web/grandi/restyling-pop-firenze_altro-disegno_04.webp" type="image/webp">
+              <img src="web/grandi/restyling-pop-firenze_altro-disegno_04.jpg" alt="Il fil di ferro con le grafiche al loro posto: le labbra, la bionda, good vibes" loading="lazy">
+            </picture>
+            <div class="foto pan" data-pan>
+              <picture>
+                <source srcset="web/grandi/restyling-pop-firenze_altro-disegno_05.webp" type="image/webp">
+                <img src="web/grandi/restyling-pop-firenze_altro-disegno_05.jpg" alt="Il modello in un&rsquo;unica vista continua: dal letto con le labbra all&rsquo;angolo bar, fino alla cucina" loading="lazy">
+              </picture>
+            </div>
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyling-pop-firenze_altro-render_01.webp" type="image/webp">
+              <img src="web/grandi/restyling-pop-firenze_altro-render_01.jpg" alt="Progetto &mdash; l&rsquo;ingresso con la quinta della bionda del fumetto" loading="lazy">
+            </picture>
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyling-pop-firenze_altro-render_03.webp" type="image/webp">
+              <img src="web/grandi/restyling-pop-firenze_altro-render_03.jpg" alt="Progetto &mdash; il salottino di sera: le labbra a righe sul letto, good vibes sul divano" loading="lazy">
+            </picture>
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyling-pop-firenze_altro-render_02.webp" type="image/webp">
+              <img src="web/grandi/restyling-pop-firenze_altro-render_02.jpg" alt="Progetto &mdash; dalla camera verso il salottino, di sera" loading="lazy">
+            </picture>
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyling-pop-firenze_altro-render_04.webp" type="image/webp">
+              <img src="web/grandi/restyling-pop-firenze_altro-render_04.jpg" alt="Progetto &mdash; l&rsquo;angolo bar con le mensole retroilluminate" loading="lazy">
+            </picture>
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyling-pop-firenze_altro-render_05.webp" type="image/webp">
+              <img src="web/grandi/restyling-pop-firenze_altro-render_05.jpg" alt="Progetto &mdash; l&rsquo;angolo bar, parete azzurra" loading="lazy">
+            </picture>
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyling-pop-firenze_altro-render_06.webp" type="image/webp">
+              <img src="web/grandi/restyling-pop-firenze_altro-render_06.jpg" alt="Progetto &mdash; l&rsquo;angolo bar, la variante con la parete bianca" loading="lazy">
+            </picture>
+            <picture class="foto intera">
+              <source srcset="web/grandi/restyling-pop-firenze_altro-render_07.webp" type="image/webp">
+              <img src="web/grandi/restyling-pop-firenze_altro-render_07.jpg" alt="Progetto &mdash; il bagno azzurro" loading="lazy">
+            </picture>
+    </div>
+  </div>
+</div>
+<div class="cv-gal" id="cv-gal-rp-cantiere" role="dialog" aria-label="Cantiere">
+  <div class="cv-gal-interno">
+    <div class="cv-gal-testa"><h3>Cantiere</h3><button class="chiudi-gal" type="button">&larr; chiudi</button></div>
+    <div class="griglia-foto">
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_cucina_01.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_cucina_01.jpg" alt="Cantiere &mdash; la prova del giallo: le sedie in formica sotto il campione a parete" loading="lazy">
+            </picture>
+            <picture class="foto alto">
+              <source srcset="web/card/restyling-pop-firenze_ingresso_05.webp" type="image/webp">
+              <img src="web/card/restyling-pop-firenze_ingresso_05.jpg" alt="Cantiere &mdash; la porta scorrevole riverniciata" loading="lazy">
+            </picture>
+            <div class="foto alto">
+              <video poster="web/video/restyling-pop-firenze_video_03_poster.jpg" muted loop playsinline preload="none" disablepictureinpicture aria-label="La cucina gialla, dal tavolo alla cappa">
+                <source src="web/video/restyling-pop-firenze_video_03.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="foto alto">
+              <video poster="web/video/restyling-pop-firenze_video_04_poster.jpg" muted loop playsinline preload="none" disablepictureinpicture aria-label="La parete e la finestra con le persiane">
+                <source src="web/video/restyling-pop-firenze_video_04.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="foto alto">
+              <video poster="web/video/restyling-pop-firenze_video_05_poster.jpg" muted loop playsinline preload="none" disablepictureinpicture aria-label="Dalla dispensa alla Mondrian al tavolo">
+                <source src="web/video/restyling-pop-firenze_video_05.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="foto alto">
+              <video poster="web/video/restyling-pop-firenze_video_06_poster.jpg" muted loop playsinline preload="none" disablepictureinpicture aria-label="La dispensa da vicino: le parentesi di colore fra le mensole">
+                <source src="web/video/restyling-pop-firenze_video_06.mp4" type="video/mp4">
+              </video>
+            </div>
+    </div>
+  </div>
+</div>
+</div>
+
 <div class="prog-scheda" id="pagina-graphic" role="dialog" aria-label="Graphic">
   <div class="graf-pagina">
     <button class="chiudi" type="button">&larr; Chiudi</button>
@@ -3232,6 +3673,55 @@ schedaSesto.querySelectorAll('.cv-cop').forEach(f=>{
 schedaSesto.querySelectorAll('.prog-fasi-nav a[data-gal]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();apriGalCv(a.dataset.gal);}));
 const btnTuttoS=schedaSesto.querySelector('.sf-tutto');if(btnTuttoS)btnTuttoS.addEventListener('click',()=>apriGalCv('sf-tutto'));
 schedaSesto.querySelectorAll('.cv-gal .chiudi-gal').forEach(b=>b.addEventListener('click',chiudiGalCv));
+// Restyling pop Firenze: muro di copertine (6/9/2026)
+const schedaPop=document.getElementById('scheda-pop');
+function apriSchedaPop(){schedaPop.classList.add('aperta');document.body.style.overflow='hidden';history.pushState({ripensa:'scheda'},'');}
+function chiudiSchedaPop(){schedaPop.classList.remove('aperta');document.querySelectorAll('.cv-gal.aperta').forEach(g=>g.classList.remove('aperta'));if(!schedaCorte.classList.contains('aperta')&&!schedaFiesole.classList.contains('aperta')&&!schedaDuomo.classList.contains('aperta')&&!schedaCoverciano.classList.contains('aperta')&&!schedaSesto.classList.contains('aperta'))document.body.style.overflow='';}
+document.querySelectorAll('[data-apri="pop"]').forEach(el=>{el.style.cursor='pointer';el.addEventListener('click',apriSchedaPop);});
+schedaPop.querySelector('.chiudi').addEventListener('click',chiudiSchedaPop);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')chiudiSchedaPop();});
+schedaPop.querySelectorAll('.cv-cop').forEach(f=>{
+  f.addEventListener('click',()=>apriGalCv(f.dataset.gal));
+  f.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();apriGalCv(f.dataset.gal);}});
+  const q=f.querySelector('.quadro');
+  const im=q.querySelector('img'), bn=q.querySelector('.bn');
+  const mettiCloneP=()=>{
+    if(bn.querySelector('img'))return;
+    const c=document.createElement('img');
+    c.src=im.currentSrc||im.src; c.alt=''; c.setAttribute('aria-hidden','true');
+    bn.appendChild(c);
+  };
+  if(im.complete)mettiCloneP(); im.addEventListener('load',mettiCloneP,{once:true});
+});
+schedaPop.querySelectorAll('.prog-fasi-nav a[data-gal]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();apriGalCv(a.dataset.gal);}));
+const btnTuttoP=schedaPop.querySelector('.sf-tutto');if(btnTuttoP)btnTuttoP.addEventListener('click',()=>apriGalCv('rp-tutto'));
+schedaPop.querySelectorAll('.cv-gal .chiudi-gal').forEach(b=>b.addEventListener('click',chiudiGalCv));
+// vista continua: la rotella muove l'immagine in orizzontale, e la pagina non scende finche' la corsa non e' finita
+const panTouch=window.matchMedia('(hover:none)').matches;
+function panStato(el){const img=el.querySelector('img');const extra=img&&img.naturalWidth?img.offsetWidth-el.clientWidth:0;return {img,extra,pos:parseFloat(el.dataset.pos||'0')};}
+function panApplica(el,pos){const st=panStato(el);pos=Math.min(Math.max(pos,0),Math.max(st.extra,0));el.dataset.pos=pos;if(st.img)st.img.style.transform='translateX(-'+pos.toFixed(1)+'px)';return pos;}
+document.querySelectorAll('.cv-gal').forEach(gal=>{
+  const pans=[...gal.querySelectorAll('.foto.pan')]; if(!pans.length||panTouch)return;
+  gal.addEventListener('wheel',e=>{
+    const vh=window.innerHeight;
+    for(const el of pans){
+      const r=el.getBoundingClientRect();
+      const sopra=el.contains(e.target);
+      const alCentro=r.top<vh*0.5&&r.bottom>vh*0.5;
+      if(!sopra&&!alCentro)continue;
+      const st=panStato(el); if(st.extra<=0)continue;
+      const giu=e.deltaY>0;
+      if((giu&&st.pos>=st.extra-0.5)||(!giu&&st.pos<=0.5))return;   // corsa finita: la pagina puo' scorrere
+      e.preventDefault();
+      // prima cosa: la vista si centra e resta ferma
+      const cen=r.top+r.height/2-vh/2; if(Math.abs(cen)>2)gal.scrollTop+=cen;
+      panApplica(el,st.pos+e.deltaY*2.2);
+      return;
+    }
+  },{passive:false});
+  window.addEventListener('resize',()=>pans.forEach(el=>panApplica(el,parseFloat(el.dataset.pos||'0'))),{passive:true});
+  new MutationObserver(()=>{if(!gal.classList.contains('aperta'))pans.forEach(el=>panApplica(el,0));}).observe(gal,{attributes:true,attributeFilter:['class']});
+});
 // pagina unica a scroll
 const paginaSito=document.getElementById('pagina-sito');
 const bersagli={studio:'home',progetti:'progetti',servizi:'servizi',collezioni:'collezioni',ambienti:'ambienti',stile:'stile',arreda:'arreda',contatti:'contatti'};
@@ -3321,6 +3811,8 @@ window.addEventListener('popstate',()=>{
   if(zoomBox.classList.contains('aperta')){chiudiZoom();return;}
   if(paginaClown.classList.contains('aperta')){paginaClown.classList.remove('aperta');}
   else if(paginaGraphic.classList.contains('aperta')){paginaGraphic.classList.remove('aperta');}
+  else if(schedaPop.classList.contains('aperta')){chiudiSchedaPop();}
+  else if(schedaSesto.classList.contains('aperta')){chiudiSchedaSesto();}
   else if(schedaCoverciano.classList.contains('aperta')){schedaCoverciano.classList.remove('aperta');}
   else if(schedaDuomo.classList.contains('aperta')){schedaDuomo.classList.remove('aperta');}
   else if(schedaFiesole.classList.contains('aperta')){schedaFiesole.classList.remove('aperta');}
@@ -3401,6 +3893,7 @@ rulloBtn.addEventListener('click',()=>{
     chiudiSchedaDuomo();
     chiudiSchedaCoverciano();
     chiudiSchedaSesto();
+    chiudiSchedaPop();
     chiudiGraphic();
     chiudiPagine();
     document.body.style.overflow='';
