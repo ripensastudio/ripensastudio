@@ -243,8 +243,11 @@ section.prog-gruppo{min-height:0;padding:0;margin:0;display:block;justify-conten
 .cv-gal .foto.pan{grid-column:1/-1;width:100%;max-width:100%;min-width:0;aspect-ratio:16/9;height:auto;overflow:hidden;position:relative;contain:layout}
 .cv-gal .foto.pan picture{position:absolute;inset:0;display:block;overflow:hidden}
 .cv-gal .foto.pan img{position:absolute;left:0;top:0;height:100%;width:auto;max-width:none;will-change:transform}
+.cv-gal.pan-fermo{overflow-y:hidden}
+.cv-gal .foto.pan{cursor:ew-resize}
 @media (hover:none){
-  .cv-gal .foto.pan{aspect-ratio:16/10;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;contain:none}
+  .cv-gal .foto.pan{aspect-ratio:16/10;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;contain:none;touch-action:pan-x pan-y;cursor:default;scrollbar-width:none}
+  .cv-gal .foto.pan::-webkit-scrollbar{display:none}
   .cv-gal .foto.pan picture{position:static;height:100%;width:max-content}
   .cv-gal .foto.pan img{position:static;transform:none !important}
 }
@@ -3010,7 +3013,7 @@ footer.fondo-nero a:hover{opacity:1;text-decoration:underline}
         <a href="#" data-gal="rp-progetto">Progetto</a>
         <a href="#" data-gal="rp-cantiere">Cantiere</a>
       </nav>
-      <p class="intro">Quanto colore serve per cambiare una casa? Qui ne &egrave; bastato uno. Un tavolo in formica trovato al mercatino, cos&igrave; giallo che a mezzogiorno sembra acceso: ne abbiamo preso il campione, e da quel campione &egrave; nata tutta la casa. Nessun muro abbattuto, nessun metro in pi&ugrave;. Il budget era stretto ed &egrave; rimasto quello fissato all&rsquo;inizio, perch&eacute; il lavoro vero si &egrave; fatto prima della pittura: sapere dove mettere il colore vale pi&ugrave; di quanto colore si compra.</p>
+      <p class="intro">Quanto colore serve per cambiare una casa? Qui ne &egrave; bastato uno. Un tavolo in formica trovato al mercatino, di un giallo pastello che sa di anni sessanta: ne abbiamo preso il campione, e da quel campione &egrave; nata tutta la casa. Nessun muro abbattuto, nessun metro in pi&ugrave;, un budget stretto che &egrave; rimasto quello dell&rsquo;inizio. Perch&eacute; un colore messo nel punto giusto trasforma un mobile che c&rsquo;era gi&agrave; &mdash; e una casa intera, stanza dopo stanza.</p>
       <div class="prog-materiali">
         <h4>Materiali &amp; arredi</h4>
         <p>Il giallo lo ha deciso un tavolo. Il carta da zucchero e il bianco gli fanno spazio attorno, come il silenzio intorno a una nota.<br>
@@ -3703,22 +3706,18 @@ function panApplica(el,pos){const st=panStato(el);pos=Math.min(Math.max(pos,0),M
 document.querySelectorAll('.cv-gal').forEach(gal=>{
   const pans=[...gal.querySelectorAll('.foto.pan')]; if(!pans.length||panTouch)return;
   gal.addEventListener('wheel',e=>{
-    const vh=window.innerHeight;
-    for(const el of pans){
-      const r=el.getBoundingClientRect();
-      const sopra=el.contains(e.target);
-      const alCentro=r.top<vh*0.5&&r.bottom>vh*0.5;
-      if(!sopra&&!alCentro)continue;
-      const st=panStato(el); if(st.extra<=0)continue;
-      const giu=e.deltaY>0;
-      if((giu&&st.pos>=st.extra-0.5)||(!giu&&st.pos<=0.5))return;   // corsa finita: la pagina puo' scorrere
-      e.preventDefault();
-      // prima cosa: la vista si centra e resta ferma
-      const cen=r.top+r.height/2-vh/2; if(Math.abs(cen)>2)gal.scrollTop+=cen;
-      panApplica(el,st.pos+e.deltaY*2.2);
-      return;
-    }
+    // col puntatore sopra la vista, la rotella muove SOLO l'immagine: la pagina resta ferma, anche a fine corsa
+    const el=pans.find(x=>x.contains(e.target)); if(!el)return;
+    e.preventDefault(); e.stopPropagation();
+    const st=panStato(el); if(st.extra<=0)return;
+    const d=Math.abs(e.deltaX)>Math.abs(e.deltaY)?e.deltaX:e.deltaY;
+    panApplica(el,st.pos+d*1.1);
   },{passive:false});
+  // col mouse sopra la vista si blocca anche lo scorrimento da tastiera/trackpad della galleria
+  pans.forEach(el=>{
+    el.addEventListener('mouseenter',()=>gal.classList.add('pan-fermo'));
+    el.addEventListener('mouseleave',()=>gal.classList.remove('pan-fermo'));
+  });
   window.addEventListener('resize',()=>pans.forEach(el=>panApplica(el,parseFloat(el.dataset.pos||'0'))),{passive:true});
   new MutationObserver(()=>{if(!gal.classList.contains('aperta'))pans.forEach(el=>panApplica(el,0));}).observe(gal,{attributes:true,attributeFilter:['class']});
 });
