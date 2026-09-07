@@ -246,10 +246,7 @@ section.prog-gruppo{min-height:0;padding:0;margin:0;display:block;justify-conten
 .cv-gal.pan-fermo{overflow-y:hidden}
 .cv-gal .foto.pan{cursor:ew-resize}
 @media (hover:none){
-  .cv-gal .foto.pan{aspect-ratio:16/10;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;contain:none;touch-action:pan-x pan-y;cursor:default;scrollbar-width:none}
-  .cv-gal .foto.pan::-webkit-scrollbar{display:none}
-  .cv-gal .foto.pan picture{position:static;height:100%;width:max-content}
-  .cv-gal .foto.pan img{position:static;transform:none !important}
+  .cv-gal .foto.pan{aspect-ratio:16/10;cursor:default}
 }
 /* --- gallerie dei gruppi --- */
 .cv-gal{position:fixed;inset:0;background:#fff;z-index:90;opacity:0;visibility:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch}
@@ -344,6 +341,7 @@ section.prog-gruppo{min-height:0;padding:0;margin:0;display:block;justify-conten
 /* tessera a piena larghezza che apre una collezione: la fila dei figurini */
 #pagina-graphic .g-fila{grid-column:1/13;margin-top:12%}
 #pagina-graphic .graf-apre{display:block;width:100%;background:none;border:0;padding:0;cursor:pointer;font:inherit;color:inherit;text-align:left}
+#pagina-graphic .graf:not(.g-fila) img{cursor:zoom-in}
 #pagina-graphic .graf-apre img{transition:opacity .35s ease}
 #pagina-graphic .graf-apre:hover img{opacity:.82}
 #pagina-graphic .graf-didascalia{
@@ -3704,7 +3702,7 @@ const panTouch=window.matchMedia('(hover:none)').matches;
 function panStato(el){const img=el.querySelector('img');const extra=img&&img.naturalWidth?img.offsetWidth-el.clientWidth:0;return {img,extra,pos:parseFloat(el.dataset.pos||'0')};}
 function panApplica(el,pos){const st=panStato(el);pos=Math.min(Math.max(pos,0),Math.max(st.extra,0));el.dataset.pos=pos;if(st.img)st.img.style.transform='translateX(-'+pos.toFixed(1)+'px)';return pos;}
 document.querySelectorAll('.cv-gal').forEach(gal=>{
-  const pans=[...gal.querySelectorAll('.foto.pan')]; if(!pans.length||panTouch)return;
+  const pans=[...gal.querySelectorAll('.foto.pan')]; if(!pans.length)return;
   gal.addEventListener('wheel',e=>{
     // col puntatore sopra la vista, la rotella muove SOLO l'immagine: la pagina resta ferma, anche a fine corsa
     const el=pans.find(x=>x.contains(e.target)); if(!el)return;
@@ -3714,6 +3712,26 @@ document.querySelectorAll('.cv-gal').forEach(gal=>{
     panApplica(el,st.pos+d*1.1);
   },{passive:false});
   // col mouse sopra la vista si blocca anche lo scorrimento da tastiera/trackpad della galleria
+  // telefono: scendendo col dito, quando la vista arriva a meta' schermo lo scorrimento si ferma,
+  // il dito muove l'immagine, e a corsa finita la pagina riparte
+  let ditoY=null;
+  gal.addEventListener('touchstart',e=>{ditoY=e.touches[0].clientY;},{passive:true});
+  gal.addEventListener('touchend',()=>{ditoY=null;},{passive:true});
+  gal.addEventListener('touchmove',e=>{
+    if(ditoY===null||e.touches.length!==1)return;
+    const y=e.touches[0].clientY, dy=ditoY-y; ditoY=y;   // dito verso l'alto = si scende
+    const vh=window.innerHeight;
+    for(const el of pans){
+      const r=el.getBoundingClientRect();
+      if(!(r.top<vh*0.6&&r.bottom>vh*0.4))continue;
+      const st=panStato(el); if(st.extra<=0)continue;
+      if((dy>0&&st.pos>=st.extra-0.5)||(dy<0&&st.pos<=0.5))return;   // corsa finita: la pagina riparte
+      e.preventDefault();
+      const cen=r.top+r.height/2-vh/2; if(Math.abs(cen)>2)gal.scrollTop+=cen;
+      panApplica(el,st.pos+dy*1.6);
+      return;
+    }
+  },{passive:false});
   pans.forEach(el=>{
     el.addEventListener('mouseenter',()=>gal.classList.add('pan-fermo'));
     el.addEventListener('mouseleave',()=>gal.classList.remove('pan-fermo'));
@@ -3744,12 +3762,12 @@ function mostraZoom(i){
   if(!zoomLista.length)return;
   zoomIdx=(i+zoomLista.length)%zoomLista.length;
   const el=zoomLista[zoomIdx];
-  zoomImg.src=el.currentSrc||el.src; zoomImg.alt=el.alt||'';
+  const grande=el.dataset.grande; zoomImg.src=grande||el.currentSrc||el.src; zoomImg.alt=el.alt||'';
   zoomDida.textContent=(el.alt||'')+'  ·  '+(zoomIdx+1)+' / '+zoomLista.length;
 }
 function apriZoom(el){
-  const griglia=el.closest('.clown-griglia'); if(!griglia)return;
-  zoomLista=[...griglia.querySelectorAll('img')];
+  const griglia=el.closest('.clown-griglia, .graf-muro'); if(!griglia)return;
+  zoomLista=[...griglia.querySelectorAll('img')].filter(i=>!i.closest('.graf-apre'));
   mostraZoom(zoomLista.indexOf(el));
   zoomBox.classList.add('aperta');
   history.pushState({ripensa:'zoom'},'');   // cosi' il tasto indietro del telefono chiude lo zoom
@@ -3773,7 +3791,7 @@ zoomBox.addEventListener('touchend',e=>{
   else if(Math.abs(dy)>40&&Math.abs(dy)>Math.abs(dx)){mostraZoom(zoomIdx+(dy<0?1:-1));}
 },{passive:true});
 document.addEventListener('click',e=>{
-  const img=e.target.closest('#pagina-clown .clown-griglia img');
+  const img=e.target.closest('#pagina-clown .clown-griglia img, #pagina-graphic .graf-muro figure.graf:not(.g-fila) img');
   if(img){apriZoom(img);return;}
 });
 zoomBox.querySelector('.zoom-chiudi').addEventListener('click',chiudiZoom);
