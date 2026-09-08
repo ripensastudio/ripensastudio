@@ -267,6 +267,10 @@ section.prog-gruppo{min-height:0;padding:0;margin:0;display:block;justify-conten
   .cv-muro{grid-template-columns:1fr 1fr;gap:9vw 4vw;margin-top:40px}
   .cv-cop{grid-column:auto !important;margin-top:0 !important}
   .cv-cop:nth-child(even){margin-top:12vw !important}
+  /* 8/9/2026 — sul telefono il PROGETTO resta a tutta larghezza: mezza colonna lo schiaccia
+     a sinistra e non si legge. Su Restyling pop anche il Cantiere, che sotto resta solo. */
+  .cv-cop.sf-c3{grid-column:1/-1 !important;margin-top:0 !important}
+  #scheda-pop .cv-cop.sf-c4{grid-column:1/-1 !important;margin-top:9vw !important}
   .cv-gal .cv-gal-interno{padding:64px 5vw 90px}
 }
 /* dissolvenza disegno<->foto (apertura scheda Duomo) */
@@ -3811,11 +3815,30 @@ document.addEventListener('keydown',e=>{
   chiudiGraphic();
 });
 function chiudiPagine(){paginaSito.classList.remove('aperta');if(!schedaCorte.classList.contains('aperta')&&!schedaFiesole.classList.contains('aperta')&&!schedaDuomo.classList.contains('aperta')&&!schedaCoverciano.classList.contains('aperta'))document.body.style.overflow='';}
+/* 8/9/2026 — le voci del menu da DENTRO una scheda.
+   Tutte le schede (.prog-scheda) stanno sullo stesso piano (z-index 60) e vengono dopo
+   #pagina-sito nel documento: aprire la pagina lasciando aperta la scheda la copriva, e
+   il menu sembrava non funzionare. Qui si chiude quello che c'e' sopra, poi si apre. */
+function chiudiSopraPagina(){
+  let chiuse=0;
+  if(typeof zoomBox!=='undefined'&&zoomBox&&zoomBox.classList.contains('aperta')){zoomBox.classList.remove('aperta');chiuse++;}
+  document.querySelectorAll('.cv-gal.aperta').forEach(g=>g.classList.remove('aperta'));
+  document.querySelectorAll('.prog-scheda.aperta').forEach(s=>{if(s!==paginaSito){s.classList.remove('aperta');chiuse++;}});
+  return chiuse;
+}
 document.querySelectorAll('[data-pagina]').forEach(el=>el.addEventListener('click',e=>{
   e.preventDefault();
-  if(el.dataset.pagina==='graphic'){apriGraphic();return;}
+  if(el.dataset.pagina==='graphic'){
+    const c=chiudiSopraPagina();
+    /* si veniva da un'altra scheda: quella aveva gia' una tacca nella cronologia,
+       si sostituisce invece di aggiungerne una nuova */
+    if(c){paginaGraphic.classList.add('aperta');document.body.style.overflow='hidden';history.replaceState({ripensa:'graphic'},'');document.getElementById('menuMob').classList.remove('aperto');}
+    else apriGraphic();
+    return;
+  }
+  const chiuse=chiudiSopraPagina();
   const apriPrima=!paginaSito.classList.contains('aperta');
-  if(apriPrima)history.pushState({ripensa:'pagina'},'');
+  if(apriPrima){if(chiuse)history.replaceState({ripensa:'pagina'},'');else history.pushState({ripensa:'pagina'},'');}
   paginaSito.classList.add('aperta');document.body.style.overflow='hidden';
   document.getElementById('menuMob').classList.remove('aperto');
   const t=document.getElementById(bersagli[el.dataset.pagina]||'home');
